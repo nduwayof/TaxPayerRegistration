@@ -36,16 +36,26 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-files-o"></i>
+                    <i class="fa fa-file"></i>
                     <i class="fa fa-angle-left pull-right"></i>
-                    <span>Register</span>
-                    <span class="label label-primary pull-right">4</span>
+                    <span>Register Enterprises</span>
+                    <span class="label label-primary pull-right">2</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Individual</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Non Individual</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-th"></i>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    <span>System Accounts</span>
+                    <span class="label label-primary pull-right">2</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i>Accounts Management</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Account </a></li>
                 </ul>
             </li>
         </ul>
