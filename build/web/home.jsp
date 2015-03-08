@@ -22,6 +22,7 @@
         <link href="TPRS/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+
     </head>
     <body class="skin-blue">
         <jsp:include page="TPRS/views/layouts/a/navbar.jsp"/>
@@ -29,7 +30,7 @@
         <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>
         <script src="TPRS/bower_components/jquery/js/jquery.min.js"></script>
         <script src="TPRS/bower_components/bootstrap/js/bootstrap.min.js"></script>
-        
+
         <script src="TPRS/js/TPRS.js"></script>
     </body>
 </html>
