@@ -15,7 +15,6 @@
         <link href="TPRS/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/bower_components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
         <link href="TPRS/css/TPRS.css" rel="stylesheet" type="text/css" />
-        <link href="TPRS/css/prettify.css"/>
         <link href="TPRS/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
@@ -23,6 +22,7 @@
         <link href="TPRS/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+        
 
     </head>
     <body class="skin-blue">
@@ -49,9 +49,6 @@
 
         <script src="TPRS/plugins/jQuery/jQuery-2.1.3.min.js"></script>
         <script src="TPRS/bower_components/bootstrap/js/bootstrap.min.js"></script>
-        <script src="TPRS/bower_components/jquery/js/jquery.validate.min.js"></script>
-        <script src="TPRS/bower_components/jquery/js/jquery.bootstrap.wizard.min.js"></script>
-        <script src="TPRS/js/prettify.js"></script>
         <script>
             $.widget.bridge('uibutton', $.ui.button);
         </script>
