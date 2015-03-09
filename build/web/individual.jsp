@@ -41,7 +41,7 @@
                     </ol>
                 </section>
                 <section class="content">
-                    <jsp:include page="TPRS/views/app/individual.jsp"/>
+                    <jsp:include page="TPRS/views/app/individualWizard.jsp"/>
                 </section>
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>
