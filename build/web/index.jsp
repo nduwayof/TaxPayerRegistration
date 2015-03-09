@@ -52,6 +52,7 @@
             $.widget.bridge('uibutton', $.ui.button);
         </script>
         <script src="TPRS/js/raphael-min.js"></script>
+        <%--
         <script src="plugins/morris/morris.min.js" type="text/javascript"></script>
         <script src="plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
         <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
@@ -63,11 +64,8 @@
         <script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
         <script src="plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
         <script src='plugins/fastclick/fastclick.min.js'></script>
+        --%>
         <script src="TPRS/js/app.min.js" type="text/javascript"></script>
-
-        <script src="dist/js/pages/dashboard.js" type="text/javascript"></script>
-
-
         <script src="TPRS/js/TPRS.js"></script>
     </body>
 </html>
