@@ -42,7 +42,7 @@
                     <span class="label label-primary pull-right">2</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Individual</a></li>
+                    <li><a href="individual.jsp"><i class="fa fa-circle-o"></i> Individual</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> Non Individual</a></li>
                 </ul>
             </li>
