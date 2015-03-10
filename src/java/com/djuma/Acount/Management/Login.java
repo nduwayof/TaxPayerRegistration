@@ -10,11 +10,11 @@ package com.djuma.Acount.Management;
  * @author SULAIMAN
  */
 public class Login {
+
     private String username;
     private String password;
-    private String errorUsername;
-    private String errorPassword;
-    private boolean valid=true;
+    private String error;
+    private boolean valid = true;
 
     public String getUsername() {
         return username;
@@ -32,20 +32,12 @@ public class Login {
         this.password = password;
     }
 
-    public String getErrorUsername() {
-        return errorUsername;
+    public String getError() {
+        return error;
     }
 
-    public void setErrorUsername(String errorUsername) {
-        this.errorUsername = errorUsername;
-    }
-
-    public String getErrorPassword() {
-        return errorPassword;
-    }
-
-    public void setErrorPassword(String errorPassword) {
-        this.errorPassword = errorPassword;
+    public void setError(String error) {
+        this.error = error;
     }
 
     public boolean isValid() {
@@ -58,16 +50,45 @@ public class Login {
 
     public Login() {
     }
-    
-    public String getLoggedIn(){
-    String msg="";
-    try{
-    
-    }catch(Exception e){
-    
+
+    public String getLoggedIn() {
+        String msg = "";
+        try {
+
+            boolean checkUsername = false;
+            boolean checkPassword = false;
+            String role = "";
+            int id = 0;
+            for (User u : User.listUser()) {
+                if (u.getUsername().equalsIgnoreCase(username)) {
+                    checkUsername = true;
+                }
+            }
+            if (checkUsername) {
+                for (User u : User.listUser()) {
+                    if (u.getUsername().equalsIgnoreCase(username) && u.getPassword().equalsIgnoreCase(User.md5(password))) {
+                        checkPassword = true;
+                        role = u.getRole();
+                        id = u.getId();
+                    }
+                }
+                if (checkPassword) {
+                    msg = "Success#" + role + "#" + id;
+                } else {
+                    error = "Username or Password is incorrect";
+                    msg = error;
+                    valid = false;
+                }
+            } else {
+                error = "Username or Password is incorrect";
+                msg = error;
+                valid = false;
+            }
+        } catch (Exception e) {
+            error = e.getMessage();
+            valid = false;
+        }
+        return msg;
     }
-    
-    return msg;
-    }
-    
+
 }

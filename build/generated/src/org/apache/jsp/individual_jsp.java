@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class individual_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -41,22 +41,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write('\n');
-
-String user=(String)session.getAttribute("userRole");
-if(user==null){
-
-      out.write('\n');
-      if (true) {
-        _jspx_page_context.forward("login.jsp");
-        return;
-      }
-      out.write('\n');
-
-}else{
-String userId=(String)session.getAttribute("userId");
-}
-
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -69,6 +54,7 @@ String userId=(String)session.getAttribute("userId");
       out.write("        <link href=\"TPRS/bower_components/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
       out.write("        <link href=\"TPRS/bower_components/ionicons/css/ionicons.min.css\" rel=\"stylesheet\" type=\"text/css\" />    \n");
       out.write("        <link href=\"TPRS/css/TPRS.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
+      out.write("        <link href=\"TPRS/css/prettify.css\"/>\n");
       out.write("        <link href=\"TPRS/css/skins/_all-skins.min.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
       out.write("        <link href=\"TPRS/plugins/iCheck/flat/blue.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
       out.write("        <link href=\"TPRS/plugins/morris/morris.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
@@ -98,7 +84,9 @@ String userId=(String)session.getAttribute("userId");
       out.write("                    </ol>\n");
       out.write("                </section>\n");
       out.write("                <section class=\"content\">\n");
-      out.write("                    \n");
+      out.write("                    ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "TPRS/views/app/individualWizard.jsp", out, false);
+      out.write("\n");
       out.write("                </section>\n");
       out.write("            </div>\n");
       out.write("            ");
@@ -108,12 +96,13 @@ String userId=(String)session.getAttribute("userId");
       out.write("\n");
       out.write("        <script src=\"TPRS/plugins/jQuery/jQuery-2.1.3.min.js\"></script>\n");
       out.write("        <script src=\"TPRS/bower_components/bootstrap/js/bootstrap.min.js\"></script>\n");
+      out.write("        <script src=\"TPRS/bower_components/jquery/js/jquery.validate.min.js\"></script>\n");
+      out.write("        <script src=\"TPRS/bower_components/jquery/js/jquery.bootstrap.wizard.min.js\"></script>\n");
+      out.write("        <script src=\"TPRS/js/prettify.js\"></script>\n");
       out.write("        <script>\n");
       out.write("            $.widget.bridge('uibutton', $.ui.button);\n");
       out.write("        </script>\n");
       out.write("        <script src=\"TPRS/js/raphael-min.js\"></script>\n");
-      out.write("        ");
-      out.write("\n");
       out.write("        <script src=\"TPRS/js/app.min.js\" type=\"text/javascript\"></script>\n");
       out.write("        <script src=\"TPRS/js/TPRS.js\"></script>\n");
       out.write("    </body>\n");

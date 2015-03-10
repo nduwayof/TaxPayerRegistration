@@ -3,7 +3,16 @@
     Created on : Mar 8, 2015, 12:31:54 PM
     Author     : Fabrice
 --%>
-
+<%
+String user=(String)session.getAttribute("userRole");
+if(user==null){
+%>
+<jsp:forward page="login.jsp"/>
+<%
+}else{
+String userId=(String)session.getAttribute("userId");
+}
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
