@@ -21,19 +21,28 @@ import java.util.List;
  */
 public class User {
     private int id;
-    private String firstName;
-    private String lastName;
-    private String gender;
-    private String username;
-    private String password;
-    private String confirmPassword;
+    private String firstName="";
+    private String lastName="";
+    private String gender="";
+    private String username="";
+    private String password="";
+    private String confirmPassword="";
     private String errorPassword;
     private String info;
     private String errorUsername;
     private Timestamp doneAt=new Timestamp(new Date().getTime());
     private String doneBy="";
+    private String role="";
     private boolean deletedStatus=false;
     private boolean valid=true;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public int getId() {
         return id;
@@ -166,7 +175,7 @@ public class User {
    errorPassword="Password mismatch"; 
     }else{
     if(valid){
-    PreparedStatement st=SetCon.getCon().prepareStatement("insert into user values(id,?,?,?,?,?,?,?,?)");
+    PreparedStatement st=SetCon.getCon().prepareStatement("insert into user values(id,?,?,?,?,?,?,?,?,?)");
     st.setString(1, firstName);
     st.setString(2, lastName);
     st.setString(3, gender);
@@ -175,6 +184,7 @@ public class User {
     st.setTimestamp(6, doneAt);
     st.setString(7, doneBy);
     st.setBoolean(8, deletedStatus);
+    st.setString(9, role);
     st.execute();
     info="New is Successfull Added";
     }
@@ -199,7 +209,9 @@ public class User {
        u.setLastName(rs.getString(3));
        u.setGender(rs.getString(4));
        u.setUsername(rs.getString(5));
+       u.setPassword(rs.getString(6));
        u.setDeletedStatus(rs.getBoolean(9));
+       u.setRole(rs.getString(10));
        list.add(u);
        }
    }catch(Exception e){

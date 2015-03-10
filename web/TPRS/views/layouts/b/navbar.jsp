@@ -3,7 +3,23 @@
     Created on : Mar 8, 2015, 4:12:13 PM
     Author     : Fabrice
 --%>
-
+<%@page import="com.djuma.Acount.Management.User"%>
+<%
+String names="";
+String user=(String)session.getAttribute("userRole");
+if(user==null){
+%>
+<jsp:forward page="login.jsp"/>
+<%
+}else{
+String userId=(String)session.getAttribute("userId");
+for(User u: User.listUser()){
+    if(u.getId()==Integer.parseInt(userId)){
+    names=u.getFirstName()+" "+u.getLastName();
+    }
+}
+}
+%>
 <header class="main-header">
     <a href="#" class="logo">
         <i class="glyphicon glyphicon-home"></i>
@@ -18,15 +34,15 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="TPRS/img/avatars/avatar2.png" class="img-circle" alt="User Image"/>
-                        <span class="hidden-xs">Nduwayo Fabrice</span>
+                        <span class="hidden-xs"><%=names%></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="TPRS/img/avatars/avatar2.png" class="img-circle" alt="User Image"/>
                             <p>
-                                Nduwayo Fabrice - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                <%=names%> - <%=user%>
+                         
                             </p>
                         </li>
                         <li class="user-body">

@@ -3,7 +3,23 @@
     Created on : Mar 8, 2015, 4:14:22 PM
     Author     : Fabrice
 --%>
-
+<%@page import="com.djuma.Acount.Management.User"%>
+<%
+String names="";
+String user=(String)session.getAttribute("userRole");
+if(user==null){
+%>
+<jsp:forward page="login.jsp"/>
+<%
+}else{
+String userId=(String)session.getAttribute("userId");
+for(User u: User.listUser()){
+    if(u.getId()==Integer.parseInt(userId)){
+    names=u.getFirstName()+" "+u.getLastName();
+    }
+}
+}
+%>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -13,7 +29,7 @@
                 <img src="TPRS/img/avatars/avatar2.png" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p>Nduwayo Fabrice</p>
+                <p><%=names%></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -34,7 +50,11 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="treeview">
+            <%
+            if(!user.equalsIgnoreCase("admin")){
+            %>
+            
+              <li class="treeview">
                 <a href="#">
                     <i class="fa fa-file"></i>
                     <i class="fa fa-angle-left pull-right"></i>
@@ -46,6 +66,12 @@
                     <li><a href="#"><i class="fa fa-circle-o"></i> Non Individual</a></li>
                 </ul>
             </li>
+            <%
+            }
+            %>
+            <%
+            if(user.equalsIgnoreCase("admin")){
+            %>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-th"></i>
@@ -58,6 +84,10 @@
                     <li><a href="#"><i class="fa fa-circle-o"></i> Account </a></li>
                 </ul>
             </li>
+            <%
+            }
+            %>
+            
         </ul>
     </section>
 </aside>

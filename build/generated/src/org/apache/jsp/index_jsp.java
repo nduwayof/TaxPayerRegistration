@@ -41,7 +41,22 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
+      out.write('\n');
+
+String user=(String)session.getAttribute("userRole");
+if(user==null){
+
+      out.write('\n');
+      if (true) {
+        _jspx_page_context.forward("login.jsp");
+        return;
+      }
+      out.write('\n');
+
+}else{
+String userId=(String)session.getAttribute("userId");
+}
+
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -83,9 +98,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </ol>\n");
       out.write("                </section>\n");
       out.write("                <section class=\"content\">\n");
-      out.write("                    ");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "signup.jsp", out, false);
-      out.write("\n");
+      out.write("                    \n");
       out.write("                </section>\n");
       out.write("            </div>\n");
       out.write("            ");
@@ -99,22 +112,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            $.widget.bridge('uibutton', $.ui.button);\n");
       out.write("        </script>\n");
       out.write("        <script src=\"TPRS/js/raphael-min.js\"></script>\n");
-      out.write("        <script src=\"plugins/morris/morris.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/sparkline/jquery.sparkline.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/jvectormap/jquery-jvectormap-1.2.2.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/jvectormap/jquery-jvectormap-world-mill-en.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/jqueryKnob/jquery.knob.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/daterangepicker/daterangepicker.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/datepicker/bootstrap-datepicker.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/iCheck/icheck.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"plugins/slimScroll/jquery.slimscroll.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src='plugins/fastclick/fastclick.min.js'></script>\n");
+      out.write("        ");
+      out.write("\n");
       out.write("        <script src=\"TPRS/js/app.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("\n");
-      out.write("        <script src=\"dist/js/pages/dashboard.js\" type=\"text/javascript\"></script>\n");
-      out.write("\n");
-      out.write("\n");
       out.write("        <script src=\"TPRS/js/TPRS.js\"></script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
