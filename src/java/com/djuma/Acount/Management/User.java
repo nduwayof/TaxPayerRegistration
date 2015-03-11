@@ -20,13 +20,14 @@ import java.util.List;
  * @author SULAIMAN
  */
 public class User {
+
     private int id;
-    private String firstName="";
-    private String lastName="";
-    private String gender="";
-    private String username="";
-    private String password="";
-    private String confirmPassword="";
+    private String firstName = "";
+    private String lastName = "";
+    private String gender = "";
+    private String username = "";
+    private String password = "";
+    private String confirmPassword = "";
     private String errorPassword;
     private String errorPasswordLength="";
     private String info;
@@ -36,7 +37,6 @@ public class User {
     private String role="user";
     private boolean deletedStatus=false;
     private boolean valid=true;
-
     public String getRole() {
         return role;
     }
@@ -251,5 +251,5 @@ public class User {
         }
         return encMsg;
     }
-    
+
 }

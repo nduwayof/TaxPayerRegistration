@@ -3,22 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/test.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/css/prettify.css</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/login.jsp</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Enterprise/NonIndividual.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/navbar.jsp</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/User.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/css/custom.css</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Connection/SetCon.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/Login.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/loginProcess.jsp</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/css/TPRS.css</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/TaxType.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/TaxPayerType.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Enterprise/Individual.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/a/navbar.jsp</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/index.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/js/TPRS.js</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/nbproject/build-impl.xml</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/footer.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/sidebar.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/navbar.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/login.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/Login.java</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/User.java</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/individualWizard.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/signup.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/individual.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/index.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/home.jsp</file>
         </group>
     </open-files>
 </project-private>
