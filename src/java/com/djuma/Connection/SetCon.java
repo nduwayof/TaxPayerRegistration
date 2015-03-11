@@ -13,18 +13,19 @@ import java.sql.DriverManager;
  * @author SULAIMAN
  */
 public class SetCon {
-    private static final String db="jdbc:mysql://localhost/rebero";
-    private static final String user="root";
-    private static final String password="flyman";
-    
-    public static Connection getCon(){
-    Connection djuma=null;
-    try{
-    Class.forName("com.mysql.jdbc.Driver");
-    djuma=DriverManager.getConnection(db,user,password);
-    }catch(Exception e){
-    e.printStackTrace();
-    }
-    return  djuma;
+
+    private static final String db = "jdbc:mysql://localhost/rebero";
+    private static final String user = "root";
+    private static final String password = "lewandowiski";
+
+    public static Connection getCon() {
+        Connection djuma = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            djuma = DriverManager.getConnection(db, user, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return djuma;
     }
 }
