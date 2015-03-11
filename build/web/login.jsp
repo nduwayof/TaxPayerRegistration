@@ -28,7 +28,7 @@
                 <h10 class="errorMsg">${lo.error}</h10>
                 <form action="loginProcess.jsp" method="post">
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="username" name="username"/>
+                        <input type="text" class="form-control" placeholder="username" name="username" required="" value="${lo.username}"/>
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">

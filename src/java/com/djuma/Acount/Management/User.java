@@ -28,11 +28,12 @@ public class User {
     private String password="";
     private String confirmPassword="";
     private String errorPassword;
+    private String errorPasswordLength="";
     private String info;
     private String errorUsername;
     private Timestamp doneAt=new Timestamp(new Date().getTime());
     private String doneBy="";
-    private String role="";
+    private String role="user";
     private boolean deletedStatus=false;
     private boolean valid=true;
 
@@ -108,6 +109,14 @@ public class User {
         this.errorPassword = errorPassword;
     }
 
+    public String getErrorPasswordLength() {
+        return errorPasswordLength;
+    }
+
+    public void setErrorPasswordLength(String errorPasswordLength) {
+        this.errorPasswordLength = errorPasswordLength;
+    }
+
     public String getInfo() {
         return info;
     }
@@ -171,6 +180,10 @@ public class User {
     errorUsername="Such username already exists. Try Another one";
     valid=false;
     }else{
+        if(password.length()<6){
+        errorPasswordLength="Password should atleast have 6 characters";
+        valid=false;
+        }else{
     if(!password.equalsIgnoreCase(confirmPassword)){
    errorPassword="Password mismatch"; 
     }else{
@@ -186,11 +199,11 @@ public class User {
     st.setBoolean(8, deletedStatus);
     st.setString(9, role);
     st.execute();
-    info="New is Successfull Added";
+    info="New User is Successfull Added";
     }
     }
     }
-    
+    }
     }catch(Exception e){
     
     }

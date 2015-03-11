@@ -44,6 +44,18 @@ public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      com.djuma.Acount.Management.User s = null;
+      synchronized (request) {
+        s = (com.djuma.Acount.Management.User) _jspx_page_context.getAttribute("s", PageContext.REQUEST_SCOPE);
+        if (s == null){
+          s = new com.djuma.Acount.Management.User();
+          _jspx_page_context.setAttribute("s", s, PageContext.REQUEST_SCOPE);
+          out.write("\n");
+          out.write("        \n");
+        }
+      }
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -63,9 +75,9 @@ public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("            <div class=\"login-box-body\">\n");
       out.write("                <p class=\"login-box-msg\">Sign in to start your session</p>\n");
-      out.write("                <form action=\"#\" method=\"post\" id=\"signup\">\n");
+      out.write("                <form action=\"signupProcess.jsp\" method=\"post\" id=\"signup\">\n");
       out.write("                    <div class=\"form-group has-feedback\">\n");
-      out.write("                        <input type=\"text\" class=\"form-control\" placeholder=\"First Name\" name=\"fistName\"/>\n");
+      out.write("                        <input type=\"text\" class=\"form-control\" placeholder=\"First Name\" name=\"firstName\"/>\n");
       out.write("                        <span class=\"glyphicon glyphicon-user form-control-feedback\"></span>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group has-feedback\">\n");
@@ -84,15 +96,15 @@ public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group has-feedback\">\n");
-      out.write("                        <input type=\"text\" class=\"form-control\" placeholder=\"Username\" name=\"username\"/>\n");
+      out.write("                        <input type=\"text\" class=\"form-control\" placeholder=\"username\" name=\"username\"/>\n");
       out.write("                        <span class=\"glyphicon glyphicon-envelope form-control-feedback\"></span>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group has-feedback\">\n");
-      out.write("                        <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\"/>\n");
+      out.write("                        <input type=\"password\" class=\"form-control\" placeholder=\"password\" name=\"password\"/>\n");
       out.write("                        <span class=\"glyphicon glyphicon-lock form-control-feedback\"></span>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group has-feedback\">\n");
-      out.write("                        <input type=\"password\" class=\"form-control\" placeholder=\"Re-Enter Password\" name=\"confPassword\"/>\n");
+      out.write("                        <input type=\"password\" class=\"form-control\" placeholder=\"Re-Enter Password\" name=\"confirmPassword\"/>\n");
       out.write("                        <span class=\"glyphicon glyphicon-lock form-control-feedback\"></span>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");

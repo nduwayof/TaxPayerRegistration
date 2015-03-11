@@ -5,6 +5,10 @@
 --%>
 
 
+<jsp:useBean id="s" class="com.djuma.Acount.Management.User" scope="request">
+        
+</jsp:useBean>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,6 +19,7 @@
         <link href="TPRS/bower_components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/css/TPRS.css" rel="stylesheet" type="text/css" />
+        <link href="TPRS/css/custom.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
     </head>
     <body class="login-page">
@@ -23,14 +28,15 @@
                 <a href="home.jsp"><b>TPRS</b> - Home</a>
             </div>
             <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
-                <form action="#" method="post" id="signup">
+                <p class="login-box-msg">Sign up</p>
+                <label class="infoMsg">${s.info}</label>
+                <form action="signupProcess.jsp" method="post" id="signup">
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="First Name" name="fistName"/>
+                        <input type="text" class="form-control" placeholder="First Name" name="firstName" required="" value="${s.firstName}"/>
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="Last Name" name="lastName"/>
+                        <input type="text" class="form-control" placeholder="Last Name" name="lastName" value="${s.lastName}"/>
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
@@ -45,27 +51,30 @@
                         </div>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="Username" name="username"/>
+                        <input type="text" class="form-control" placeholder="username" name="username" value="${s.username}" required=""/>
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        <label class="errorMsg">${s.errorUsername}</label>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="Password" name="password"/>
+                        <input type="password" class="form-control" placeholder="password" name="password" required=""/>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <label class="errorMsg">${s.errorPasswordLength}</label>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="Re-Enter Password" name="confPassword"/>
+                        <input type="password" class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required=""/>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <label class="errorMsg">${s.errorPassword}</label>
                     </div>
                     <div class="row">
                         <div class="col-xs-8">    
                             <div class="checkbox icheck">
                                 <label>
-                                    Welcome
+                                    
                                 </label>
                             </div>                        
                         </div>
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
                         </div>
                     </div>
                 </form>
