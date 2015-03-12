@@ -4,14 +4,14 @@
     Author     : Fabrice
 --%>
 <%
-String user=(String)session.getAttribute("userRole");
-if(user==null){
+    String user = (String) session.getAttribute("userRole");
+    if (user == null) {
 %>
 <jsp:forward page="login.jsp"/>
 <%
-}else{
-String userId=(String)session.getAttribute("userId");
-}
+    } else {
+        String userId = (String) session.getAttribute("userId");
+    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,8 +26,6 @@ String userId=(String)session.getAttribute("userId");
         <link href="TPRS/css/TPRS.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
-        <link href="TPRS/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-        <link href="TPRS/plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
@@ -49,7 +47,7 @@ String userId=(String)session.getAttribute("userId");
                     </ol>
                 </section>
                 <section class="content">
-                    
+
                 </section>
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>

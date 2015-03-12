@@ -5,20 +5,20 @@
 --%>
 <%@page import="com.djuma.Acount.Management.User"%>
 <%
-String names="";
-String user=(String)session.getAttribute("userRole");
-if(user==null){
+    String names = "";
+    String user = (String) session.getAttribute("userRole");
+    if (user == null) {
 %>
 <jsp:forward page="login.jsp"/>
 <%
-}else{
-String userId=(String)session.getAttribute("userId");
-for(User u: User.listUser()){
-    if(u.getId()==Integer.parseInt(userId)){
-    names=u.getFirstName()+" "+u.getLastName();
+    } else {
+        String userId = (String) session.getAttribute("userId");
+        for (User u : User.listUser()) {
+            if (u.getId() == Integer.parseInt(userId)) {
+                names = u.getFirstName() + " " + u.getLastName();
+            }
+        }
     }
-}
-}
 %>
 <header class="main-header">
     <a href="#" class="logo">
@@ -34,15 +34,14 @@ for(User u: User.listUser()){
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="TPRS/img/avatars/avatar2.png" class="img-circle" alt="User Image"/>
-                        <span class="hidden-xs"><%=names%></span>
+                        <span class="hidden-xs"><%=names%></span>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="TPRS/img/avatars/avatar2.png" class="img-circle" alt="User Image"/>
                             <p>
-                                <%=names%> - <%=user%>
-                         
+                                <%=names%>  <%=(user)%>
                             </p>
                         </li>
                         <li class="user-body">
@@ -62,7 +61,7 @@ for(User u: User.listUser()){
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="logout.jsp" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

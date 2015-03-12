@@ -5,20 +5,20 @@
 --%>
 <%@page import="com.djuma.Acount.Management.User"%>
 <%
-String names="";
-String user=(String)session.getAttribute("userRole");
-if(user==null){
+    String names = "";
+    String user = (String) session.getAttribute("userRole");
+    if (user == null) {
 %>
 <jsp:forward page="login.jsp"/>
 <%
-}else{
-String userId=(String)session.getAttribute("userId");
-for(User u: User.listUser()){
-    if(u.getId()==Integer.parseInt(userId)){
-    names=u.getFirstName()+" "+u.getLastName();
+    } else {
+        String userId = (String) session.getAttribute("userId");
+        for (User u : User.listUser()) {
+            if (u.getId() == Integer.parseInt(userId)) {
+                names = u.getFirstName() + " " + u.getLastName();
+            }
+        }
     }
-}
-}
 %>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -51,10 +51,10 @@ for(User u: User.listUser()){
                 </a>
             </li>
             <%
-            if(!user.equalsIgnoreCase("admin")){
+                if (!user.equalsIgnoreCase("admin")) {
             %>
-            
-              <li class="treeview">
+
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-file"></i>
                     <i class="fa fa-angle-left pull-right"></i>
@@ -67,10 +67,10 @@ for(User u: User.listUser()){
                 </ul>
             </li>
             <%
-            }
+                }
             %>
             <%
-            if(user.equalsIgnoreCase("admin")){
+                if (user.equalsIgnoreCase("admin")) {
             %>
             <li class="treeview">
                 <a href="#">
@@ -85,9 +85,9 @@ for(User u: User.listUser()){
                 </ul>
             </li>
             <%
-            }
+                }
             %>
-            
+
         </ul>
     </section>
 </aside>
