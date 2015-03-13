@@ -53,18 +53,17 @@
         <script src="TPRS/js/formToWizard.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $("#SignupForm").formToWizard({submitButton: 'SaveAccount'})
-            });
-            
-            $(document).ready(function () {
-                $('#wizard').smartWizard({transitionEffect: 'slide'});
+                $("#SignupForm").formToWizard({submitButton: 'SaveAccount'});
+                
                 $('#individual').hide();
                 $('#nonIndividual').hide();
                 $('#deceasedDate').hide();
                 $('#civilId').hide();
-                $('#residentDjuma').hide();
+                $('#residentFabrice').hide();
+                $('#mailingAddress').hide();
             });
-            function showIndividual() {
+            
+             function showIndividual() {
                 $('#nonIndividual').hide();
                 $('#individual').show();
                 Location.reload();
@@ -88,17 +87,21 @@
                 $('#civilId').hide();
 
             }
-            function showresidentDjuma() {
-                $('#residentDjuma').show();
+            function showresidentFabrice() {
+                $('#residentFabrice').show();
 
             }
-            function hideresidentDjuma() {
-                $('#residentDjuma').hide();
+            function hideresidentFabrice() {
+                $('#residentFabrice').hide();
 
+            }
+            function showMailing(){
+                $('#mailingAddress').show();
+            }
+            function hideMailing(){
+                $('#mailingAddress').hide();
             }
         </script>
-        
-
     </head>
     <body class="skin-blue">
         <div class="wrapper">
