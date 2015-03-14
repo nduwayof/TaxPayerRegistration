@@ -32,16 +32,6 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="cellule">Cellule</label>
-                </div>
-                <div class="col-lg-8">
-                    <input type="text" name="cellule" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="form-group">
-                <div class="col-lg-4">
                     <label for="sector">Sector</label>
                 </div>
                 <div class="col-lg-8">
@@ -49,9 +39,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
+         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
                     <label for="district">District</label>
@@ -61,6 +49,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
@@ -144,16 +134,6 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">
-                        <label for="mailCellule">Cellule</label>
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="text" name="mailCellule" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
                         <label for="mailSector">Sector</label>
                     </div>
                     <div class="col-lg-8">
@@ -161,9 +141,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
-        <div class="row">
-            <div class="col-lg-6">
+             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">
                         <label for="mailDistrict">District</label>
@@ -173,6 +151,8 @@
                     </div>
                 </div>
             </div>
+        </div> 
+        <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">
