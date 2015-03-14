@@ -5,6 +5,12 @@
  */
 package com.djuma.Individual;
 
+import com.djuma.Connection.SetCon;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author SULAIMAN
@@ -72,6 +78,45 @@ public class Individual_Branch {
         this.branchProvince = branchProvince;
         this.individualId = individualId;
     }
+
+    public Individual_Branch() {
+    }
     
+    public void saveBranch(){
+    try{
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual_branches values(id,?,?,?,?,?)");
+        djuma.setString(1, nameOfBranch);
+        djuma.setString(2, branchAddress);
+        djuma.setString(3, branchCity);
+        djuma.setString(4, branchProvince);
+        djuma.setInt(5, individualId);
+        djuma.execute();
+    }catch(Exception e){
+    
+    
+    }
+    }
+    public static List<Individual_Branch>listBranch(){
+    List<Individual_Branch>list=new ArrayList<Individual_Branch>();
+    try{
+    
+    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_branches");
+        ResultSet rs=djuma.executeQuery();
+        
+        while(rs.next()){
+        Individual_Branch b=new Individual_Branch();
+        b.setBranchId(rs.getInt(1));
+        b.setNameOfBranch(rs.getString(2));
+        b.setBranchAddress(rs.getString(3));
+        b.setBranchCity(rs.getString(4));
+        b.setBranchProvince(rs.getString(5));
+        b.setIndividualId(rs.getInt(6));
+        list.add(b);
+        }
+    }catch(Exception e){
+    
+    }
+    return list;
+    }
     
 }

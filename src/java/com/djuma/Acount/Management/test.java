@@ -37,8 +37,6 @@ public class test {
 //        System.out.println(e.getMessage());
 //        }
         
-        double a=100.9456;
-        DecimalFormat j=new DecimalFormat("##");
-        System.out.println(j.format(a));
+        
     }
 }

@@ -5,6 +5,9 @@
  */
 package com.djuma.Individual;
 
+import com.djuma.Connection.SetCon;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author SULAIMAN
@@ -19,7 +22,7 @@ public class Individual_trade {
    private String startDate;
    private String entreprisePhoneNo;
    private String entrepriseFaxNo;
-   private String individualId;
+   private int individualId;
 
     public int getTradeId() {
         return tradeId;
@@ -93,15 +96,15 @@ public class Individual_trade {
         this.entrepriseFaxNo = entrepriseFaxNo;
     }
 
-    public String getIndividualId() {
+    public int getIndividualId() {
         return individualId;
     }
 
-    public void setIndividualId(String individualId) {
+    public void setIndividualId(int individualId) {
         this.individualId = individualId;
     }
 
-    public Individual_trade(String tradeName, String tradeAddress, String tradeDistrict, String tradeProvince, String commercialRegistrationNo, String startDate, String entreprisePhoneNo, String entrepriseFaxNo, String individualId) {
+    public Individual_trade(String tradeName, String tradeAddress, String tradeDistrict, String tradeProvince, String commercialRegistrationNo, String startDate, String entreprisePhoneNo, String entrepriseFaxNo, int individualId) {
         this.tradeName = tradeName;
         this.tradeAddress = tradeAddress;
         this.tradeDistrict = tradeDistrict;
@@ -112,6 +115,26 @@ public class Individual_trade {
         this.entrepriseFaxNo = entrepriseFaxNo;
         this.individualId = individualId;
     }
+
+    
+    public Individual_trade() {
+    }
+    
+   public void saveTrade(){
+   try{
+       PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual_trade values(id,?,?,?,?,?,?,?,?,?)");
+       djuma.setString(1, tradeName);
+       djuma.setString(2, tradeAddress);
+       djuma.setString(3, tradeDistrict);
+       djuma.setString(4, tradeProvince);
+       djuma.setString(5, commercialRegistrationNo);
+       djuma.setString(6, startDate);
+       djuma.setString(7, entreprisePhoneNo);
+       djuma.setString(8, entrepriseFaxNo);
+       djuma.setInt(9, individualId);
+       djuma.execute();
+   }catch(Exception e){}
    
+   }
    
 }

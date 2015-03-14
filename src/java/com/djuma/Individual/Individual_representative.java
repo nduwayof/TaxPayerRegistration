@@ -5,6 +5,9 @@
  */
 package com.djuma.Individual;
 
+import com.djuma.Connection.SetCon;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author SULAIMAN
@@ -92,6 +95,23 @@ public class Individual_representative {
         this.contactPhoneNo = contactPhoneNo;
         this.individualId = individualId;
     }
-    
+
+    public Individual_representative() {
+    }
+   public void saveRepresentative(){
+   try{
+       PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual_representative values(id,?,?,?,?,?,?,?)");
+       djuma.setString(1, taxpayerRepresentativeName);
+       djuma.setString(2, representativeTitle);
+       djuma.setString(3, representativePhoneNo);
+       djuma.setString(4, contactName);
+       djuma.setString(5, contactTitle);
+       djuma.setString(6, contactPhoneNo);
+       djuma.setInt(7, individualId);
+       djuma.execute();
+   }catch(Exception e){}
+   
+   
+   } 
     
 }

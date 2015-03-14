@@ -5,6 +5,9 @@
  */
 package com.djuma.Individual;
 
+import com.djuma.Connection.SetCon;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author SULAIMAN
@@ -28,5 +31,23 @@ public class IndividualTaxType {
     public void setTaxTypeId(int taxTypeId) {
         this.taxTypeId = taxTypeId;
     }
- 
+
+    public IndividualTaxType(int individualId, int taxTypeId) {
+        this.individualId = individualId;
+        this.taxTypeId = taxTypeId;
+    }
+
+    public IndividualTaxType() {
+    }
+ public void SaveTaxType(){
+    try{
+        PreparedStatement djuma= SetCon.getCon().prepareStatement("insert into individual_taxtype values(id,?,?)");
+        djuma.setInt(1, individualId);
+        djuma.setInt(2, taxTypeId);
+        djuma.execute();
+    }catch(Exception e){
+    
+    }
+    
+    }
 }

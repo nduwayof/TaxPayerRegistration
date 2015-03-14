@@ -5,42 +5,49 @@
  */
 package com.djuma.Individual;
 
+import java.sql.PreparedStatement;
+import com.djuma.Connection.SetCon;
+import java.sql.ResultSet;
+import java.util.*;
 /**
  *
  * @author SULAIMAN
  */
 public class Individual {
-    private int id;
-    private String ownerSurname;
-    private String  ownerFirstName;
-    private String  dob;
-    private String deceadDate;
-    private String gender;
-   private String occupation;
-   private String nationality;
-   private String nationalId;
-   private String socialSecurityNumber;
-   private String passport;
-   private String homePhone;
-   private String workPhone;
-   private String cellPhone;
-   private String faxNo;
-   private String resident;
-   private String countryOfResidence;
-   private String civilStatus;
-   private String mariageName;
-   private String mariageSurname;
-   private String mariageDob;
-   private String photo;
-   private String notionalPhotocopy;
+    private int individualId;
+    private String ownerSurname="";
+    private String  ownerFirstName="";
+    private String  dob="";
+    private String deceadDate="";
+    private String gender="";
+   private String occupation="";
+   private String nationality="";
+   private String nationalId="";
+   private String socialSecurityNumber="";
+   private String passport="";
+   private String homePhone="";
+   private String workPhone="";
+   private String cellPhone="";
+   private String faxNo="";
+   private String resident="";
+   private String countryOfResidence="";
+   private String civilStatus="";
+   private String mariageName="";
+   private String mariageSurname="";
+   private String mariageDob="";
+   private String photo="";
+   private String notionalPhotocopy="";
+   private boolean hasInfo;
 
-    public int getId() {
-        return id;
+    public int getIndividualId() {
+        return individualId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIndividualId(int individualId) {
+        this.individualId = individualId;
     }
+
+    
 
     public String getOwnerSurname() {
         return ownerSurname;
@@ -218,6 +225,14 @@ public class Individual {
         this.notionalPhotocopy = notionalPhotocopy;
     }
 
+    public boolean isHasInfo() {
+        return hasInfo;
+    }
+
+    public void setHasInfo(boolean hasInfo) {
+        this.hasInfo = hasInfo;
+    }
+
     public Individual() {
     }
 
@@ -248,12 +263,120 @@ public class Individual {
    
     public void SaveIndividual(){
     try{
-    
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        djuma.setString(1, ownerSurname);
+        djuma.setString(2, ownerFirstName);
+        djuma.setString(3, dob);
+        djuma.setString(4, deceadDate);
+        djuma.setString(5, gender);
+        djuma.setString(6, occupation);
+        djuma.setString(7, nationality);
+        djuma.setString(8, nationalId);
+        djuma.setString(9, socialSecurityNumber);
+        djuma.setString(10, passport);
+        djuma.setString(11, homePhone);
+        djuma.setString(12, workPhone);
+        djuma.setString(13, cellPhone);
+        djuma.setString(14, faxNo);
+        if(resident.equalsIgnoreCase("1")){
+        djuma.setBoolean(15, true);
+        }else{
+        djuma.setBoolean(15, false);
+        }
+        djuma.setString(16, countryOfResidence);
+        djuma.setString(17, civilStatus);
+        djuma.setString(18, mariageName);
+        djuma.setString(19, mariageSurname);
+        djuma.setString(20, mariageDob);
+        djuma.setString(21, photo);
+        djuma.setString(22, notionalPhotocopy);
+        djuma.setBoolean(23, false);
+        djuma.execute();
     }catch(Exception e){
-    
     
     }
     
+    }
+    
+    public void UpdateIndividual(){
+    try{
+       PreparedStatement djuma=SetCon.getCon().prepareStatement("update individual set ownerSurname=?,ownerFirstName=?,dob=?,deceadDate=?,gender=?,occupatio=?,nationality=?,nationalId=?,socialSecurityNumber=?,passport=?,homePhone=?,workPhone=?,cellPhone=?,faxNo=?,resident=?,countryOfResidence=?,civilStatus=?,mariageName=?,mariageSurname=?,mariageDob=?,photo=?,notionalPhotocopy=?,hasInfo=? where id=?");
+        djuma.setString(1, ownerSurname);
+        djuma.setString(2, ownerFirstName);
+        djuma.setString(3, dob);
+        djuma.setString(4, deceadDate);
+        djuma.setString(5, gender);
+        djuma.setString(6, occupation);
+        djuma.setString(7, nationality);
+        djuma.setString(8, nationalId);
+        djuma.setString(9, socialSecurityNumber);
+        djuma.setString(10, passport);
+        djuma.setString(11, homePhone);
+        djuma.setString(12, workPhone);
+        djuma.setString(13, cellPhone);
+        djuma.setString(14, faxNo);
+        if(resident.equalsIgnoreCase("1")){
+        djuma.setBoolean(15, true);
+        }else{
+        djuma.setBoolean(15, false);
+        }
+        djuma.setString(16, countryOfResidence);
+        djuma.setString(17, civilStatus);
+        djuma.setString(18, mariageName);
+        djuma.setString(19, mariageSurname);
+        djuma.setString(20, mariageDob);
+        djuma.setString(21, photo);
+        djuma.setString(22, notionalPhotocopy);
+        djuma.setBoolean(23, true);
+        djuma.setInt(24, individualId);
+        djuma.execute();
+    }catch(Exception e){
+    
+    }
+    
+    }
+    
+    public static List<Individual>listIndividual(){
+    List<Individual>list=new ArrayList<Individual>();
+    try{
+    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual");
+        ResultSet rs=djuma.executeQuery();
+        while(rs.next()){
+        Individual in=new Individual();
+        in.setIndividualId(rs.getInt(1));
+        in.setOwnerSurname(rs.getString(2));
+        in.setOwnerFirstName(rs.getString(3));
+        in.setDob(rs.getString(4));
+        in.setDeceadDate(rs.getString(5));
+        in.setGender(rs.getString(6));
+        in.setOccupation(rs.getString(7));
+        in.setNationality(rs.getString(8));
+        in.setNationalId(rs.getString(9));
+        in.setSocialSecurityNumber(rs.getString(10));
+        in.setPassport(rs.getString(11));
+        in.setHomePhone(rs.getString(12));
+        in.setWorkPhone(rs.getString(13));
+        in.setCellPhone(rs.getString(14));
+        in.setFaxNo(rs.getString(15));
+        if(rs.getBoolean(16)==false){
+        in.setResident("NO");
+        }else{
+        in.setResident("YES");
+        }
+        in.setCountryOfResidence(rs.getString(17));
+        in.setCivilStatus(rs.getString(18));
+        in.setMariageName(rs.getString(19));
+        in.setMariageSurname(rs.getString(20));
+        in.setMariageDob(rs.getString(21));
+        in.setPhoto(rs.getString(22));
+        in.setNotionalPhotocopy(rs.getString(23));
+        in.setHasInfo(rs.getBoolean(24));
+        list.add(in);
+        }
+    }catch(Exception e){
+    
+    }
+    return list;
     }
    
 }

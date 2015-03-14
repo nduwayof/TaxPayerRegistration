@@ -19,7 +19,7 @@ import java.util.List;
 public class TaxType {
     private int id;
     private String taxType;
-    private String description;
+    private String description="";
     private String error;
     private String info;
     private Timestamp doneAt=new Timestamp(new Date().getTime());

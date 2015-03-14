@@ -5,12 +5,15 @@
  */
 package com.djuma.Individual;
 
+import com.djuma.Connection.SetCon;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author SULAIMAN
  */
 public class Individual_Address {
- private int addressId;
+ private Long addressId;
  private String plotNo;
  private String street;
  private String sector;
@@ -26,13 +29,15 @@ public class Individual_Address {
  private String mailProvince;
  private int individualId;
 
-    public int getAddressId() {
+    public Long getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(int addressId) {
+    public void setAddressId(Long addressId) {
         this.addressId = addressId;
     }
+
+    
 
     public String getPlotNo() {
         return plotNo;
@@ -162,5 +167,30 @@ public class Individual_Address {
         this.mailProvince = mailProvince;
         this.individualId = individualId;
     }
+
+    public Individual_Address() {
+    }
+ public void saveAddress(){
+ try{
+     PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual_address values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+     djuma.setString(1, plotNo);
+     djuma.setString(2, street);
+     djuma.setString(3, sector);
+     djuma.setString(4, district);
+     djuma.setString(5, province);
+     djuma.setString(6, mailingAddress);
+     djuma.setString(7, mailHouseNo);
+     djuma.setString(8, mailStreet);
+     djuma.setString(9, mailPoBox);
+     djuma.setString(10, mailCity);
+     djuma.setString(11, mailSector);
+     djuma.setString(12, mailDistrict);
+     djuma.setString(13, mailProvince);
+     djuma.setInt(14, individualId);
+     djuma.execute();
+ }catch(Exception e){}
  
+ 
+ 
+ }
 }

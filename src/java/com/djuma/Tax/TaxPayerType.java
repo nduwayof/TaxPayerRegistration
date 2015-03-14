@@ -25,7 +25,7 @@ public class TaxPayerType {
     private Timestamp doneAt=new Timestamp(new Date().getTime());
     private boolean deletedStatus=false;
     private String doneBy="";
-    private String description;
+    private String description="";
     private boolean valid=true;
 
     public String getDescription() {
