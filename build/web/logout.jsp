@@ -3,8 +3,10 @@
     Created on : Mar 11, 2015, 9:00:41 AM
     Author     : Fabrice
 --%>
-
 <%
-    session.invalidate();
+    String user = (String) session.getAttribute("userRole");
+    if (user != null) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
+    }
 %>
-<jsp:forward page="index.jsp"/>
