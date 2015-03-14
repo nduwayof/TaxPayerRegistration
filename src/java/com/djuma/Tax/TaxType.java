@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.djuma;
+package com.djuma.Tax;
 
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
@@ -19,7 +19,7 @@ import java.util.List;
 public class TaxType {
     private int id;
     private String taxType;
-    private String description;
+    private String description="";
     private String error;
     private String info;
     private Timestamp doneAt=new Timestamp(new Date().getTime());

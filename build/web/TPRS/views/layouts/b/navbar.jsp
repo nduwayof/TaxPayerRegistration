@@ -41,7 +41,7 @@
                         <li class="user-header">
                             <img src="TPRS/img/avatars/avatar2.png" class="img-circle" alt="User Image"/>
                             <p>
-                                <%=names%>  <%=(user)%>
+                                <%=names%>      [ <%=(user)%> ]
                             </p>
                         </li>
                         <li class="user-body">
