@@ -4,13 +4,8 @@
     Author     : Fabrice
 --%>
 
-<<<<<<< HEAD
-<%@page import="com.djuma.Tax.TaxPayerType"%>
-<%@page import="com.djuma.Tax.TaxType"%>
-=======
 <%@page import="com.djuma.Tax.TaxType"%>
 <%@page import="com.djuma.Tax.TaxPayerType"%>
->>>>>>> 2e687b27320e868199b57bba0c710aaf74b2ff11
 <fieldset>
     <legend>Enterprise Owner's Info</legend>
     <br>
