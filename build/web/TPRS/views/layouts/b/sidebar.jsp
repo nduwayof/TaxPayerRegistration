@@ -63,7 +63,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="individual.jsp"><i class="fa fa-circle-o"></i> Individual</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Non Individual</a></li>
+                    <li><a href="nonIndividual.jsp"><i class="fa fa-circle-o"></i> Non Individual</a></li>
                 </ul>
             </li>
             <%
