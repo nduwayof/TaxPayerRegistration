@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.djuma.Enterprise;
+package com.djuma.Individual;
 
 /**
  *
  * @author SULAIMAN
  */
-public class Individual {
+public class Individual_Activity {
     
 }
