@@ -3,6 +3,7 @@
     Created on : Mar 9, 2015, 07:01:04 PM
     Author     : Fabrice
 --%>
+<%@page import="com.djuma.Individual.Individual"%>
 <%
     String user = (String) session.getAttribute("userRole");
     if (user == null) {
@@ -11,8 +12,19 @@
 <%
     } else {
         String userId = (String) session.getAttribute("userId");
+        int lastTicket=Individual.getLastTicket();
+        int ticket=0;
+        if(Individual.createNewTicket(lastTicket)){
+        Individual in=new Individual();
+        in.SaveIndividual();
+        ticket=Individual.getLastTicket();
+        }else{
+          ticket=lastTicket;
+        }
+        session.setAttribute("individualTicket", ticket);
     }
 %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

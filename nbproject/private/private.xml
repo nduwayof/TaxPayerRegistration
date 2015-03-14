@@ -3,10 +3,51 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/individualWizard.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/five.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/individual.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/six.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/individualProcess.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Tax/TaxPayerType.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/NonIndividual_Activity.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/Individual_representative.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/Individual_trade.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/login.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/Nonindividual_TaxPayerType.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/signup.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Sector/Sector.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/Individual_Branch.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/User.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/navbar.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/NonIndividual.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/css/custom.css</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/Individual_Address.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/loginProcess.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/Login.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Connection/SetCon.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/Individual.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/IndividualTaxPayerType.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/NonIndividual_Owners.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/IndividualTaxType.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/a/navbar.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/individual.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/One.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Tax/TaxType.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Sector/Sub_Sector.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/Nonindividual_TaxType.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/Individual_Bank.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/test.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/NonIndividual_Representative.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/signupProcess.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/two.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Sector/Industry.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/NonIndividual_Bank.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/sidebar.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/NonIndividual_Address.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/Individual_Activity.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/NonIndividual_Parent.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/individualWizard.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/CommonIndividual.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/css/TPRS.css</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/index.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/nonIndividual.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/NonIndividual/NonIndividual_Branches.java</file>
         </group>
     </open-files>
 </project-private>

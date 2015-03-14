@@ -505,8 +505,6 @@ public class CommonIndividual {
 
     
     public void saveIndividualInfo(){
-    Individual in=new Individual(ownerSurname, ownerFirstName, dob, deceadDate, gender, occupation, nationality, nationalId, socialSecurityNumber, passport, homePhone, workPhone, cellPhone, faxNo, resident, countryOfResidence, civilStatus, mariageName, mariageSurname, mariageDob, photo, notionalPhotocopy);
-    in.SaveIndividual();
      String taxTypeParts[]=taxTypeId.split("#");
      for(int i=0; i<taxTypeParts.length;i++){
      IndividualTaxType it=new IndividualTaxType(individualId, Integer.parseInt(taxTypeParts[i]));
@@ -525,5 +523,8 @@ public class CommonIndividual {
       ir.saveRepresentative();
       Individual_trade itr=new Individual_trade(mariageName, mailingAddress, mailDistrict, mailProvince, mailDistrict, street, contactPhoneNo, ownerFirstName, individualId);
       itr.saveTrade();
+      Individual in=new Individual(ownerSurname, ownerFirstName, dob, deceadDate, gender, occupation, nationality, nationalId, socialSecurityNumber, passport, homePhone, workPhone, cellPhone, faxNo, resident, countryOfResidence, civilStatus, mariageName, mariageSurname, mariageDob, photo, notionalPhotocopy);
+    in.setIndividualId(individualId);
+    in.UpdateIndividual();
     }
 }
