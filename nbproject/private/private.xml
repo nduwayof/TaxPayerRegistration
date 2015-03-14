@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Connection/SetCon.java</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/navbar.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/sidebar.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/individualWizard.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/five.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/individual.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/index.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/logout.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/six.jsp</file>
         </group>
     </open-files>
 </project-private>
