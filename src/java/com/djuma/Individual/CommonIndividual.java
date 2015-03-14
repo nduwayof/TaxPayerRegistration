@@ -10,6 +10,7 @@ package com.djuma.Individual;
  * @author SULAIMAN
  */
 public class CommonIndividual {
+    private int individualId;
     //individual
     private String ownerSurname;
     private String  ownerFirstName;
@@ -36,13 +37,13 @@ public class CommonIndividual {
    
    //individualTaxPayerType
    
- private String taxPayerIndividualId;
- private int taxPayerTypeId;
+ //private String individualId;
+ private String taxPayerTypeId;
  
  //individual TaxType
  
- private int taxTypeIndividualId;
- private int taxTypeId;
+ //private int individualId;
+ private String taxTypeId;
  
  //activity
  
@@ -53,7 +54,7 @@ public class CommonIndividual {
     private String mainSourceOfIncome;
     private String employmentMethod;
     private boolean businessPremiseRented;
-    private int activityIndividualId;
+    //private int individualId;
     private int  sectorId;
     
     //Address
@@ -71,7 +72,7 @@ public class CommonIndividual {
  private String mailSector;
  private String mailDistrict;
  private String mailProvince;
- private int addressIndividualId;
+ //private int individualId;
  
  //Representative
  
@@ -81,18 +82,449 @@ public class CommonIndividual {
     private String contactName;
     private String contactTitle;
     private String contactPhoneNo;
-    private int representativeIndividualId;
-    
-    //Trade
-    
-    private String tradeName;
-   private String tradeAddress;
-   private String tradeDistrict;
-   private String tradeProvince;
-   private String commercialRegistrationNo;
-   private String startDate;
-   private String entreprisePhoneNo;
-   private String entrepriseFaxNo;
-   private String tradeIndividualId;
+    //private int individualId;
 
+    public int getIndividualId() {
+        return individualId;
+    }
+
+    public void setIndividualId(int individualId) {
+        this.individualId = individualId;
+    }
+
+    public String getOwnerSurname() {
+        return ownerSurname;
+    }
+
+    public void setOwnerSurname(String ownerSurname) {
+        this.ownerSurname = ownerSurname;
+    }
+
+    public String getOwnerFirstName() {
+        return ownerFirstName;
+    }
+
+    public void setOwnerFirstName(String ownerFirstName) {
+        this.ownerFirstName = ownerFirstName;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getDeceadDate() {
+        return deceadDate;
+    }
+
+    public void setDeceadDate(String deceadDate) {
+        this.deceadDate = deceadDate;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public String getNationalId() {
+        return nationalId;
+    }
+
+    public void setNationalId(String nationalId) {
+        this.nationalId = nationalId;
+    }
+
+    public String getSocialSecurityNumber() {
+        return socialSecurityNumber;
+    }
+
+    public void setSocialSecurityNumber(String socialSecurityNumber) {
+        this.socialSecurityNumber = socialSecurityNumber;
+    }
+
+    public String getPassport() {
+        return passport;
+    }
+
+    public void setPassport(String passport) {
+        this.passport = passport;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
+    public String getWorkPhone() {
+        return workPhone;
+    }
+
+    public void setWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+    }
+
+    public String getCellPhone() {
+        return cellPhone;
+    }
+
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
+    }
+
+    public String getFaxNo() {
+        return faxNo;
+    }
+
+    public void setFaxNo(String faxNo) {
+        this.faxNo = faxNo;
+    }
+
+    public String getResident() {
+        return resident;
+    }
+
+    public void setResident(String resident) {
+        this.resident = resident;
+    }
+
+    public String getCountryOfResidence() {
+        return countryOfResidence;
+    }
+
+    public void setCountryOfResidence(String countryOfResidence) {
+        this.countryOfResidence = countryOfResidence;
+    }
+
+    public String getCivilStatus() {
+        return civilStatus;
+    }
+
+    public void setCivilStatus(String civilStatus) {
+        this.civilStatus = civilStatus;
+    }
+
+    public String getMariageName() {
+        return mariageName;
+    }
+
+    public void setMariageName(String mariageName) {
+        this.mariageName = mariageName;
+    }
+
+    public String getMariageSurname() {
+        return mariageSurname;
+    }
+
+    public void setMariageSurname(String mariageSurname) {
+        this.mariageSurname = mariageSurname;
+    }
+
+    public String getMariageDob() {
+        return mariageDob;
+    }
+
+    public void setMariageDob(String mariageDob) {
+        this.mariageDob = mariageDob;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getNotionalPhotocopy() {
+        return notionalPhotocopy;
+    }
+
+    public void setNotionalPhotocopy(String notionalPhotocopy) {
+        this.notionalPhotocopy = notionalPhotocopy;
+    }
+
+    public String getTaxPayerTypeId() {
+        return taxPayerTypeId;
+    }
+
+    public void setTaxPayerTypeId(String taxPayerTypeId) {
+        this.taxPayerTypeId = taxPayerTypeId;
+    }
+
+    public String getTaxTypeId() {
+        return taxTypeId;
+    }
+
+    public void setTaxTypeId(String taxTypeId) {
+        this.taxTypeId = taxTypeId;
+    }
+
+    public boolean isBusinessActivty() {
+        return businessActivty;
+    }
+
+    public void setBusinessActivty(boolean businessActivty) {
+        this.businessActivty = businessActivty;
+    }
+
+    public double getEstmatedAnnualTurnOver() {
+        return estmatedAnnualTurnOver;
+    }
+
+    public void setEstmatedAnnualTurnOver(double estmatedAnnualTurnOver) {
+        this.estmatedAnnualTurnOver = estmatedAnnualTurnOver;
+    }
+
+    public int getEstimatedNumberOfEmployees() {
+        return estimatedNumberOfEmployees;
+    }
+
+    public void setEstimatedNumberOfEmployees(int estimatedNumberOfEmployees) {
+        this.estimatedNumberOfEmployees = estimatedNumberOfEmployees;
+    }
+
+    public String getAccountingMethod() {
+        return accountingMethod;
+    }
+
+    public void setAccountingMethod(String accountingMethod) {
+        this.accountingMethod = accountingMethod;
+    }
+
+    public String getMainSourceOfIncome() {
+        return mainSourceOfIncome;
+    }
+
+    public void setMainSourceOfIncome(String mainSourceOfIncome) {
+        this.mainSourceOfIncome = mainSourceOfIncome;
+    }
+
+    public String getEmploymentMethod() {
+        return employmentMethod;
+    }
+
+    public void setEmploymentMethod(String employmentMethod) {
+        this.employmentMethod = employmentMethod;
+    }
+
+    public boolean isBusinessPremiseRented() {
+        return businessPremiseRented;
+    }
+
+    public void setBusinessPremiseRented(boolean businessPremiseRented) {
+        this.businessPremiseRented = businessPremiseRented;
+    }
+
+    public int getSectorId() {
+        return sectorId;
+    }
+
+    public void setSectorId(int sectorId) {
+        this.sectorId = sectorId;
+    }
+
+    public String getPlotNo() {
+        return plotNo;
+    }
+
+    public void setPlotNo(String plotNo) {
+        this.plotNo = plotNo;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getMailingAddress() {
+        return mailingAddress;
+    }
+
+    public void setMailingAddress(String mailingAddress) {
+        this.mailingAddress = mailingAddress;
+    }
+
+    public String getMailHouseNo() {
+        return mailHouseNo;
+    }
+
+    public void setMailHouseNo(String mailHouseNo) {
+        this.mailHouseNo = mailHouseNo;
+    }
+
+    public String getMailStreet() {
+        return mailStreet;
+    }
+
+    public void setMailStreet(String mailStreet) {
+        this.mailStreet = mailStreet;
+    }
+
+    public String getMailPoBox() {
+        return mailPoBox;
+    }
+
+    public void setMailPoBox(String mailPoBox) {
+        this.mailPoBox = mailPoBox;
+    }
+
+    public String getMailCity() {
+        return mailCity;
+    }
+
+    public void setMailCity(String mailCity) {
+        this.mailCity = mailCity;
+    }
+
+    public String getMailSector() {
+        return mailSector;
+    }
+
+    public void setMailSector(String mailSector) {
+        this.mailSector = mailSector;
+    }
+
+    public String getMailDistrict() {
+        return mailDistrict;
+    }
+
+    public void setMailDistrict(String mailDistrict) {
+        this.mailDistrict = mailDistrict;
+    }
+
+    public String getMailProvince() {
+        return mailProvince;
+    }
+
+    public void setMailProvince(String mailProvince) {
+        this.mailProvince = mailProvince;
+    }
+
+    public String getTaxpayerRepresentativeName() {
+        return taxpayerRepresentativeName;
+    }
+
+    public void setTaxpayerRepresentativeName(String taxpayerRepresentativeName) {
+        this.taxpayerRepresentativeName = taxpayerRepresentativeName;
+    }
+
+    public String getRepresentativeTitle() {
+        return representativeTitle;
+    }
+
+    public void setRepresentativeTitle(String representativeTitle) {
+        this.representativeTitle = representativeTitle;
+    }
+
+    public String getRepresentativePhoneNo() {
+        return representativePhoneNo;
+    }
+
+    public void setRepresentativePhoneNo(String representativePhoneNo) {
+        this.representativePhoneNo = representativePhoneNo;
+    }
+
+    public String getContactName() {
+        return contactName;
+    }
+
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
+    }
+
+    public String getContactTitle() {
+        return contactTitle;
+    }
+
+    public void setContactTitle(String contactTitle) {
+        this.contactTitle = contactTitle;
+    }
+
+    public String getContactPhoneNo() {
+        return contactPhoneNo;
+    }
+
+    public void setContactPhoneNo(String contactPhoneNo) {
+        this.contactPhoneNo = contactPhoneNo;
+    }
+
+    public CommonIndividual() {
+    }
+
+    
+    public void saveIndividualInfo(){
+     String taxTypeParts[]=taxTypeId.split("#");
+     for(int i=0; i<taxTypeParts.length;i++){
+     IndividualTaxType it=new IndividualTaxType(individualId, Integer.parseInt(taxTypeParts[i]));
+     it.SaveTaxType();
+     }
+     String taxPayerTypeParts[]=taxPayerTypeId.split("#");
+     for(int j=0;j<taxPayerTypeParts.length;j++){
+     IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, Integer.parseInt(taxPayerTypeParts[j]));
+     i.SaveTaxPayerType();
+     }
+     Individual_Activity iac=new Individual_Activity(businessActivty, estmatedAnnualTurnOver, estimatedNumberOfEmployees, accountingMethod, mainSourceOfIncome, employmentMethod, businessPremiseRented, individualId, sectorId);
+      iac.SaveActivity();
+      Individual_Address iad=new Individual_Address(plotNo, street, sector, district, province, mailingAddress, mailHouseNo, mailStreet, mailPoBox, mailCity, mailSector, mailDistrict, mailProvince, individualId);
+      iad.saveAddress();
+      Individual_representative ir=new Individual_representative(taxpayerRepresentativeName, representativeTitle, representativePhoneNo, contactName, contactTitle, contactPhoneNo, individualId);
+      ir.saveRepresentative();
+      Individual_trade itr=new Individual_trade(mariageName, mailingAddress, mailDistrict, mailProvince, mailDistrict, street, contactPhoneNo, ownerFirstName, individualId);
+      itr.saveTrade();
+      Individual in=new Individual(ownerSurname, ownerFirstName, dob, deceadDate, gender, occupation, nationality, nationalId, socialSecurityNumber, passport, homePhone, workPhone, cellPhone, faxNo, resident, countryOfResidence, civilStatus, mariageName, mariageSurname, mariageDob, photo, notionalPhotocopy);
+    in.setIndividualId(individualId);
+    in.UpdateIndividual();
+    }
 }

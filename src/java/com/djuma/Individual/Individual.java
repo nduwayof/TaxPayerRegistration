@@ -378,5 +378,24 @@ public class Individual {
     }
     return list;
     }
-   
+   public static int getLastTicket(){
+   int i=0;
+   for(Individual in: Individual.listIndividual()){
+   i=in.getIndividualId();
+   }
+   return i;
+   }
+   public static boolean createNewTicket(int lastTicket){
+   boolean check=true;
+   for(Individual in:Individual.listIndividual()){
+   if(in.getIndividualId()==lastTicket){
+   if(in.isHasInfo()==false){
+   check=false;
+   }else{
+   check=true;
+   }
+   }
+   }
+   return check;
+   }
 }

@@ -4,8 +4,13 @@
     Author     : Fabrice
 --%>
 
+<<<<<<< HEAD
+<%@page import="com.djuma.Tax.TaxPayerType"%>
+<%@page import="com.djuma.Tax.TaxType"%>
+=======
 <%@page import="com.djuma.Tax.TaxType"%>
 <%@page import="com.djuma.Tax.TaxPayerType"%>
+>>>>>>> 2e687b27320e868199b57bba0c710aaf74b2ff11
 <fieldset>
     <legend>Enterprise Owner's Info</legend>
     <br>
@@ -239,17 +244,16 @@
                     <label for="taxpayerType">Type of Taxpayer</label>
                 </div>
                 <div class="col-lg-8">
-                    <select class="form-control" name="taxpayerType">
                         <%
                             for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
                                 if (t.isDeletedStatus() == false) {
                         %>
-                        <option value="<%=t.getId()%>"><%=t.getTaxpayerType()%></option>
+                    <input type="checkbox" name="taxpayerType" value="<%=t.getId()%>#" /><%=t.getTaxpayerType()%>
+
                         <%
                                 }
                             }
                         %>
-                    </select>
                 </div>
             </div>
         </div>
@@ -259,17 +263,16 @@
                     <label for="taxType">Type of Taxes</label>
                 </div>
                 <div class="col-lg-8">
-                    <select class="form-control" name="taxType">
                         <%
                             for (TaxType t : TaxType.listTaxType()) {
                                 if (t.isDeletedStatus() == false) {
                         %>
-                        <option value="<%=t.getId()%>"><%=t.getTaxType()%></option>
+                        
+                       <input type="checkbox" name="taxType" value="<%=t.getId()%>#" /><%=t.getTaxType()%>
                         <%
                                 }
                             }
                         %>
-                    </select>
                 </div>
             </div>
         </div>
@@ -331,7 +334,7 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="attachment">Please attach your Photo</label>
+        <label for="attachment">Please attach your Photo</label>
                 </div>
                 <div class="col-lg-8">
                     <div class="btn btn-default btn-file">
@@ -347,7 +350,7 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="attachment">Please attach your national Id</label>
+                    <label for="attachment">Please attach your national Id Photocopy</label>
                 </div>
                 <div class="col-lg-8">
                     <div class="btn btn-default btn-file">

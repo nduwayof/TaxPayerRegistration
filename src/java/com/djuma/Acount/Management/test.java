@@ -5,6 +5,10 @@
  */
 package com.djuma.Acount.Management;
 
+import com.djuma.Individual.Individual;
+import com.djuma.Sector.Industry;
+import com.djuma.Sector.Sector;
+import com.djuma.Sector.Sub_Sector;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -37,6 +41,17 @@ public class test {
 //        System.out.println(e.getMessage());
 //        }
         
-        
+        Industry i=new Industry();
+        i.setName("Agriculture");
+        //i.saveIndustry();
+        Sector s=new Sector();
+        s.setName("Forestry");
+        s.setIndustryId(1);
+        //s.saveSector();
+        Sub_Sector su=new Sub_Sector();
+        su.setName("");
+        su.setSectorId(1);
+        su.saveSubSector();
+     
     }
 }

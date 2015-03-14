@@ -3,7 +3,19 @@
     Created on : Mar 13, 2015, 11:50:23 PM
     Author     : Fabrice
 --%>
+<%
+    int currentIndividual=0;
+    String user = (String) session.getAttribute("userRole");
+    if (user == null) {
+%>
+<jsp:forward page="login.jsp"/>
+<%
+} else {
+String userId = (String) session.getAttribute("userId");
+ currentIndividual=(Integer)session.getAttribute("individualTicket");
+}
 
+%>
 <fieldset>
     <legend>Banking Informations & Enterprise Informations</legend>
     <div class="row">
@@ -56,7 +68,5 @@
             </div>
         </div>
     </div>
-    
-  
     <br>
 </fieldset>
