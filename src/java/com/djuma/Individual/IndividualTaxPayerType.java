@@ -10,5 +10,23 @@ package com.djuma.Individual;
  * @author SULAIMAN
  */
 public class IndividualTaxPayerType {
-    
+ private int individualId;
+ private int taxPayerTypeId;
+
+    public int getIndividualId() {
+        return individualId;
+    }
+
+    public void setIndividualId(int individualId) {
+        this.individualId = individualId;
+    }
+
+    public int getTaxPayerTypeId() {
+        return taxPayerTypeId;
+    }
+
+    public void setTaxPayerTypeId(int taxPayerTypeId) {
+        this.taxPayerTypeId = taxPayerTypeId;
+    }
+ 
 }
