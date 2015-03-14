@@ -287,7 +287,7 @@
                     <label onclick="showCivil()">
                         <input type="radio" name="civilStatus" >Married
                     </label>
-                    
+
                     <label onclick="hideCivil()">
                         <input type="radio" name="civilStatus">Divorced
                     </label>
@@ -323,6 +323,22 @@
                     <div class="col-lg-8">
                         <input type="date" name="dob" class="form-control">
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="attachment">Please attach your national </label>
+                </div>
+                <div class="col-lg-8">
+                    <div class="btn btn-default btn-file">
+                        <i class="fa fa-paperclip"></i> Attachment
+                        <input type="file" name="attachment" class="form-control"/>
+                    </div>
+                    <p class="help-block">Max. 32MB</p>
                 </div>
             </div>
         </div>

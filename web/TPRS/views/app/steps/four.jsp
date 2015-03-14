@@ -98,10 +98,13 @@
                     <label for="mainSourceOfIncome">Income Main Source</label>
                 </div>
                 <div class="col-lg-8">
-                    main source of income options goes hers
-                    <%--
-                    <input type="text" class="form-control" name="mainSourceOfIncome">
-                    --%>
+                    <select name="mainSourceOfIncome" class="form-control">
+                        <option>Business</option>
+                        <option>Rental</option>
+                        <option>Employment</option>
+                        <option>Investment</option>
+                        <option>Other</option>
+                    </select>
                 </div>
             </div>
         </div> 
