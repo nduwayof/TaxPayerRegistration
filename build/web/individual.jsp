@@ -61,6 +61,7 @@
                 $('#civilId').hide();
                 $('#residentFabrice').hide();
                 $('#mailingAddress').hide();
+                 $('#businessActivity').hide()
             });
             
              function showIndividual() {
@@ -100,6 +101,12 @@
             }
             function hideMailing(){
                 $('#mailingAddress').hide();
+            }
+            function showBusiness(){
+                $('#businessActivity').show();
+            }
+            function hideBusiness(){
+                $('#businessActivity').hide();
             }
         </script>
     </head>

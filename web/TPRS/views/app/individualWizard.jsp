@@ -9,6 +9,9 @@
         <jsp:include page="steps/One.jsp"/>
         <jsp:include page="steps/two.jsp"/>
         <jsp:include page="steps/three.jsp"/>
+        <jsp:include page="steps/four.jsp"/>
+        <jsp:include page="steps/five.jsp"/>
+        <jsp:include page="steps/six.jsp"/>
         <p class="text-center">
             <input id="SaveAccount" class="btn btn-primary btn-lg" type="button" value="Submit form" />
         </p>
