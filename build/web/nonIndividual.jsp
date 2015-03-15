@@ -129,10 +129,10 @@
                 <section class="content">
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                            <h3>New Individual Enterprise</h3>
+                            <h3>New Non Individual Enterprise</h3>
                         </div>
                         <div class="panel-body">
-                            <jsp:include page="TPRS/views/app/individualWizard.jsp"/>
+                            <jsp:include page="TPRS/views/app/nonIndividualWizard.jsp"/>
                         </div>
                     </div>
                 </section>
