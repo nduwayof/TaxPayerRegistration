@@ -24,8 +24,8 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">New Bank Account</h4>
                     </div>
+                         <form class="form-horizontal" id="bankAccount" action="bankProcess.jsp" method="POST">
                     <div class="modal-body">
-                        <form class="form-horizontal" id="bankAccount">
                             <div class="form-group">
                                 <div class="col-md-4">
                                     <label for="principalBankName">Bank Name</label>
@@ -87,12 +87,13 @@
                                     </select>
                                 </div>
                             </div>
-                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
+                                            </form>
+
                 </div>
             </div>
         </div>
@@ -106,8 +107,8 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">New Branch</h4>
                     </div>
+                                            <form class="form-horizontal" id="bankAccount" action="entrepriseBranchProcess.jsp" method="POST">
                     <div class="modal-body">
-                        <form class="form-horizontal" id="bankAccount">
                             <div class="form-group">
                                 <div class="col-md-4">
                                     <label for="nameOfBranch">Branch Name</label>
@@ -148,12 +149,13 @@
                                     <input type="text" class="form-control" name="branchProvince">
                                 </div>
                             </div>
-                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
+                                                                        </form>
+
                 </div>
             </div>
         </div>

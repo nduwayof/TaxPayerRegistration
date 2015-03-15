@@ -4,8 +4,12 @@
     Author     : Fabrice
 --%>
 
-<%@page import="com.djuma.Tax.TaxType"%>
+
+
 <%@page import="com.djuma.Tax.TaxPayerType"%>
+<%@page import="com.djuma.Tax.TaxType"%>
+
+
 <fieldset>
     <legend>Enterprise Owner's Info</legend>
     <br>
