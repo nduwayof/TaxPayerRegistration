@@ -159,7 +159,7 @@
                         <label for="province">Province</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="text" name="province" class="form-control">
+                        <input type="text" name="mailProvince" class="form-control">
                     </div>
                 </div>
             </div>

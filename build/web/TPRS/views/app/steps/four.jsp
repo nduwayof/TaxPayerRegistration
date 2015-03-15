@@ -43,7 +43,7 @@
                             <option>mainSectorActivity</option>
                             <option>mainSectorActivity</option>
                             <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>ß
+                            <option>mainSectorActivity</option>
                         </select>
                     </div>
                 </div>

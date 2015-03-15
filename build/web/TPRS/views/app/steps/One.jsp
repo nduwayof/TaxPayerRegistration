@@ -247,7 +247,7 @@
                             for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
                                 if (t.isDeletedStatus() == false) {
                         %>
-                    <input type="checkbox" name="taxpayerType" value="<%=t.getId()%>#" /><%=t.getTaxpayerType()%>
+                    <input type="checkbox" name="taxPayerTypeId" value="<%=t.getId()%>#" /><%=t.getTaxpayerType()%>
 
                         <%
                                 }
@@ -267,7 +267,7 @@
                                 if (t.isDeletedStatus() == false) {
                         %>
                         
-                       <input type="checkbox" name="taxType" value="<%=t.getId()%>#" /><%=t.getTaxType()%>
+                       <input type="checkbox" name="taxTypeId" value="<%=t.getId()%>#" /><%=t.getTaxType()%>
                         <%
                                 }
                             }

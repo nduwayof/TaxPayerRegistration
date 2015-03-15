@@ -51,7 +51,10 @@ public class test {
         Sub_Sector su=new Sub_Sector();
         su.setName("");
         su.setSectorId(1);
-        su.saveSubSector();
+        //su.saveSubSector();
+        for(Industry in:Industry.listIndistry()){
+        System.out.println(in.getName());
+        }
      
     }
 }
