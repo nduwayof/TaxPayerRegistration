@@ -4,14 +4,14 @@
     Author     : Fabrice
 --%>
 
-<%@page import="com.djuma.NonIndividual.NonIndividual"%>
+<%@page import="com.djuma.NonIndividual"%>
 <%
     String user = (String) session.getAttribute("userRole");
     if (user == null) {
 %>
 <jsp:forward page="login.jsp"/>
 <%
-    } else {
+} else {
         String userId = (String) session.getAttribute("userId");
         int lastTicket=NonIndividual.getLastTicket();
         int ticket=0;

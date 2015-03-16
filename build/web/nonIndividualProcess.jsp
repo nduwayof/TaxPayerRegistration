@@ -1,10 +1,12 @@
 <%-- 
-    Document   : enterpriseBranchProcess1
-    Created on : Mar 16, 2015, 1:35:48 AM
+    Document   : nonIndividualProcess
+    Created on : Mar 16, 2015, 3:17:00 PM
     Author     : SULAIMAN
 --%>
+<%@page import="com.djuma.Acount.Management.User"%>
 <%
     int currentIndividual=0;
+    String names="";
     String user = (String) session.getAttribute("userRole");
     if (user == null) {
 %>
@@ -12,12 +14,17 @@
 <%
 } else {
 String userId = (String) session.getAttribute("userId");
+ for (User u : User.listUser()) {
+            if (u.getId() == Integer.parseInt(userId)) {
+                names = u.getFirstName() + " " + u.getLastName();
+            }
+        }
  currentIndividual=(Integer)session.getAttribute("nonIndividualTicket");
 }
 
 %>
-<jsp:useBean id="br" class="com.djuma.NonIndividual_Branches" scope="request">
-    <jsp:setProperty name="br" property="*"/>    
+<jsp:useBean id="co" class="com.djuma.CommonNonIndividual" scope="request">
+    <jsp:setProperty name="co" property="*"/>    
 </jsp:useBean>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,8 +35,9 @@ String userId = (String) session.getAttribute("userId");
     </head>
     <body>
         <%
-        br.setNonIndividualId(currentIndividual);
-        br.saveBranch();
+        co.setNonIndividualId(currentIndividual);
+        co.setDoneBy(names);
+        co.saveCommonNonIndividual();
         response.sendRedirect("nonIndividual.jsp");
         %>
     </body>
