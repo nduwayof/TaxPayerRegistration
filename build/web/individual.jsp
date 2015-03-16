@@ -73,7 +73,8 @@
                 $('#civilId').hide();
                 $('#residentFabrice').hide();
                 $('#mailingAddress').hide();
-                 $('#businessActivity').hide()
+                 $('#businessActivity').hide();
+                 $('#oldTin').hide();
             });
             
              function showIndividual() {
@@ -119,6 +120,12 @@
             }
             function hideBusiness(){
                 $('#businessActivity').hide();
+            }
+            function showOldTin(){
+                $('#oldTin').show();
+            }
+            function hideOldTin(){
+                $('#oldTin').hide();
             }
         </script>
     </head>

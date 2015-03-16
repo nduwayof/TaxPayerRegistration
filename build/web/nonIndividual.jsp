@@ -4,6 +4,7 @@
     Author     : Fabrice
 --%>
 
+<%@page import="com.djuma.NonIndividual.NonIndividual"%>
 <%
     String user = (String) session.getAttribute("userRole");
     if (user == null) {
@@ -12,8 +13,19 @@
 <%
     } else {
         String userId = (String) session.getAttribute("userId");
+        int lastTicket=NonIndividual.getLastTicket();
+        int ticket=0;
+        if(NonIndividual.createNewTicket(lastTicket)){
+        NonIndividual in=new NonIndividual();
+        in.SaveNonIndividual();
+        ticket=NonIndividual.getLastTicket();
+        }else{
+          ticket=lastTicket;
+        }
+        session.setAttribute("nonIndividualTicket", ticket);
     }
 %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

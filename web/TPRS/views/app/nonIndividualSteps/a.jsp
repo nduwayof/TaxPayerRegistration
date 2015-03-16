@@ -110,7 +110,7 @@
         <div class="col-lg-6">
             <div class="form-group" id="residentFabrice">
                 <div class="col-lg-4">
-                    <label for="newResident">Your Resident</label>
+                    <label for="newResident">Your Country of Residence</label>
                 </div>
                 <div class="col-lg-8">
                     <jsp:include page="../steps/subSteps/residences.jsp"/>

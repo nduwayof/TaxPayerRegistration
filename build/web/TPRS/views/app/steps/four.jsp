@@ -4,6 +4,8 @@
     Author     : Fabrice
 --%>
 
+<%@page import="com.djuma.Sector.Sub_Sector"%>
+<%@page import="com.djuma.Sector.Sector"%>
 <fieldset>
     <legend>Activities Informations</legend>
     <br>
@@ -17,12 +19,12 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <label onclick="showBusiness()">
-                                <input type="radio" name="businessActivity" autocomplete="off"> Yes 
+                                <input type="radio" name="businessActivty" autocomplete="off" value="1"> Yes 
                             </label>
                         </div>
                         <div class="col-lg-6">
                             <label onclick="hideBusiness()">
-                                <input type="radio" name="businessActivity" autocomplete="off"> No
+                                <input type="radio" name="businessActivty" autocomplete="off" value="0"> No
                             </label>
                         </div>
                     </div>
@@ -38,16 +40,23 @@
                         <label for="mainSectorActivity">Main Sector Activity</label> 
                     </div>
                     <div class="col-lg-8">
-                        <select name="mainSectorActivity" class="form-control">
-                            <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>
-                        </select>
+                        <%
+                        for(Sector s: Sector.listSector()){
+                        //for(Sub_Sector su:Sub_Sector.listSubSector()){
+                        //if(s.getId()==su.getSectorId()){
+                        %>
+                        <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
+                        <%
+                       // }
+                       // }
+                        }
+                        %>
                     </div>
                 </div>
             </div>
+                </div>
+                </div>
+                <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">
@@ -58,7 +67,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+                </div>
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
@@ -71,7 +80,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">

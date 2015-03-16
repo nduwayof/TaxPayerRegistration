@@ -5,6 +5,9 @@
  */
 package com.djuma.Individual;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 /**
  *
  * @author SULAIMAN
@@ -12,42 +15,47 @@ package com.djuma.Individual;
 public class CommonIndividual {
     private int individualId;
     //individual
-    private String ownerSurname;
-    private String  ownerFirstName;
-    private String  dob;
-    private String deceadDate;
-    private String gender;
-   private String occupation;
-   private String nationality;
-   private String nationalId;
-   private String socialSecurityNumber;
-   private String passport;
-   private String homePhone;
-   private String workPhone;
-   private String cellPhone;
-   private String faxNo;
-   private String resident;
-   private String countryOfResidence;
-   private String civilStatus;
-   private String mariageName;
-   private String mariageSurname;
-   private String mariageDob;
-   private String photo;
-   private String notionalPhotocopy;
+    private String ownerSurname="";
+    private String  ownerFirstName="";
+    private String  dob="";
+    private String deceadDate="";
+    private String gender="";
+   private String occupation="";
+   private String nationality="";
+   private String nationalId="";
+   private String socialSecurityNumber="";
+   private String passport="";
+   private String homePhone="";
+   private String workPhone="";
+   private String cellPhone="";
+   private String faxNo="";
+   private String resident="0";
+   private String countryOfResidence="";
+   private String civilStatus="";
+   private String mariageName="";
+   private String mariageSurname="";
+   private String mariageDob="";
+   private String photo="";
+   private String notionalPhotocopy="";
+   private String tinNumber="";
+   private String oldTinNumber="";
+   private Timestamp doneAt=new Timestamp(new Date().getTime());
+  private String doneBy="";
+  
    
    //individualTaxPayerType
    
  //private String individualId;
- private String taxPayerTypeId;
+ private String taxPayerTypeId="";
  
  //individual TaxType
  
  //private int individualId;
- private String taxTypeId;
+ private String taxTypeId="";
  
  //activity
  
- private  boolean businessActivty;
+ private  boolean businessActivty=false;
     private double estmatedAnnualTurnOver;
     private int estimatedNumberOfEmployees;
     private String accountingMethod;
@@ -56,6 +64,7 @@ public class CommonIndividual {
     private boolean businessPremiseRented;
     //private int individualId;
     private int  sectorId;
+    private String mainSectorActivity;
     
     //Address
     
@@ -83,6 +92,9 @@ public class CommonIndividual {
     private String contactTitle;
     private String contactPhoneNo;
     //private int individualId;
+    
+
+    
 
     public int getIndividualId() {
         return individualId;
@@ -500,11 +512,58 @@ public class CommonIndividual {
         this.contactPhoneNo = contactPhoneNo;
     }
 
+    public String getMainSectorActivity() {
+        return mainSectorActivity;
+    }
+
+    public void setMainSectorActivity(String mainSectorActivity) {
+        this.mainSectorActivity = mainSectorActivity;
+    }
+
+    public String getTinNumber() {
+        return tinNumber;
+    }
+
+    public void setTinNumber(String tinNumber) {
+        this.tinNumber = tinNumber;
+    }
+
+    public String getOldTinNumber() {
+        return oldTinNumber;
+    }
+
+    public void setOldTinNumber(String oldTinNumber) {
+        this.oldTinNumber = oldTinNumber;
+    }
+
+    public Timestamp getDoneAt() {
+        return doneAt;
+    }
+
+    public void setDoneAt(Timestamp doneAt) {
+        this.doneAt = doneAt;
+    }
+
+    public String getDoneBy() {
+        return doneBy;
+    }
+
+    public void setDoneBy(String doneBy) {
+        this.doneBy = doneBy;
+    }
+    
+
     public CommonIndividual() {
     }
 
     
     public void saveIndividualInfo(){
+        if(businessActivty==true){
+      String sectorActivityParts[]=mainSectorActivity.split("#");
+      for(int d=0;d<sectorActivityParts.length;d++){
+      Individual_mainSectorActivity is=new Individual_mainSectorActivity(individualId,Integer.parseInt(sectorActivityParts[d]));
+      }
+        }
      String taxTypeParts[]=taxTypeId.split("#");
      for(int i=0; i<taxTypeParts.length;i++){
      IndividualTaxType it=new IndividualTaxType(individualId, Integer.parseInt(taxTypeParts[i]));
@@ -515,7 +574,7 @@ public class CommonIndividual {
      IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, Integer.parseInt(taxPayerTypeParts[j]));
      i.SaveTaxPayerType();
      }
-     Individual_Activity iac=new Individual_Activity(businessActivty, estmatedAnnualTurnOver, estimatedNumberOfEmployees, accountingMethod, mainSourceOfIncome, employmentMethod, businessPremiseRented, individualId, sectorId);
+     Individual_Activity iac=new Individual_Activity(businessActivty, estmatedAnnualTurnOver, estimatedNumberOfEmployees, accountingMethod, mainSourceOfIncome, employmentMethod, businessPremiseRented, individualId);
       iac.SaveActivity();
       Individual_Address iad=new Individual_Address(plotNo, street, sector, district, province, mailingAddress, mailHouseNo, mailStreet, mailPoBox, mailCity, mailSector, mailDistrict, mailProvince, individualId);
       iad.saveAddress();
@@ -523,8 +582,34 @@ public class CommonIndividual {
       ir.saveRepresentative();
       Individual_trade itr=new Individual_trade(mariageName, mailingAddress, mailDistrict, mailProvince, mailDistrict, street, contactPhoneNo, ownerFirstName, individualId);
       itr.saveTrade();
-      Individual in=new Individual(ownerSurname, ownerFirstName, dob, deceadDate, gender, occupation, nationality, nationalId, socialSecurityNumber, passport, homePhone, workPhone, cellPhone, faxNo, resident, countryOfResidence, civilStatus, mariageName, mariageSurname, mariageDob, photo, notionalPhotocopy);
-    in.setIndividualId(individualId);
+      Individual in=new Individual();
+      in.setIndividualId(individualId);
+      in.setOwnerSurname(ownerSurname);
+      in.setOwnerFirstName(ownerFirstName);
+    in.setDob(dob);
+    in.setDeceadDate(deceadDate);
+    in.setGender(gender);
+   in.setOccupation(occupation);
+   in.setNationality(nationality);
+   in.setNationalId(nationalId);
+   in.setSocialSecurityNumber(socialSecurityNumber);
+   in.setPassport(passport);
+   in.setHomePhone(homePhone);
+   in.setWorkPhone(workPhone);
+   in.setCellPhone(cellPhone);
+   in.setFaxNo(faxNo);
+   in.setResident(resident);
+   in.setCountryOfResidence(countryOfResidence);
+   in.setCivilStatus(civilStatus);
+   in.setMariageName(mariageName);
+   in.setMariageSurname(mariageSurname);
+   in.setMariageDob(mariageDob);
+   in.setPhoto(photo);
+   in.setNotionalPhotocopy(notionalPhotocopy);
+   in.setTinNumber(Individual.newTinNumber());
+   in.setOldTinNumber(oldTinNumber);
+   in.setDoneAt(doneAt);
+   in.setDoneBy(doneBy);
     in.UpdateIndividual();
     }
 }

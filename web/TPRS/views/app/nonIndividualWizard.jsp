@@ -25,7 +25,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">New Bank Account</h4>
                     </div>
-                    <form class="form-horizontal" id="bankAccount">
+                    <form class="form-horizontal" id="bankAccount" action="bankProcess1.jsp" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
                                 <div class="col-md-4">
@@ -108,7 +108,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">New Branch</h4>
                     </div>
-                    <form class="form-horizontal" id="bankAccount">
+                    <form class="form-horizontal" id="bankAccount" action="enterpriseBranchProcess1.jsp">
                         <div class="modal-body">
                             <div class="form-group">
                                 <div class="col-md-4">
@@ -170,7 +170,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">New Branch</h4>
                     </div>
-                    <form class="form-horizontal" id="bankAccount">
+                    <form class="form-horizontal" id="bankAccount" action="ownerShipProcess.jsp" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
                                 <div class="col-md-4">

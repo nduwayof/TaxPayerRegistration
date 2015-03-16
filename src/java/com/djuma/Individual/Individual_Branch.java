@@ -118,5 +118,28 @@ public class Individual_Branch {
     }
     return list;
     }
+       public static List<Individual_Branch>listBranchPerIndividual(int indId){
+    List<Individual_Branch>list=new ArrayList<Individual_Branch>();
+    try{
+    
+    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_branches where individualId=?");
+    djuma.setInt(1, indId);
+        ResultSet rs=djuma.executeQuery();
+        
+        while(rs.next()){
+        Individual_Branch b=new Individual_Branch();
+        b.setBranchId(rs.getInt(1));
+        b.setNameOfBranch(rs.getString(2));
+        b.setBranchAddress(rs.getString(3));
+        b.setBranchCity(rs.getString(4));
+        b.setBranchProvince(rs.getString(5));
+        b.setIndividualId(rs.getInt(6));
+        list.add(b);
+        }
+    }catch(Exception e){
+    
+    }
+    return list;
+    }
     
 }

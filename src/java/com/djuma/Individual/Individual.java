@@ -8,6 +8,7 @@ package com.djuma.Individual;
 import java.sql.PreparedStatement;
 import com.djuma.Connection.SetCon;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.*;
 /**
  *
@@ -38,7 +39,10 @@ public class Individual {
    private String photo="";
    private String notionalPhotocopy="";
    private boolean hasInfo;
-
+   private String tinNumber="";
+   private String oldTinNumber="";
+  private Timestamp doneAt=new Timestamp(new Date().getTime());
+  private String doneBy="";
     public int getIndividualId() {
         return individualId;
     }
@@ -233,6 +237,38 @@ public class Individual {
         this.hasInfo = hasInfo;
     }
 
+    public String getTinNumber() {
+        return tinNumber;
+    }
+
+    public void setTinNumber(String tinNumber) {
+        this.tinNumber = tinNumber;
+    }
+
+    public String getOldTinNumber() {
+        return oldTinNumber;
+    }
+
+    public void setOldTinNumber(String oldTinNumber) {
+        this.oldTinNumber = oldTinNumber;
+    }
+
+    public Timestamp getDoneAt() {
+        return doneAt;
+    }
+
+    public void setDoneAt(Timestamp doneAt) {
+        this.doneAt = doneAt;
+    }
+
+    public String getDoneBy() {
+        return doneBy;
+    }
+
+    public void setDoneBy(String doneBy) {
+        this.doneBy = doneBy;
+    }
+
     public Individual() {
     }
 
@@ -263,7 +299,7 @@ public class Individual {
    
     public void SaveIndividual(){
     try{
-        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         djuma.setString(1, ownerSurname);
         djuma.setString(2, ownerFirstName);
         djuma.setString(3, dob);
@@ -291,6 +327,10 @@ public class Individual {
         djuma.setString(21, photo);
         djuma.setString(22, notionalPhotocopy);
         djuma.setBoolean(23, false);
+        djuma.setString(24, tinNumber);
+        djuma.setString(25, oldTinNumber);
+        djuma.setTimestamp(26, doneAt);
+        djuma.setString(27, doneBy);
         djuma.execute();
     }catch(Exception e){
     
@@ -300,7 +340,7 @@ public class Individual {
     
     public void UpdateIndividual(){
     try{
-       PreparedStatement djuma=SetCon.getCon().prepareStatement("update individual set ownerSurname=?,ownerFirstName=?,dob=?,deceadDate=?,gender=?,occupatio=?,nationality=?,nationalId=?,socialSecurityNumber=?,passport=?,homePhone=?,workPhone=?,cellPhone=?,faxNo=?,resident=?,countryOfResidence=?,civilStatus=?,mariageName=?,mariageSurname=?,mariageDob=?,photo=?,notionalPhotocopy=?,hasInfo=? where id=?");
+       PreparedStatement djuma=SetCon.getCon().prepareStatement("update individual set ownerSurname=?,ownerFirstName=?,dob=?,deceadDate=?,gender=?,occupatio=?,nationality=?,nationalId=?,socialSecurityNumber=?,passport=?,homePhone=?,workPhone=?,cellPhone=?,faxNo=?,resident=?,countryOfResidence=?,civilStatus=?,mariageName=?,mariageSurname=?,mariageDob=?,photo=?,notionalPhotocopy=?,hasInfo=?,tinNumber=?,oldTinNumber=?,doneAt=?,doneBy=? where id=?");
         djuma.setString(1, ownerSurname);
         djuma.setString(2, ownerFirstName);
         djuma.setString(3, dob);
@@ -328,12 +368,15 @@ public class Individual {
         djuma.setString(21, photo);
         djuma.setString(22, notionalPhotocopy);
         djuma.setBoolean(23, true);
-        djuma.setInt(24, individualId);
+        djuma.setString(24, tinNumber);
+        djuma.setString(25, oldTinNumber);
+        djuma.setTimestamp(26, doneAt);
+        djuma.setString(27, doneBy);
+        djuma.setInt(28, individualId);
         djuma.execute();
     }catch(Exception e){
     
-    }
-    
+    } 
     }
     
     public static List<Individual>listIndividual(){
@@ -371,6 +414,10 @@ public class Individual {
         in.setPhoto(rs.getString(22));
         in.setNotionalPhotocopy(rs.getString(23));
         in.setHasInfo(rs.getBoolean(24));
+        in.setTinNumber(rs.getString(25));
+        in.setOldTinNumber(rs.getString(26));
+        in.setDoneAt(rs.getTimestamp(27));
+        in.setDoneBy(rs.getString(28));
         list.add(in);
         }
     }catch(Exception e){
@@ -398,4 +445,41 @@ public class Individual {
    }
    return check;
    }
+   
+   public static String newTinNumber(){
+    String msg="";
+    String lastTinNumber="";
+    String newTinNumber="";
+    for(Individual d: Individual.listIndividual()){
+        if(d.isHasInfo()){
+   lastTinNumber=d.getTinNumber();
+        }
+    }
+    
+    if(lastTinNumber.equalsIgnoreCase("")){
+            newTinNumber="TIN/IN/0001";
+            msg=newTinNumber;
+        }else{
+       lastTinNumber=lastTinNumber.substring(7);
+            if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) < 9) {
+                newTinNumber = "000" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) == 9) {
+                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) < 99) {
+                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) == 99) {
+                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) < 999) {
+                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) == 999) {
+                newTinNumber = "" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+            } else {
+                newTinNumber = "" + ((Integer.parseInt(lastTinNumber)) + 1);
+            }
+            msg="TIN/IN/"+newTinNumber;
+        }
+    
+    return msg;
+    
+    }
 }

@@ -6,6 +6,7 @@
 package com.djuma.Acount.Management;
 
 import com.djuma.Individual.Individual;
+import com.djuma.NonIndividual.NonIndividual;
 import com.djuma.Sector.Industry;
 import com.djuma.Sector.Sector;
 import com.djuma.Sector.Sub_Sector;
@@ -52,8 +53,13 @@ public class test {
         su.setName("");
         su.setSectorId(1);
         //su.saveSubSector();
-        for(Industry in:Industry.listIndistry()){
-        System.out.println(in.getName());
+       // for(Industry in:Industry.listIndistry()){
+        //System.out.println(in.getName());
+        //}
+        for(Individual in: Individual.listIndividual()){
+            if(in.isHasInfo()){
+        System.out.println(in.getTinNumber());
+            }
         }
      
     }

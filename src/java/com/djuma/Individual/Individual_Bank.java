@@ -156,4 +156,30 @@ public class Individual_Bank {
      return list;
     }
     
+     public static List<Individual_Bank>listBankPerIndividual(int indId){
+     List<Individual_Bank>list=new ArrayList<Individual_Bank>();
+     try{
+     PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_bank where individualId=?");
+     djuma.setInt(1, indId);
+         ResultSet rs=djuma.executeQuery();
+         while(rs.next()){
+         Individual_Bank b=new Individual_Bank();
+         b.setBankId(rs.getLong(1));
+         b.setPrincipalBankName(rs.getString(2));
+         b.setBranchName(rs.getString(3));
+         b.setBranchAddress(rs.getString(4));
+         b.setBranchSector(rs.getString(5));
+         b.setBranchDistrict(rs.getString(6));
+         b.setBankAccountNo(rs.getString(7));
+         b.setCurrency(rs.getString(8));
+         b.setIndividualId(rs.getInt(9));
+         list.add(b);
+         }
+     }catch(Exception e){
+     }
+     
+     return list;
+    }
+    
+    
 }

@@ -3,6 +3,11 @@
     Created on : Mar 13, 2015, 11:50:23 PM
     Author     : Fabrice
 --%>
+<%@page import="com.djuma.Individual.Individual_Branch"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="com.djuma.Individual.Individual_Bank"%>
+<%@page import="com.djuma.Individual.Individual"%>
 <%
     int currentIndividual=0;
     String user = (String) session.getAttribute("userRole");
@@ -25,13 +30,44 @@ String userId = (String) session.getAttribute("userId");
             </div>
             <div class="panel-body">
                 <div class="row">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">Bank Of Kigali</li>
-                        <li class="list-group-item">Rwanda Commercial Bank</li>
-                        <li class="list-group-item">CogeBank</li>
-                        <li class="list-group-item">Kenya Commercial Bank</li>
-                    </ul>
+                    <%
+                    List<Individual_Bank>list=Individual_Bank.listBankPerIndividual(currentIndividual);
+                    if(!list.isEmpty()){
+                    %>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>principalBankName</th>
+                                <th> branchName</th>
+                                <th> branchAddress</th>
+                                <th> branchSector</th>
+                                <th> branchDistrict</th>
+                                <th> bankAccountNo </th>
+                                <th> currency </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                            for(Individual_Bank ib: Individual_Bank.listBank()){
+                            if(ib.getIndividualId()==currentIndividual){
+                            %>
+                            <tr>
+                                <td><%=ib.getPrincipalBankName()%></td>
+                                <td><%=ib.getBranchName()%></td>
+                                <td><%=ib.getBranchAddress()%></td>
+                                <td><%=ib.getBranchSector()%></td>
+                                <td><%=ib.getBranchDistrict()%></td>
+                                <td></td>
+                                <td><%=ib.getBankAccountNo()%></td>
+                                <td><%=ib.getCurrency()%></td>
+                            </tr>
+                            <%
+                            }
+                            }
+                            %>
+                        </tbody>
+                    </table>
+                    <%} %>
                 </div>
             </div>
             <div class="panel-footer">
@@ -51,12 +87,37 @@ String userId = (String) session.getAttribute("userId");
             <div class="panel-body">
                 <div class="row">
 
-                    <ul class="list-group">
-                        <li class="list-group-item">Kibitoki</li>
-                        <li class="list-group-item">Giporoso</li>
-                        <li class="list-group-item">Bujumbura Rural</li>
-                        <li class="list-group-item">Mukamenge</li>
-                    </ul>
+                   <%
+                    List<Individual_Branch>listBranches=Individual_Branch.listBranchPerIndividual(currentIndividual);
+                    if(!listBranches.isEmpty()){
+                    %>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>nameOfBranch</th>
+                                <th> branchAddress</th>
+                                <th>  branchCity</th>
+                                <th>  branchProvince</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                            for(Individual_Branch ib: Individual_Branch.listBranch()){
+                            if(ib.getIndividualId()==currentIndividual){
+                            %>
+                            <tr>
+                                <td><%=ib.getNameOfBranch()%></td>
+                                <td><%=ib.getBranchAddress()%></td>
+                                <td><%=ib.getBranchCity()%></td>
+                                <td><%=ib.getBranchProvince()%></td>
+                            </tr>
+                            <%
+                            }
+                            }
+                            %>
+                        </tbody>
+                    </table>
+                    <%} %>
                 </div>
             </div>
             <div class="panel-footer">

@@ -73,7 +73,7 @@
             <div class="panel-footer">
                 <div class="row">
                     <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#ownerModal">
-                        Add New Branch
+                        Add New Enterprise Ownership Informations
                     </button>
                 </div>
             </div>

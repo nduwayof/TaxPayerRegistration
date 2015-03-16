@@ -3,8 +3,10 @@
     Created on : Mar 14, 2015, 9:05:25 PM
     Author     : SULAIMAN
 --%>
+<%@page import="com.djuma.Acount.Management.User"%>
 <%
     int currentIndividual=0;
+    String names="";
     String user = (String) session.getAttribute("userRole");
     if (user == null) {
 %>
@@ -12,6 +14,11 @@
 <%
 } else {
 String userId = (String) session.getAttribute("userId");
+        for (User u : User.listUser()) {
+            if (u.getId() == Integer.parseInt(userId)) {
+                names = u.getFirstName() + " " + u.getLastName();
+            }
+        }
  currentIndividual=(Integer)session.getAttribute("individualTicket");
 }
 
@@ -25,14 +32,14 @@ String userId = (String) session.getAttribute("userId");
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Process</title>
     </head>
     <body>
       <%
       c.setIndividualId(currentIndividual);
-      c.setSectorId(1);
+      c.setDoneBy(names);
       c.saveIndividualInfo();
-          
+      response.sendRedirect("individual.jsp");
       %>
     </body>
 </html>

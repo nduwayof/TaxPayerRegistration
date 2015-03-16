@@ -8,11 +8,49 @@
 
 <%@page import="com.djuma.Tax.TaxPayerType"%>
 <%@page import="com.djuma.Tax.TaxType"%>
+<%@page import="com.djuma.Individual.Individual"%>
 
 
 <fieldset>
     <legend>Enterprise Owner's Info</legend>
     <br>
+    <center> <h4>TIN number: <b style="color: blue"><%=Individual.newTinNumber()%></b></h4></center>
+    <hr>
+     <div class="row">
+         <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="status">Has Old TIN Number</label>
+                </div>
+                <div class="col-lg-8 radio icheck">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label onclick="showOldTin()">
+                                <input type="radio" name="alive" id="fabu" value="Yes" autocomplete="off"> Yes
+                            </label>
+                        </div>
+                        <div class="col-lg-4">
+                            <label onclick="hideOldTin()">
+                                <input type="radio" name="alive" id="febo" value="No" autocomplete="off"> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="oldTin">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="oldTinNumber">OLD TIN Number</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="oldTinNumber">
+                </div>
+            </div>
+        </div>
+         </div>
+    </div>
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
@@ -240,7 +278,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="taxpayerType">Type of Taxpayer</label>
+                    <label for="taxpayerType">Size of Taxpayer</label>
                 </div>
                 <div class="col-lg-8">
                         <%
@@ -264,7 +302,7 @@
                 <div class="col-lg-8">
                         <%
                             for (TaxType t : TaxType.listTaxType()) {
-                                if (t.isDeletedStatus() == false) {
+                                if (t.isDeletedStatus() == false&&!t.getTaxType().equalsIgnoreCase("CIT")) {
                         %>
                         
                        <input type="checkbox" name="taxTypeId" value="<%=t.getId()%>#" /><%=t.getTaxType()%>
@@ -354,7 +392,7 @@
                 <div class="col-lg-8">
                     <div class="btn btn-default btn-file">
                         <i class="fa fa-paperclip"></i> Attachment
-                        <input type="file" name="attachment" class="form-control"/>
+                        <input type="file" name="notionalPhotocopy" class="form-control"/>
                     </div>
                     <p class="help-block">Max. 32MB</p>
                 </div>

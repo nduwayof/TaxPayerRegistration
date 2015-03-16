@@ -22,7 +22,6 @@ public class Individual_Activity {
     private String employmentMethod;
     private boolean businessPremiseRented;
     private int individualId;
-    private int  sectorId;
 
     public Long getActivityId() {
         return activityId;
@@ -97,15 +96,7 @@ public class Individual_Activity {
         this.individualId = individualId;
     }
 
-    public int getSectorId() {
-        return sectorId;
-    }
-
-    public void setSectorId(int sectorId) {
-        this.sectorId = sectorId;
-    }
-
-    public Individual_Activity(boolean businessActivty, double estmatedAnnualTurnOver, int estimatedNumberOfEmployees, String accountingMethod, String mainSourceOfIncome, String employmentMethod, boolean businessPremiseRented, int individualId, int sectorId) {
+    public Individual_Activity(boolean businessActivty, double estmatedAnnualTurnOver, int estimatedNumberOfEmployees, String accountingMethod, String mainSourceOfIncome, String employmentMethod, boolean businessPremiseRented, int individualId) {
         this.businessActivty = businessActivty;
         this.estmatedAnnualTurnOver = estmatedAnnualTurnOver;
         this.estimatedNumberOfEmployees = estimatedNumberOfEmployees;
@@ -114,15 +105,15 @@ public class Individual_Activity {
         this.employmentMethod = employmentMethod;
         this.businessPremiseRented = businessPremiseRented;
         this.individualId = individualId;
-        this.sectorId = sectorId;
     }
+    
 
     public Individual_Activity() {
     }
     
     public void SaveActivity(){
     try{
-        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual_activity values(id,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual_activity values(id,?,?,?,?,?,?,?,?)");
         djuma.setBoolean(1, businessActivty);
         djuma.setDouble(2, estmatedAnnualTurnOver);
         djuma.setInt(3, estimatedNumberOfEmployees);
@@ -131,7 +122,6 @@ public class Individual_Activity {
         djuma.setString(6, employmentMethod);
         djuma.setBoolean(7, businessPremiseRented);
         djuma.setInt(8, individualId);
-        djuma.setInt(9, sectorId);
         djuma.execute();
     }catch(Exception e){
     
