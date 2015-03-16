@@ -151,7 +151,6 @@
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>
         </div>
-
         <script src="TPRS/bower_components/bootstrap/js/bootstrap.min.js"></script>
         <script>
             $.widget.bridge('uibutton', $.ui.button);
