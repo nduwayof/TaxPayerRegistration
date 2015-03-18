@@ -80,6 +80,25 @@
                 </div>
             </div>
         </div>
+                     <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="col-lg-3">
+                    <label for="employmentMethod">Employment Details</label>
+                </div>
+                <div class="col-lg-3">
+                    <label>
+                        <input type="checkbox" name="employmentMethod" value="full-time" autocomplete="off">Full Time
+                    </label>
+                </div>
+                <div class="col-lg-5">
+                    <label>
+                        <input type="checkbox" name="employmentMethod" value="part-time" autocomplete="off">Part Time
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
@@ -106,7 +125,7 @@
                     <label for="mainSourceOfIncome">Income Main Source</label>
                 </div>
                 <div class="col-lg-8">
-                    <select name="mainSourceOfIncome" class="form-control">
+                    <select name="mainSourceOfIncome">
                         <option>Business</option>
                         <option>Rental</option>
                         <option>Employment</option>
@@ -117,25 +136,7 @@
             </div>
         </div> 
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="form-group">
-                <div class="col-lg-3">
-                    <label for="employmentMethod">Employment Method</label>
-                </div>
-                <div class="col-lg-3">
-                    <label>
-                        <input type="checkbox" name="employmentMethod" value="full-time" autocomplete="off">Cash basis
-                    </label>
-                </div>
-                <div class="col-lg-5">
-                    <label>
-                        <input type="checkbox" name="employmentMethod" value="part-time" autocomplete="off">Accrual basis-accounting
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">

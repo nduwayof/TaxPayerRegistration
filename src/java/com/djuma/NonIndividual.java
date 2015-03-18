@@ -382,7 +382,7 @@ public class NonIndividual {
     }
     
     if(lastTinNumber.equalsIgnoreCase("")){
-            newTinNumber="TIN/NOIN/0001";
+            newTinNumber="TIN/NIN/0001";
             msg=newTinNumber;
         }else{
        lastTinNumber=lastTinNumber.substring(7);
@@ -401,7 +401,7 @@ public class NonIndividual {
             } else {
                 newTinNumber = "" + ((Integer.parseInt(lastTinNumber)) + 1);
             }
-            msg="TIN/NOIN/"+newTinNumber;
+            msg="TIN/NIN/"+newTinNumber;
         }
     
     return msg;

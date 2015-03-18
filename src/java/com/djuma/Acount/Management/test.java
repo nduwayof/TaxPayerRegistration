@@ -6,10 +6,11 @@
 package com.djuma.Acount.Management;
 
 import com.djuma.Individual.Individual;
-import com.djuma.NonIndividual.NonIndividual;
+
 import com.djuma.Sector.Industry;
 import com.djuma.Sector.Sector;
 import com.djuma.Sector.Sub_Sector;
+import com.djuma.Tax.TaxPayerType;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -41,7 +42,9 @@ public class test {
 //        }catch(Exception e){
 //        System.out.println(e.getMessage());
 //        }
-        
+        TaxPayerType t=new TaxPayerType();
+        t.setTaxpayerType("Large");
+        t.save();
         Industry i=new Industry();
         i.setName("Agriculture");
         //i.saveIndustry();

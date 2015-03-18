@@ -4,6 +4,7 @@
     Author     : Fabrice
 --%>
 
+<%@page import="com.djuma.Sector.Sector"%>
 <fieldset>
     <legend>Representative Contact & Activities Informations</legend>
     <br>
@@ -105,7 +106,7 @@
             </div>
         </div>
     </div>
-    <div id="businessActivity">
+       <div id="businessActivity">
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
@@ -113,18 +114,22 @@
                         <label for="mainSectorActivity">Main Sector Activity</label> 
                     </div>
                     <div class="col-lg-8">
-                        <select name="mainSectorActivity" class="form-control">
-                            <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>
-                            <option>mainSectorActivity</option>ß
-                        </select>
+                        <%
+                        for(Sector s: Sector.listSector()){
+                        //for(Sub_Sector su:Sub_Sector.listSubSector()){
+                        //if(s.getId()==su.getSectorId()){
+                        %>
+                        <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
+                        <%
+                       // }
+                       // }
+                        }
+                        %>
                     </div>
                 </div>
-                    </div>
-                    </div>
             </div>
+                </div>
+                </div>
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">

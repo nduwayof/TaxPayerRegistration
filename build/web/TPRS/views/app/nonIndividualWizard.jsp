@@ -6,14 +6,14 @@
 
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
-    <form id="SignupForm" action="" class="form-horizontal">
+    <form id="SignupForm" action="nonIndividualProcess.jsp" class="form-horizontal" method="POST">
         <jsp:include page="nonIndividualSteps/a.jsp"/>
         <jsp:include page="nonIndividualSteps/b.jsp"/>
         <jsp:include page="nonIndividualSteps/c.jsp"/>
         <jsp:include page="nonIndividualSteps/d.jsp"/>
         <jsp:include page="nonIndividualSteps/e.jsp"/>
         <p class="text-center">
-            <input id="SaveAccount" class="btn btn-success btn-lg" type="button" value="Submit form" />
+            <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="Submit form" />
         </p>
     </form>
     <%-- Bank Account Modal--%>
@@ -193,7 +193,7 @@
                                     <label for="parcentage">Percentage</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" name="parcentage">
+                                    <input type="number" class="form-control" name="parcentage">
                                 </div>
                             </div>
                         </div>

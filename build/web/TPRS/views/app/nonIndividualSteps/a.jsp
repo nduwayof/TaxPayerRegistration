@@ -4,9 +4,48 @@
     Author     : Fabrice
 --%>
 
+<%@page import="com.djuma.NonIndividual"%>
+<%@page import="com.djuma.Tax.TaxType"%>
+<%@page import="com.djuma.Tax.TaxPayerType"%>
 <fieldset>
     <legend>Enterprise Informations</legend>
     <br>
+     <center> <h4>TIN : <b style="color: blue"><%=NonIndividual.newTinNumber()%></b></h4></center>
+        <div class="row">
+         <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="status">Has Old TIN</label>
+                </div>
+                <div class="col-lg-8 radio icheck">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label onclick="showOldTin()">
+                                <input type="radio" name="alive" id="fabu" value="Yes" autocomplete="off"> Yes
+                            </label>
+                        </div>
+                        <div class="col-lg-4">
+                            <label onclick="hideOldTin()">
+                                <input type="radio" name="alive" id="febo" value="No" autocomplete="off"> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="oldTin">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="oldTinNumber">OLD TIN Number</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="oldTinNumber">
+                </div>
+            </div>
+        </div>
+         </div>
+    </div>
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
@@ -202,6 +241,46 @@
                 </div>
                 <div class="col-lg-8">
                     <input type="text" class="form-control" name="sharesValue"/>
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="taxpayerType">Size of Taxpayer</label>
+                </div>
+                <div class="col-lg-8">
+                        <%
+                            for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
+                                if (t.isDeletedStatus() == false) {
+                        %>
+                    <input type="checkbox" name="taxPayerTypeId" value="<%=t.getId()%>#" /><%=t.getTaxpayerType()%>
+
+                        <%
+                                }
+                            }
+                        %>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="taxType">Type of Taxes</label>
+                </div>
+                <div class="col-lg-8">
+                        <%
+                            for (TaxType t : TaxType.listTaxType()) {
+                                if (t.isDeletedStatus() == false&&!t.getTaxType().equalsIgnoreCase("PIT")) {
+                        %>
+                        
+                       <input type="checkbox" name="taxTypeId" value="<%=t.getId()%>#" /><%=t.getTaxType()%>
+                        <%
+                                }
+                            }
+                        %>
                 </div>
             </div>
         </div>

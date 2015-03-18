@@ -56,7 +56,6 @@ String userId = (String) session.getAttribute("userId");
                                 <td><%=ib.getBranchAddress()%></td>
                                 <td><%=ib.getBranchSector()%></td>
                                 <td><%=ib.getBranchDistrict()%></td>
-                                <td></td>
                                 <td><%=ib.getBankAccountNo()%></td>
                                 <td><%=ib.getCurrency()%></td>
                             </tr>

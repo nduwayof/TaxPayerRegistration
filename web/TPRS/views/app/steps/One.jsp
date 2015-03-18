@@ -14,13 +14,13 @@
 <fieldset>
     <legend>Enterprise Owner's Info</legend>
     <br>
-    <center> <h4>TIN number: <b style="color: blue"><%=Individual.newTinNumber()%></b></h4></center>
+    <center> <h4>TIN : <b style="color: blue"><%=Individual.newTinNumber()%></b></h4></center>
     <hr>
      <div class="row">
          <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="status">Has Old TIN Number</label>
+                    <label for="status">Has Old TIN</label>
                 </div>
                 <div class="col-lg-8 radio icheck">
                     <div class="row">
