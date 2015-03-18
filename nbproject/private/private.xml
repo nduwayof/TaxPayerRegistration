@@ -3,17 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/nonIndividualSteps/c.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/nonIndividualSteps/a.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Connection/SetCon.java</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/nonIndividualSteps/b.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/nonIndividualSteps/e.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/navbar.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/CommonIndividual.java</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/Individual.java</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/de_Register.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/four.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/individual.jsp</file>
-            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/nonIndividualSteps/d.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/deRegistration.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/One.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/nonIndividualWizard.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/nonIndividual.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/viewIndividual.jsp</file>
+            <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/listIndividual.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/individualWizard.jsp</file>
             <file>file:/Users/Fabrice/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/five.jsp</file>
         </group>

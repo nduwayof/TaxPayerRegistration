@@ -53,6 +53,7 @@
                 <br>
                 <section class="content">
                     <jsp:include page="TPRS/views/app/viewIndividual.jsp"/>
+                    <jsp:include page="TPRS/views/app/de_Register.jsp"/>
                 </section>
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>
