@@ -3,6 +3,22 @@
     Created on : Mar 9, 2015, 7:59:30 PM
     Author     : Fabrice
 --%>
+<%@page import="com.djuma.Individual.Individual_Branch"%>
+<%@page import="java.util.List"%>
+<%@page import="com.djuma.Individual.Individual_Bank"%>
+<%
+    int currentIndividual=0;
+    String user = (String) session.getAttribute("userRole");
+    if (user == null) {
+%>
+<jsp:forward page="login.jsp"/>
+<%
+} else {
+String userId = (String) session.getAttribute("userId");
+ currentIndividual=(Integer)session.getAttribute("individualTicket");
+}
+
+%>
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
     <form id="SignupForm" action="individualProcess.jsp" class="form-horizontal" method="POST">
@@ -24,6 +40,39 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">New Bank Account</h4>
                     </div>
+                    <%
+                    List<Individual_Bank>list=Individual_Bank.listBankPerIndividual(currentIndividual);
+                    if(!list.isEmpty()){
+                    %>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Bank Name / Branch</th>
+                                <th> Address</th>
+                                <th> Account Number</th>
+                                <th> Currency </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                            for(Individual_Bank ib: Individual_Bank.listBank()){
+                            if(ib.getIndividualId()==currentIndividual){
+                            %>
+                            <tr>
+                                <td>
+                                    <%=ib.getPrincipalBankName()%> - <%=ib.getBranchName()%>
+                                </td>
+                                <td><%=ib.getBranchAddress()%></td>
+                                <td><%=ib.getBankAccountNo()%></td>
+                                <td><%=ib.getCurrency()%></td>
+                            </tr>
+                            <%
+                            }
+                            }
+                            %>
+                        </tbody>
+                    </table>
+                    <%} %>
                     <form class="form-horizontal" id="bankAccount" action="bankProcess.jsp" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
@@ -107,6 +156,38 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">New Branch</h4>
                     </div>
+                    
+                <%                       
+                    List<Individual_Branch> listBranches = Individual_Branch.listBranchPerIndividual(currentIndividual);
+                    if (!listBranches.isEmpty()) {
+                %>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>nameOfBranch</th>
+                            <th> branchAddress</th>
+                            <th>  branchCity</th>
+                            <th>  branchProvince</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            for (Individual_Branch ib : Individual_Branch.listBranch()) {
+                                if (ib.getIndividualId() == currentIndividual) {
+                        %>
+                        <tr>
+                            <td><%=ib.getNameOfBranch()%></td>
+                            <td><%=ib.getBranchAddress()%></td>
+                            <td><%=ib.getBranchCity()%></td>
+                            <td><%=ib.getBranchProvince()%></td>
+                        </tr>
+                        <%
+                                }
+                            }
+                        %>
+                    </tbody>
+                </table>
+                <%}%>
                     <form class="form-horizontal" id="bankAccount" action="entrepriseBranchProcess.jsp" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
