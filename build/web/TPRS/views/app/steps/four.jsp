@@ -41,46 +41,46 @@
                     </div>
                     <div class="col-lg-8">
                         <%
-                        for(Sector s: Sector.listSector()){
+                            for (Sector s : Sector.listSector()) {
                         //for(Sub_Sector su:Sub_Sector.listSubSector()){
-                        //if(s.getId()==su.getSectorId()){
-                        %>
+                                //if(s.getId()==su.getSectorId()){
+%>
                         <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
                         <%
                        // }
-                       // }
-                        }
+                                // }
+                            }
                         %>
-                    </div>
-                </div>
-            </div>
-                </div>
-                </div>
-                <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="text" name="estmatedAnnualTurnOver" class="form-control">
-                    </div>
-                </div>
-            </div>
-                </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="estimatedNumberOfEmployees">Estimated Employees</label>
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="number" name="estimatedNumberOfEmployees" class="form-control">
                     </div>
                 </div>
             </div>
         </div>
-                     <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" name="estmatedAnnualTurnOver" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="estimatedNumberOfEmployees">Estimated Employees</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="number" name="estimatedNumberOfEmployees" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
                 <div class="col-lg-3">
@@ -119,24 +119,27 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <div class="form-group">
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <label for="mainSourceOfIncome">Income Main Source</label>
                 </div>
                 <div class="col-lg-8">
-                    <select name="mainSourceOfIncome">
-                        <option>Business</option>
-                        <option>Rental</option>
-                        <option>Employment</option>
-                        <option>Investment</option>
-                        <option>Other</option>
-                    </select>
+                    <div class="input-group">
+                        <select name="mainSourceOfIncome" class="form-control">
+                            <option>Business</option>
+                            <option>Rental</option>
+                            <option>Employment</option>
+                            <option>Investment</option>
+                            <option>Other</option>
+                        </select>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                    </div>
                 </div>
             </div>
         </div> 
     </div>
-   
+
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
