@@ -170,7 +170,7 @@
                     <label for="nationalId">National ID</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" name="nationalId" placeholder="National ID">
+                    <input type="text" class="form-control" name="nationalId" placeholder="National ID">                    
                 </div>
             </div>
         </div>
