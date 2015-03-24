@@ -376,27 +376,13 @@
                 <div class="col-lg-8">
                     <div class="btn btn-default btn-file">
                         <i class="fa fa-paperclip"></i> Attachment
-                        <input type="file" name="photo" class="form-control"/>
+                        <input type="file" name="photo" value="" />
+                       
                     </div>
-                    <p class="help-block">Max. 32MB</p>
+                    <p class="help-block">Max. 2MB</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="form-group">
-                <div class="col-lg-4">
-                    <label for="attachment">Please attach your national Id Photocopy</label>
-                </div>
-                <div class="col-lg-8">
-                    <div class="btn btn-default btn-file">
-                        <i class="fa fa-paperclip"></i> Attachment
-                        <input type="file" name="notionalPhotocopy" class="form-control"/>
-                    </div>
-                    <p class="help-block">Max. 32MB</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </fieldset>

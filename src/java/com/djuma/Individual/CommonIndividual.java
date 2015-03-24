@@ -41,6 +41,7 @@ public class CommonIndividual {
    private String oldTinNumber="";
    private Timestamp doneAt=new Timestamp(new Date().getTime());
   private String doneBy="";
+  private boolean  deRegistered=false;
   
    
    //individualTaxPayerType
@@ -52,6 +53,7 @@ public class CommonIndividual {
  
  //private int individualId;
  private String taxTypeId="";
+ private boolean optionVat=true;
  
  //activity
  
@@ -295,6 +297,15 @@ public class CommonIndividual {
     public void setTaxTypeId(String taxTypeId) {
         this.taxTypeId = taxTypeId;
     }
+
+    public boolean isOptionVat() {
+        return optionVat;
+    }
+
+    public void setOptionVat(boolean optionVat) {
+        this.optionVat = optionVat;
+    }
+    
 
     public boolean isBusinessActivty() {
         return businessActivty;
@@ -551,6 +562,14 @@ public class CommonIndividual {
     public void setDoneBy(String doneBy) {
         this.doneBy = doneBy;
     }
+
+    public boolean isDeRegistered() {
+        return deRegistered;
+    }
+
+    public void setDeRegistered(boolean deRegistered) {
+        this.deRegistered = deRegistered;
+    }
     
 
     public CommonIndividual() {
@@ -558,6 +577,11 @@ public class CommonIndividual {
 
     
     public void saveIndividualInfo(){
+       if(estmatedAnnualTurnOver>=20000000){
+       optionVat=false;
+       }else{
+       optionVat=true;
+       }
         if(businessActivty==true){
       String sectorActivityParts[]=mainSectorActivity.split("#");
       for(int d=0;d<sectorActivityParts.length;d++){
@@ -567,6 +591,7 @@ public class CommonIndividual {
      String taxTypeParts[]=taxTypeId.split("#");
      for(int i=0; i<taxTypeParts.length;i++){
      IndividualTaxType it=new IndividualTaxType(individualId, Integer.parseInt(taxTypeParts[i]));
+     it.setOptionVat(optionVat);
      it.SaveTaxType();
      }
      String taxPayerTypeParts[]=taxPayerTypeId.split("#");
@@ -610,6 +635,8 @@ public class CommonIndividual {
    in.setOldTinNumber(oldTinNumber);
    in.setDoneAt(doneAt);
    in.setDoneBy(doneBy);
+   in.setDeRegistered(deRegistered);
+   in.setDocNumber(Individual.getNewDocumentId());
     in.UpdateIndividual();
     }
 }

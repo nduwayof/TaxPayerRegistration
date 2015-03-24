@@ -4,16 +4,28 @@
     Author     : Fabrice
 --%>
 
+<%@page import="com.djuma.Acount.Management.User"%>
 <%
+    int currentIndividual=0;
+    String names="";
     String user = (String) session.getAttribute("userRole");
     if (user == null) {
 %>
 <jsp:forward page="login.jsp"/>
 <%
-    } else {
-        String userId = (String) session.getAttribute("userId");
-    }
+} else {
+String userId = (String) session.getAttribute("userId");
+        for (User u : User.listUser()) {
+            if (u.getId() == Integer.parseInt(userId)) {
+                names = u.getFirstName() + " " + u.getLastName();
+            }
+        }
+ currentIndividual=(Integer)session.getAttribute("individualTicket");
+}
+
 %>
+<jsp:useBean id="d" class="com.djuma.Individual.Individual_Deregistration" scope="request">
+</jsp:useBean>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,6 +43,7 @@
         <link href="TPRS/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+        <link href="TPRS/css/custom.css" rel="stylesheet" type="text/css" />
 
         <script src="TPRS/bower_components/jquery/js/jquery.min.js"></script>
       
@@ -56,8 +69,44 @@
                             <h3>De-Register Enterprise</h3>
                         </div>
                         <div class="panel-body">
-                            
-                        </div>
+                            <div>
+                                <h5 class="errorMsg">${d.error}</h5>
+                                <h5 class="infoMsg">${d.info}</h5>
+
+                            </div>
+                            <form action="deregistrationProcess.jsp" method="POST">                       
+                            <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="tinNumber">TIN</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="tinNumber" required="" value="${d.tinNumber}">
+                </div>
+            </div>
+        </div>
+            </div>
+                            <br/>
+            <div class="row">
+            <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="tinNumber">Reason</label>
+                </div>
+                <div class="col-lg-4">
+                    <textarea name="reason" rows="4" cols="20" maxlength="255">
+                    
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        </div>
+           <p class="text-left">
+            <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="Submit" />
+        </p>
+                                    </form>  
+
                     </div>
                 </section>
             </div>

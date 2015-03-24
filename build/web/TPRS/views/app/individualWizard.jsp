@@ -5,7 +5,7 @@
 --%>
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
-    <form id="SignupForm" action="individualProcess.jsp" class="form-horizontal" method="POST">
+    <form id="SignupForm" action="individualProcess.jsp" class="form-horizontal" method="POST" enctype="multipart/form-data">
         <jsp:include page="steps/One.jsp"/>
         <jsp:include page="steps/two.jsp"/>
         <jsp:include page="steps/three.jsp"/>

@@ -47,7 +47,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-5">
-                        <label for="contactName">Contact Name?</label>
+                        <label for="contactName">Contact Name</label>
                     </div>
                     <div class="col-lg-7">
                         <input type="text" name="contactName" class="form-control">

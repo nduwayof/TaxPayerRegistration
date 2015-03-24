@@ -63,7 +63,7 @@
                         <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
                     </div>
                     <div class="col-lg-8">
-                        <input type="text" name="estmatedAnnualTurnOver" class="form-control">
+                        <input type="text" name="estmatedAnnualTurnOver" class="form-control" required="">
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                         <label for="estimatedNumberOfEmployees">Estimated Employees</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="number" name="estimatedNumberOfEmployees" class="form-control">
+                        <input type="number" name="estimatedNumberOfEmployees" class="form-control" required="">
                     </div>
                 </div>
             </div>
@@ -122,7 +122,7 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <div class="col-lg-3">
-                    <label for="mainSourceOfIncome">Income Main Source</label>
+                    <label for="mainSourceOfIncome">Main Source Source of Income</label>
                 </div>
                 <div class="col-lg-8">
                     <select name="mainSourceOfIncome">

@@ -7,6 +7,9 @@ package com.djuma.Individual;
 
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -66,6 +69,21 @@ public class Individual_mainSectorActivity {
     }catch(Exception e){
     
     }
+    }
+    
+    public static List<Individual_mainSectorActivity>list(){
+    List<Individual_mainSectorActivity>l=new ArrayList<Individual_mainSectorActivity>();
+    try{
+    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_mainSectorActivity");
+        ResultSet rs=djuma.executeQuery();
+        while(rs.next()){
+        Individual_mainSectorActivity in=new Individual_mainSectorActivity();
+        in.setIndividualId(rs.getInt(1));
+        in.setSectorId(rs.getInt(2));
+        l.add(in);
+        }
+    }catch(Exception e){}
+    return l;
     }
     
 }

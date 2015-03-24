@@ -7,13 +7,16 @@ package com.djuma.Individual;
 
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author SULAIMAN
  */
 public class Individual_representative {
-    private int representativeId;
+    private Long representativeId;
     private String  taxpayerRepresentativeName;
     private String  representativeTitle;
     private String representativePhoneNo;
@@ -22,13 +25,15 @@ public class Individual_representative {
     private String contactPhoneNo;
     private int individualId;
 
-    public int getRepresentativeId() {
+    public Long getRepresentativeId() {
         return representativeId;
     }
 
-    public void setRepresentativeId(int representativeId) {
+    public void setRepresentativeId(Long representativeId) {
         this.representativeId = representativeId;
     }
+
+    
 
     public String getTaxpayerRepresentativeName() {
         return taxpayerRepresentativeName;
@@ -113,5 +118,26 @@ public class Individual_representative {
    
    
    } 
+    public static List<Individual_representative>list(){
+    List<Individual_representative>l=new ArrayList<Individual_representative>();
+    try{
+    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_representative");
+        ResultSet rs=djuma.executeQuery();
+        while(rs.next()){
+        Individual_representative in=new Individual_representative();
+        in.setRepresentativeId(rs.getLong(1));
+        in.setTaxpayerRepresentativeName(rs.getString(2));
+        in.setRepresentativeTitle(rs.getString(3));
+        in.setRepresentativePhoneNo(rs.getString(4));
+        in.setContactName(rs.getString(5));
+        in.setContactTitle(rs.getString(6));
+        in.setContactPhoneNo(rs.getString(7));
+        in.setIndividualId(rs.getInt(8));
+        l.add(in);
+        }
+    }catch(Exception e){
     
+    }
+    return l;
+    }    
 }

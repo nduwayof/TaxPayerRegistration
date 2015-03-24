@@ -1,0 +1,18 @@
+SMAP
+viewIndividual_jsp.java
+JSP
+*S JSP
+*F
++ 0 viewIndividual.jsp
+TPRS/views/app/viewIndividual.jsp
+*L
+5,21:45
+26,3:67
+28,2:70
+30:72,3
+31:75,5
+32,2:80,3
+34,4:86
+38,3:91
+40,24:94
+*E
