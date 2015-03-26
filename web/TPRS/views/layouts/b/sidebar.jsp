@@ -89,6 +89,17 @@
                     <li><a href="#"><i class="fa fa-circle-o"></i> Non Individual</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file"></i>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    <span>Reports</span>
+                    <span class="label label-primary pull-right">1</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="reports.jsp"><i class="fa fa-circle-o"></i>Reports</a></li>
+                </ul>
+            </li>
             <%
                 }
             %>
