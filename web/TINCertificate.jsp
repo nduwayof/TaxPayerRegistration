@@ -85,7 +85,7 @@
 
             try {
                 for (Individual in : Individual.listIndividual()) {
-                    if (in.getIndividualId() == (currentIndividual)) {
+                    if (in.getIndividualId() == (currentIndividual-1)) {
           // Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
                         //image.setAlignment(Element.ALIGN_LEFT);
                         //image.setAbsolutePosition(50f, 50f);

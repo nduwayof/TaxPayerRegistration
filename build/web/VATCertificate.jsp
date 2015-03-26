@@ -30,6 +30,26 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 
+
+<%
+    int currentIndividual = 0;
+    String names = "";
+    String user = (String) session.getAttribute("userRole");
+    if (user == null) {
+%>
+<jsp:forward page="login.jsp"/>
+<%
+    } else {
+        String userId = (String) session.getAttribute("userId");
+        for (User u : User.listUser()) {
+            if (u.getId() == Integer.parseInt(userId)) {
+                names = u.getFirstName() + " " + u.getLastName();
+            }
+        }
+        currentIndividual = (Integer) session.getAttribute("individualTicket");
+    }
+
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -69,7 +89,7 @@
 
             try {
                 for (Individual in : Individual.listIndividual()) {
-                    if (in.getIndividualId() == 29) {
+                    if (in.getIndividualId() == (currentIndividual-1)) {
           // Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
                         //image.setAlignment(Element.ALIGN_LEFT);
                         //image.setAbsolutePosition(50f, 50f);
