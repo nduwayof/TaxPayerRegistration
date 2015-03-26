@@ -22,11 +22,15 @@ String userId = (String) session.getAttribute("userId");
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
     <form id="SignupForm" action="individualProcess.jsp" class="form-horizontal" method="POST" enctype="multipart/form-data">
+        <div id="steping">
         <jsp:include page="steps/One.jsp"/>
         <jsp:include page="steps/two.jsp"/>
         <jsp:include page="steps/three.jsp"/>
         <jsp:include page="steps/four.jsp"/>
+        </div>
+        <idv id="contents">
         <jsp:include page="steps/five.jsp"/>
+        </idv>
         <p class="text-center">
             <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="Submit form" />
         </p>
@@ -73,7 +77,7 @@ String userId = (String) session.getAttribute("userId");
                         </tbody>
                     </table>
                     <%} %>
-                    <form class="form-horizontal" id="bankAccount" action="bankProcess.jsp" method="POST">
+                    <form class="form-horizontal" id="bankAccount" >
                         <div class="modal-body">
                             <div class="form-group">
                                 <div class="col-md-4">
@@ -139,7 +143,7 @@ String userId = (String) session.getAttribute("userId");
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <a type="submit" class="btn btn-primary" href="javascript:void(0)" onclick="saveBank()" data-dismiss="modal">Save changes</a>
                         </div>
                     </form>
 
@@ -233,7 +237,7 @@ String userId = (String) session.getAttribute("userId");
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <a type="submit" class="btn btn-primary" href="javascript:void(0)" onclick="saveBank()" data-dismiss="modal">Save changes</a>
                         </div>
                     </form>
 
@@ -243,3 +247,15 @@ String userId = (String) session.getAttribute("userId");
     </div>
 </div>
 <div class="col-lg-1"></div>
+<script>
+    function saveBank(){
+        var formDat=[];
+        formDat=$("#bankAccount").serializeArray();
+        $.post("bankProcess.jsp",formDat,
+        function(data){
+            $("#contents").html(data);   
+             $("#steping").hide();
+        }
+        )
+    }
+</script>

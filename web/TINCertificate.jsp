@@ -121,6 +121,7 @@ String userId = (String) session.getAttribute("userId");
             PdfPTable table = new PdfPTable(1);
             table.setWidthPercentage(40);
             PdfPCell cell = new PdfPCell();
+            //cell.setFixedHeight(20f);
             cell.setMinimumHeight(40);
             cell.setVerticalAlignment(Element.ALIGN_CENTER);
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);

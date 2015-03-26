@@ -158,14 +158,14 @@ String userId = (String) session.getAttribute("userId");
             
             try {    
             for(Individual in: Individual.listIndividual()) {
-            //if(in.getIndividualId()==29){
-           Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
-           image.setAlignment(Element.ALIGN_LEFT);
+            if(in.getIndividualId()==(currentIndividual)){
+          // Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
+           //image.setAlignment(Element.ALIGN_LEFT);
            //image.setAbsolutePosition(50f, 50f);
-           image.scaleAbsolute(150, 90);
-           image.setBorderWidth(40);
+           //image.scaleAbsolute(150, 90);
+           //image.setBorderWidth(40);
            //image.setWidthPercentage(widthPercentage);
-           document.add((Element) image);
+           //document.add((Element) image);
            
             Paragraph par2 = new Paragraph(new Chunk( " Names:  "+in.getOwnerSurname()+" "+in.getOwnerFirstName(), font3));
             par2.setAlignment(Element.ALIGN_LEFT);
@@ -217,7 +217,7 @@ String userId = (String) session.getAttribute("userId");
             document.add(par9);
             document.add(new Paragraph("\n")); 
                 }
-               // }
+                }
                 
                
             } catch (Exception e) {
