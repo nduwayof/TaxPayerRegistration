@@ -7,6 +7,9 @@ package com.djuma.Individual;
 
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -127,6 +130,28 @@ public class Individual_Activity {
     
     }
     
+    }
+    public static List<Individual_Activity>listIndividualActivities(){
+List<Individual_Activity>list=new ArrayList<Individual_Activity>();
+try{
+PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_activity");
+    ResultSet rs=djuma.executeQuery();
+    while(rs.next()){
+    Individual_Activity in=new Individual_Activity();
+    in.setActivityId(rs.getLong(1));
+    in.setBusinessActivty(rs.getBoolean(2));
+    in.setEstmatedAnnualTurnOver(rs.getDouble(3));
+    in.setEstimatedNumberOfEmployees(rs.getInt(4));
+    in.setAccountingMethod(rs.getString(5));
+    in.setMainSourceOfIncome(rs.getString(6));
+    in.setBusinessPremiseRented(rs.getBoolean(7));
+    in.setIndividualId(rs.getInt(8));
+    list.add(in);
+    }
+}catch(Exception e){
+
+}
+return list;
     }
     
 }

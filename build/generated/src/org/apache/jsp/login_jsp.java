@@ -62,6 +62,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"TPRS/bower_components/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
       out.write("        <link href=\"TPRS/bower_components/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
       out.write("        <link href=\"TPRS/css/TPRS.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
+      out.write("        <link href=\"TPRS/css/custom.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
       out.write("        <link href=\"TPRS/plugins/iCheck/square/blue.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
       out.write("    </head>\n");
       out.write("    <body class=\"login-page\">\n");
@@ -71,12 +72,14 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("            <div class=\"login-box-body\">\n");
       out.write("                <p class=\"login-box-msg\">Sign in to start your session</p>\n");
-      out.write("                <h1>");
+      out.write("                <h10 class=\"errorMsg\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lo.error}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("</h1>\n");
-      out.write("                <form action=\"login.jsp\" method=\"post\">\n");
+      out.write("</h10>\n");
+      out.write("                <form action=\"loginProcess.jsp\" method=\"post\">\n");
       out.write("                    <div class=\"form-group has-feedback\">\n");
-      out.write("                        <input type=\"text\" class=\"form-control\" placeholder=\"username\" name=\"username\"/>\n");
+      out.write("                        <input type=\"text\" class=\"form-control\" placeholder=\"username\" name=\"username\" required=\"\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lo.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\"/>\n");
       out.write("                        <span class=\"glyphicon glyphicon-user form-control-feedback\"></span>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group has-feedback\">\n");

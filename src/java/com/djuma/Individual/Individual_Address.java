@@ -7,6 +7,9 @@ package com.djuma.Individual;
 
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -190,7 +193,34 @@ public class Individual_Address {
      djuma.execute();
  }catch(Exception e){}
  
+ }
  
+ public static List<Individual_Address>listOfIndividualAddress(){
+ List<Individual_Address>list=new ArrayList<Individual_Address>();
+ try{
+ PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_address");
+     ResultSet rs=djuma.executeQuery();
+     while(rs.next()){
+     Individual_Address in=new Individual_Address();
+     in.setAddressId(rs.getLong(1));
+     in.setPlotNo(rs.getString(2));
+     in.setStreet(rs.getString(3));
+     in.setSector(rs.getString(4));
+     in.setDistrict(rs.getString(5));
+     in.setProvince(rs.getString(6));
+     in.setMailingAddress(rs.getString(7));
+     in.setMailHouseNo(rs.getString(8));
+     in.setMailStreet(rs.getString(9));
+     in.setMailPoBox(rs.getString(10));
+     in.setMailCity(rs.getString(11));
+     in.setMailSector(rs.getString(12));
+     in.setMailDistrict(rs.getString(13));
+     in.setMailProvince(rs.getString(14));
+     in.setIndividualId(rs.getInt(15));
+     list.add(in);
+     }
+ }catch(Exception e){}
+ return list;
  
  }
 }

@@ -7,13 +7,16 @@ package com.djuma.Individual;
 
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author SULAIMAN
  */
 public class Individual_trade {
-   private int tradeId;
+   private Long tradeId;
    private String tradeName;
    private String tradeAddress;
    private String tradeDistrict;
@@ -24,13 +27,15 @@ public class Individual_trade {
    private String entrepriseFaxNo;
    private int individualId;
 
-    public int getTradeId() {
+    public Long getTradeId() {
         return tradeId;
     }
 
-    public void setTradeId(int tradeId) {
+    public void setTradeId(Long tradeId) {
         this.tradeId = tradeId;
     }
+
+    
 
     public String getTradeName() {
         return tradeName;
@@ -135,6 +140,30 @@ public class Individual_trade {
        djuma.execute();
    }catch(Exception e){}
    
+   }
+   public static List<Individual_trade>listIndividaulTrade(){
+   List<Individual_trade>list=new ArrayList<Individual_trade>();
+   try{
+   PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_trade");
+       ResultSet rs=djuma.executeQuery();
+       while(rs.next()){
+       Individual_trade in=new Individual_trade();
+       in.setTradeId(rs.getLong(1));
+       in.setTradeName(rs.getString(2));
+       in.setTradeAddress(rs.getString(3));
+       in.setTradeDistrict(rs.getString(4));
+       in.setTradeProvince(rs.getString(5));
+       in.setCommercialRegistrationNo(rs.getString(6));
+       in.setStartDate(rs.getString(7));
+       in.setEntreprisePhoneNo(rs.getString(8));
+       in.setEntrepriseFaxNo(rs.getString(9));
+       in.setIndividualId(rs.getInt(10));
+       list.add(in);
+       }
+   }catch(Exception e){
+   
+   }
+   return list;
    }
    
 }

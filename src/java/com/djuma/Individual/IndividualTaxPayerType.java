@@ -7,6 +7,9 @@ package com.djuma.Individual;
 
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -51,6 +54,41 @@ public class IndividualTaxPayerType {
 
         }
 
+    }
+
+    public static List<IndividualTaxPayerType> listsizeOfTaxForIndividual() {
+        List<IndividualTaxPayerType> list = new ArrayList<>();
+        try {
+            PreparedStatement djuma = SetCon.getCon().prepareStatement("select * from individual_taxPayerType");
+            ResultSet rs = djuma.executeQuery();
+            while (rs.next()) {
+                IndividualTaxPayerType in = new IndividualTaxPayerType();
+                in.setIndividualId(rs.getInt(1));
+                in.setTaxPayerTypeId(rs.getInt(2));
+                list.add(in);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static List<IndividualTaxPayerType> listsizeOfTaxPerIndividual(int individualId) {
+        List<IndividualTaxPayerType> list = new ArrayList<>();
+        try {
+            PreparedStatement djuma = SetCon.getCon().prepareStatement("select * from individual_taxPayerType where individualId=?");
+            djuma.setInt(1, individualId);
+            ResultSet rs = djuma.executeQuery();
+            while (rs.next()) {
+                IndividualTaxPayerType in = new IndividualTaxPayerType();
+                in.setIndividualId(rs.getInt(1));
+                in.setTaxPayerTypeId(rs.getInt(2));
+                list.add(in);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 }

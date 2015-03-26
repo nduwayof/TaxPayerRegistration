@@ -1,0 +1,12 @@
+SMAP
+VATCertificate_jsp.java
+JSP
+*S JSP
+*F
++ 0 VATCertificate.jsp
+VATCertificate.jsp
+*L
+5,37:70
+42,107:108
+148,4:215
+*E

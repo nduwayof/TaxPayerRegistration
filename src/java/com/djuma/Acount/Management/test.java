@@ -44,7 +44,7 @@ public class test {
 //        }
         TaxPayerType t=new TaxPayerType();
         t.setTaxpayerType("Large");
-        t.save();
+        //t.save();
         Industry i=new Industry();
         i.setName("Agriculture");
         //i.saveIndustry();
@@ -60,8 +60,8 @@ public class test {
         //System.out.println(in.getName());
         //}
         for(Individual in: Individual.listIndividual()){
-            if(in.isHasInfo()){
-        System.out.println(in.getTinNumber());
+            if(in.getIndividualId()==29){
+        System.out.println(in.getPhoto());
             }
         }
      

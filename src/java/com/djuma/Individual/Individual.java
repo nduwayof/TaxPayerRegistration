@@ -45,6 +45,8 @@ public class Individual {
    private String oldTinNumber="";
   private Timestamp doneAt=new Timestamp(new Date().getTime());
   private String doneBy="";
+  private String docNumber="";
+  private boolean deRegistered=false;
     public int getIndividualId() {
         return individualId;
     }
@@ -269,6 +271,22 @@ public class Individual {
         this.doneBy = doneBy;
     }
 
+    public String getDocNumber() {
+        return docNumber;
+    }
+
+    public void setDocNumber(String docNumber) {
+        this.docNumber = docNumber;
+    }
+
+    public boolean isDeRegistered() {
+        return deRegistered;
+    }
+
+    public void setDeRegistered(boolean deRegistered) {
+        this.deRegistered = deRegistered;
+    }
+
     public Individual() {
     }
 
@@ -299,7 +317,7 @@ public class Individual {
    
     public void SaveIndividual(){
     try{
-        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         djuma.setString(1, ownerSurname);
         djuma.setString(2, ownerFirstName);
         djuma.setString(3, dob);
@@ -331,6 +349,8 @@ public class Individual {
         djuma.setString(25, oldTinNumber);
         djuma.setTimestamp(26, doneAt);
         djuma.setString(27, doneBy);
+        djuma.setString(28, docNumber);
+        djuma.setBoolean(29, deRegistered);
         djuma.execute();
     }catch(Exception e){
     
@@ -340,7 +360,7 @@ public class Individual {
     
     public void UpdateIndividual(){
     try{
-       PreparedStatement djuma=SetCon.getCon().prepareStatement("update individual set ownerSurname=?,ownerFirstName=?,dob=?,deceadDate=?,gender=?,occupatio=?,nationality=?,nationalId=?,socialSecurityNumber=?,passport=?,homePhone=?,workPhone=?,cellPhone=?,faxNo=?,resident=?,countryOfResidence=?,civilStatus=?,mariageName=?,mariageSurname=?,mariageDob=?,photo=?,notionalPhotocopy=?,hasInfo=?,tinNumber=?,oldTinNumber=?,doneAt=?,doneBy=? where id=?");
+       PreparedStatement djuma=SetCon.getCon().prepareStatement("update individual set ownerSurname=?,ownerFirstName=?,dob=?,deceadDate=?,gender=?,occupatio=?,nationality=?,nationalId=?,socialSecurityNumber=?,passport=?,homePhone=?,workPhone=?,cellPhone=?,faxNo=?,resident=?,countryOfResidence=?,civilStatus=?,mariageName=?,mariageSurname=?,mariageDob=?,photo=?,notionalPhotocopy=?,hasInfo=?,tinNumber=?,oldTinNumber=?,doneAt=?,doneBy=?, docNumber=?, deRegistered=? where id=?");
         djuma.setString(1, ownerSurname);
         djuma.setString(2, ownerFirstName);
         djuma.setString(3, dob);
@@ -372,7 +392,9 @@ public class Individual {
         djuma.setString(25, oldTinNumber);
         djuma.setTimestamp(26, doneAt);
         djuma.setString(27, doneBy);
-        djuma.setInt(28, individualId);
+        djuma.setString(28, docNumber);
+        djuma.setBoolean(29, deRegistered);
+        djuma.setInt(30, individualId);
         djuma.execute();
     }catch(Exception e){
     
@@ -418,6 +440,8 @@ public class Individual {
         in.setOldTinNumber(rs.getString(26));
         in.setDoneAt(rs.getTimestamp(27));
         in.setDoneBy(rs.getString(28));
+        in.setDocNumber(rs.getString(29));
+        in.setDeRegistered(rs.getBoolean(30));
         list.add(in);
         }
     }catch(Exception e){
@@ -482,4 +506,20 @@ public class Individual {
     return msg;
     
     }
+   
+   public static String getNewDocumentId(){
+   String id="";
+   String lastDocNumber="";
+   for(Individual in: Individual.listIndividual()){
+       if(in.hasInfo&&in.isDeRegistered()==false){
+   lastDocNumber=in.getDocNumber();
+       }
+   }
+   if(lastDocNumber.equalsIgnoreCase("")){
+   id="111";
+   }else{
+   id=((Integer.parseInt(lastDocNumber))+1)+"";
+   }
+   return id;
+   }
 }

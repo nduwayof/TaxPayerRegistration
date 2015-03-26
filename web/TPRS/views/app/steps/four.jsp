@@ -62,9 +62,17 @@
                 <div class="col-lg-4">
                     <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
                 </div>
-                <div class="col-lg-8">
-                    <input type="text" name="estmatedAnnualTurnOver" class="form-control">
                 </div>
+                <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" name="estmatedAnnualTurnOver" class="form-control" required="">
+                    </div>
+              </div>
             </div>
         </div>
     </div>
@@ -74,8 +82,15 @@
                 <div class="col-lg-4">
                     <label for="estimatedNumberOfEmployees">Estimated Employees</label>
                 </div>
-                <div class="col-lg-8">
-                    <input type="number" name="estimatedNumberOfEmployees" class="form-control">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="estimatedNumberOfEmployees">Estimated Employees</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="number" name="estimatedNumberOfEmployees" class="form-control" required="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,9 +136,9 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <div class="col-lg-4">
-                    <label for="mainSourceOfIncome">Income Main Source</label>
-                </div>
+                <div class="col-lg-3">
+                    <label for="mainSourceOfIncome">Main Source Source of Income</label>
+               </div>
                 <div class="col-lg-8">
                     <div class="input-group">
                         <select name="mainSourceOfIncome" class="form-control">
