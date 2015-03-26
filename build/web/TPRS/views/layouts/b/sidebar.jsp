@@ -77,11 +77,22 @@
                     <i class="fa fa-th"></i>
                     <i class="fa fa-angle-left pull-right"></i>
                     <span>System Accounts</span>
-                    <span class="label label-primary pull-right">2</span>
+                    <span class="label label-primary pull-right">1</span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="signup.jsp"><i class="fa fa-circle-o"></i>Accounts Management</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Account </a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-th"></i>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    <span>Settings</span>
+                    <span class="label label-primary pull-right">2</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="industry.jsp"><i class="fa fa-circle-o"></i>Industries</a></li>
+                    <li><a href="sector.jsp"><i class="fa fa-circle-o"></i>Sectors</a></li>
                 </ul>
             </li>
             <%
