@@ -16,8 +16,9 @@ import java.util.List;
  * @author SULAIMAN
  */
 public class IndividualTaxPayerType {
- private int individualId;
- private int taxPayerTypeId;
+
+    private int individualId;
+    private int taxPayerTypeId;
 
     public int getIndividualId() {
         return individualId;
@@ -42,53 +43,52 @@ public class IndividualTaxPayerType {
 
     public IndividualTaxPayerType() {
     }
-    
-    public void SaveTaxPayerType(){
-    try{
-        PreparedStatement djuma= SetCon.getCon().prepareStatement("insert into individual_taxpayertype values(id,?,?)");
-        djuma.setInt(1, individualId);
-        djuma.setInt(2, taxPayerTypeId);
-        djuma.execute();
-    }catch(Exception e){
-    
-    }
-    
-    }
-    public static List<IndividualTaxPayerType>listsizeOfTaxForIndividual(){
-    List<IndividualTaxPayerType>list=new ArrayList<>();
-    try{
-    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_taxPayerType");
-        ResultSet rs=djuma.executeQuery();
-        while(rs.next()){
-        IndividualTaxPayerType in=new IndividualTaxPayerType();
-        in.setIndividualId(rs.getInt(1));
-        in.setTaxPayerTypeId(rs.getInt(2));
-        list.add(in);
+
+    public void SaveTaxPayerType() {
+        try {
+            PreparedStatement djuma = SetCon.getCon().prepareStatement("insert into individual_taxpayertype values(id,?,?)");
+            djuma.setInt(1, individualId);
+            djuma.setInt(2, taxPayerTypeId);
+            djuma.execute();
+        } catch (Exception e) {
+
         }
-    }catch(Exception e){
-    e.printStackTrace();
+
     }
-    return list;
-    }
-    
-    
-    public static List<IndividualTaxPayerType>listsizeOfTaxPerIndividual(int individualId){
-    List<IndividualTaxPayerType>list=new ArrayList<>();
-    try{
-    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individual_taxPayerType where individualId=?");
-    djuma.setInt(1, individualId);
-        ResultSet rs=djuma.executeQuery();
-        while(rs.next()){
-        IndividualTaxPayerType in=new IndividualTaxPayerType();
-        in.setIndividualId(rs.getInt(1));
-        in.setTaxPayerTypeId(rs.getInt(2));
-        list.add(in);
+
+    public static List<IndividualTaxPayerType> listsizeOfTaxForIndividual() {
+        List<IndividualTaxPayerType> list = new ArrayList<>();
+        try {
+            PreparedStatement djuma = SetCon.getCon().prepareStatement("select * from individual_taxPayerType");
+            ResultSet rs = djuma.executeQuery();
+            while (rs.next()) {
+                IndividualTaxPayerType in = new IndividualTaxPayerType();
+                in.setIndividualId(rs.getInt(1));
+                in.setTaxPayerTypeId(rs.getInt(2));
+                list.add(in);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }catch(Exception e){
-    e.printStackTrace();
+        return list;
     }
-    return list;
+
+    public static List<IndividualTaxPayerType> listsizeOfTaxPerIndividual(int individualId) {
+        List<IndividualTaxPayerType> list = new ArrayList<>();
+        try {
+            PreparedStatement djuma = SetCon.getCon().prepareStatement("select * from individual_taxPayerType where individualId=?");
+            djuma.setInt(1, individualId);
+            ResultSet rs = djuma.executeQuery();
+            while (rs.next()) {
+                IndividualTaxPayerType in = new IndividualTaxPayerType();
+                in.setIndividualId(rs.getInt(1));
+                in.setTaxPayerTypeId(rs.getInt(2));
+                list.add(in);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
-    
- 
+
 }
