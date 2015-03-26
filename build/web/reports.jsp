@@ -40,8 +40,25 @@
                     </ol>
                 </section>
                 <section class="content">
-                    
-                    
+                    <br>
+                    <div class="row">
+                        <div class="btn btn-group">
+                            <a href="TINCertificate.jsp">
+                                <button class="btn btn-dropbox">
+                                    <i class="fa fa-print fa-5x"></i>
+                                    <br>
+                                    TIN Certificate
+                                </button>
+                            </a>
+                            <a href="VATCertificate.jsp">
+                                <button class="btn btn-instagram">
+                                    <i class="fa fa-print fa-5x"></i>
+                                    <br>
+                                    VAT Certificate
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                     
                 </section>
             </div>
