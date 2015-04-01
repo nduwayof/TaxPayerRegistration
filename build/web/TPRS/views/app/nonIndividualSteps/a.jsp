@@ -290,28 +290,4 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <legend>Banking Informations & Enterprise Informations</legend>
-        <br>
-        <div class="row">
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-twitter btn-lg btn-block" data-toggle="modal" data-target="#myModal">
-                    Add New Bank Account
-                </button>
-            </div>
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-github btn-lg btn-block" data-toggle="modal" data-target="#enterModal">
-                    Add New Branch
-                </button>
-            </div>
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#ownerModal">
-                    Add New Enterprise Ownership Informations
-                </button>
-            </div>
-        </div>
-        <br>
-        <br>
-        <br>
-    </div>
 </fieldset>

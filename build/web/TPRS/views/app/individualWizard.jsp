@@ -23,6 +23,7 @@
 <div class="col-lg-10">
     <form id="SignupForm" action="individualProcess.jsp" class="form-horizontal" method="POST" enctype="multipart/form-data">
         <div id="steping">
+            <jsp:include page="steps/five.jsp"/>
             <jsp:include page="steps/One.jsp"/>
             <jsp:include page="steps/two.jsp"/>
             <jsp:include page="steps/three.jsp"/>
@@ -37,38 +38,6 @@
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <%                        List<Individual_Bank> list = Individual_Bank.listBankPerIndividual(currentIndividual);
-                        if (!list.isEmpty()) {
-                    %>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Bank Name / Branch</th>
-                                <th> Address</th>
-                                <th> Account Number</th>
-                                <th> Currency </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                for (Individual_Bank ib : Individual_Bank.listBank()) {
-                                    if (ib.getIndividualId() == currentIndividual) {
-                            %>
-                            <tr>
-                                <td>
-                                    <%=ib.getPrincipalBankName()%> - <%=ib.getBranchName()%>
-                                </td>
-                                <td><%=ib.getBranchAddress()%></td>
-                                <td><%=ib.getBankAccountNo()%></td>
-                                <td><%=ib.getCurrency()%></td>
-                            </tr>
-                            <%
-                                    }
-                                }
-                            %>
-                        </tbody>
-                    </table>
-                    <%} %>
                     <form class="form-horizontal" id="bankAccount" >
                         <div class="modal-body">
                             <div class="form-group">
@@ -148,37 +117,7 @@
         <div class="modal fade" id="enterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <%
-                        List<Individual_Branch> listBranches = Individual_Branch.listBranchPerIndividual(currentIndividual);
-                        if (!listBranches.isEmpty()) {
-                    %>
-                    <table border="1">
-                        <thead>
-                            <tr>
-                                <th>nameOfBranch</th>
-                                <th>branchAddress</th>
-                                <th>branchCity</th>
-                                <th>branchProvince</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                for (Individual_Branch ib : Individual_Branch.listBranch()) {
-                                    if (ib.getIndividualId() == currentIndividual) {
-                            %>
-                            <tr>
-                                <td><%=ib.getNameOfBranch()%></td>
-                                <td><%=ib.getBranchAddress()%></td>
-                                <td><%=ib.getBranchCity()%></td>
-                                <td><%=ib.getBranchProvince()%></td>
-                            </tr>
-                            <%
-                                    }
-                                }
-                            %>
-                        </tbody>
-                    </table>
-                    <%}%>
+                   
                     <form class="form-horizontal" id="bankAccount" action="entrepriseBranchProcess.jsp" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
