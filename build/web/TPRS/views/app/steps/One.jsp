@@ -16,8 +16,8 @@
     <br>
     <center> <h4>TIN : <b style="color: blue"><%=Individual.newTinNumber()%></b></h4></center>
     <hr>
-     <div class="row">
-         <div class="col-lg-6">
+    <div class="row">
+        <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
                     <label for="status">Has Old TIN</label>
@@ -38,18 +38,18 @@
                 </div>
             </div>
         </div>
-         <div id="oldTin">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <div class="col-lg-4">
-                    <label for="oldTinNumber">OLD TIN Number</label>
-                </div>
-                <div class="col-lg-8">
-                    <input type="text" class="form-control" name="oldTinNumber">
+        <div id="oldTin">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="oldTinNumber">OLD TIN Number</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" name="oldTinNumber">
+                    </div>
                 </div>
             </div>
         </div>
-         </div>
     </div>
     <div class="row">
         <div class="col-lg-6">
@@ -281,16 +281,16 @@
                     <label for="taxpayerType">Size of Taxpayer</label>
                 </div>
                 <div class="col-lg-8">
-                        <%
-                            for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
-                                if (t.isDeletedStatus() == false) {
-                        %>
+                    <%
+                        for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
+                            if (t.isDeletedStatus() == false) {
+                    %>
                     <input type="checkbox" name="taxPayerTypeId" value="<%=t.getId()%>#" /><%=t.getTaxpayerType()%>
 
-                        <%
-                                }
+                    <%
                             }
-                        %>
+                        }
+                    %>
                 </div>
             </div>
         </div>
@@ -300,16 +300,16 @@
                     <label for="taxType">Type of Taxes</label>
                 </div>
                 <div class="col-lg-8">
-                        <%
-                            for (TaxType t : TaxType.listTaxType()) {
-                                if (t.isDeletedStatus() == false&&!t.getTaxType().equalsIgnoreCase("CIT")) {
-                        %>
-                        
-                       <input type="checkbox" name="taxTypeId" value="<%=t.getId()%>#" /><%=t.getTaxType()%>
-                        <%
-                                }
+                    <%
+                        for (TaxType t : TaxType.listTaxType()) {
+                            if (t.isDeletedStatus() == false && !t.getTaxType().equalsIgnoreCase("CIT")) {
+                    %>
+
+                    <input type="checkbox" name="taxTypeId" value="<%=t.getId()%>#" /><%=t.getTaxType()%>
+                    <%
                             }
-                        %>
+                        }
+                    %>
                 </div>
             </div>
         </div>
@@ -371,18 +371,36 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <div class="col-lg-4">
-        <label for="attachment">Please attach your Photo</label>
+                    <label for="attachment">Please attach your Photo</label>
                 </div>
                 <div class="col-lg-8">
                     <div class="btn btn-default btn-file">
                         <i class="fa fa-paperclip"></i> Attachment
                         <input type="file" name="photo" value="" />
-                       
+
                     </div>
                     <p class="help-block">Max. 2MB</p>
                 </div>
             </div>
         </div>
     </div>
-    
+    <div class="row">
+        <legend>Banking Informations & Enterprise Informations</legend>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-twitter btn-lg btn-block" data-toggle="modal" data-target="#myModal">
+                    Add & View Bank Account
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-twitter btn-lg btn-block" data-toggle="modal" data-target="#enterModal">
+                    Add & View Enterprise Branch
+                </button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>      
 </fieldset>
