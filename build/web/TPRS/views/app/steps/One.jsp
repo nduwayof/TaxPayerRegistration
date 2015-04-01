@@ -384,23 +384,4 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <legend>Banking Informations & Enterprise Informations</legend>
-        <br>
-        <div class="row">
-            <div class="col-sm-6">
-                <button type="button" class="btn btn-twitter btn-lg btn-block" data-toggle="modal" data-target="#myModal">
-                    Add & View Bank Account
-                </button>
-            </div>
-            <div class="col-sm-6">
-                <button type="button" class="btn btn-twitter btn-lg btn-block" data-toggle="modal" data-target="#enterModal">
-                    Add & View Enterprise Branch
-                </button>
-            </div>
-        </div>
-        <br>
-        <br>
-        <br>
-    </div>      
 </fieldset>

@@ -24,6 +24,7 @@
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
     <form id="SignupForm" action="nonIndividualProcess.jsp" class="form-horizontal" method="POST">
+        <jsp:include page="nonIndividualSteps/e.jsp"/>
         <jsp:include page="nonIndividualSteps/a.jsp"/>
         <jsp:include page="nonIndividualSteps/b.jsp"/>
         <jsp:include page="nonIndividualSteps/c.jsp"/>
