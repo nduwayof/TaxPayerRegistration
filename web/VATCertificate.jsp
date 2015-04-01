@@ -68,7 +68,7 @@
         }
             response.setContentType("application/pdf");
             Document document = new Document(new Rectangle(1000, 1000));
-             Rectangle pagesize = new Rectangle(700f, 590f);
+             Rectangle pagesize = new Rectangle(700f, 680f);
         //Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
             document.setPageSize(pagesize);
             PdfWriter.getInstance(document, response.getOutputStream());
@@ -100,13 +100,13 @@
             try {
                 for (Individual in : Individual.listIndividual()) {
                     if (in.getIndividualId() == (indvidualId)) {
-          // Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
-                        //image.setAlignment(Element.ALIGN_LEFT);
+           Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
+                        image.setAlignment(Element.ALIGN_LEFT);
                         //image.setAbsolutePosition(50f, 50f);
-                        //image.scaleAbsolute(150, 90);
-                        //image.setBorderWidth(40);
-                        //image.setWidthPercentage(widthPercentage);
-                        //document.add((Element) image);
+                        image.scaleAbsolute(150, 90);
+                        image.setBorderWidth(40);
+                       // image.setWidthPercentage(widthPercentage);
+                        document.add((Element) image);
 
                         Paragraph par21 = new Paragraph(new Chunk(" This is to certifify that :", font3));
                         par21.setAlignment(Element.ALIGN_LEFT);
