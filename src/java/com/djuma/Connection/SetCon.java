@@ -16,7 +16,7 @@ public class SetCon {
 
     private static final String db = "jdbc:mysql://localhost/rebero";
     private static final String user = "root";
-    private static final String password = "flyman";
+    private static final String password = "lewandowiski";
 
     public static Connection getCon() {
         Connection djuma = null;
