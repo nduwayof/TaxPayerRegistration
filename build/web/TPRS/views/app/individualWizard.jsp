@@ -37,10 +37,6 @@
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">New Bank Account</h4>
-                    </div>
                     <%                        List<Individual_Bank> list = Individual_Bank.listBankPerIndividual(currentIndividual);
                         if (!list.isEmpty()) {
                     %>
@@ -152,11 +148,6 @@
         <div class="modal fade" id="enterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">New Branch</h4>
-                    </div>
-
                     <%
                         List<Individual_Branch> listBranches = Individual_Branch.listBranchPerIndividual(currentIndividual);
                         if (!listBranches.isEmpty()) {

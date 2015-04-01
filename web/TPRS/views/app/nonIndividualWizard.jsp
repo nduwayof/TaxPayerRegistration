@@ -4,6 +4,23 @@
     Author     : Fabrice
 --%>
 
+<%@page import="com.djuma.NonIndividual_Bank"%>
+<%@page import="com.djuma.NonIndividual_Branches"%>
+<%@page import="com.djuma.NonIndividual_Owners"%>
+<%@page import="java.util.List"%>
+<%
+    int currentIndividual = 0;
+    String user = (String) session.getAttribute("userRole");
+    if (user == null) {
+%>
+<jsp:forward page="login.jsp"/>
+<%
+    } else {
+        String userId = (String) session.getAttribute("userId");
+        currentIndividual = (Integer) session.getAttribute("nonIndividualTicket");
+    }
+
+%>
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
     <form id="SignupForm" action="nonIndividualProcess.jsp" class="form-horizontal" method="POST">
@@ -11,7 +28,6 @@
         <jsp:include page="nonIndividualSteps/b.jsp"/>
         <jsp:include page="nonIndividualSteps/c.jsp"/>
         <jsp:include page="nonIndividualSteps/d.jsp"/>
-        <jsp:include page="nonIndividualSteps/e.jsp"/>
         <p class="text-center">
             <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="Submit form" />
         </p>
@@ -21,10 +37,43 @@
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">New Bank Account</h4>
-                    </div>
+                     <%
+                            List<NonIndividual_Bank> list = NonIndividual_Bank.listBankPerNonIndividual(1);
+                            if (!list.isEmpty()) {
+                        %>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>principalBankName</th>
+                                    <th> branchName</th>
+                                    <th> branchAddress</th>
+                                    <th> branchSector</th>
+                                    <th> branchDistrict</th>
+                                    <th> bankAccountNo </th>
+                                    <th> currency </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    for (NonIndividual_Bank ib : NonIndividual_Bank.listBank()) {
+                                        if (ib.getNonIndividualId() == currentIndividual) {
+                                %>
+                                <tr>
+                                    <td><%=ib.getPrincipalBankName()%></td>
+                                    <td><%=ib.getBranchName()%></td>
+                                    <td><%=ib.getBranchAddress()%></td>
+                                    <td><%=ib.getBranchSector()%></td>
+                                    <td><%=ib.getBranchDistrict()%></td>
+                                    <td><%=ib.getBankAccountNo()%></td>
+                                    <td><%=ib.getCurrency()%></td>
+                                </tr>
+                                <%
+                                        }
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+                        <%} %>
                     <form class="form-horizontal" id="bankAccount" action="bankProcess1.jsp" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
@@ -104,10 +153,37 @@
         <div class="modal fade" id="enterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">New Branch</h4>
-                    </div>
+                      <%
+                            List<NonIndividual_Branches> listBranches = NonIndividual_Branches.listBranchPerNonIndividual(currentIndividual);
+                            if (!listBranches.isEmpty()) {
+                        %>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>nameOfBranch</th>
+                                    <th> branchAddress</th>
+                                    <th>  branchCity</th>
+                                    <th>  branchProvince</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    for (NonIndividual_Branches ib : NonIndividual_Branches.listBranch()) {
+                                        if (ib.getNonIndividualId() == currentIndividual) {
+                                %>
+                                <tr>
+                                    <td><%=ib.getNameOfBranch()%></td>
+                                    <td><%=ib.getBranchAddress()%></td>
+                                    <td><%=ib.getBranchCity()%></td>
+                                    <td><%=ib.getBranchProvince()%></td>
+                                </tr>
+                                <%
+                                        }
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+                        <%} %>
                     <form class="form-horizontal" id="bankAccount" action="enterpriseBranchProcess1.jsp">
                         <div class="modal-body">
                             <div class="form-group">
@@ -166,10 +242,35 @@
         <div class="modal fade" id="ownerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">New Branch</h4>
-                    </div>
+                    <%
+                            List<NonIndividual_Owners> listOwer = NonIndividual_Owners.listNonIndividuaPerlOwners(currentIndividual);
+                            if (!listOwer.isEmpty()) {
+                        %>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>taxpayerNationalId</th>
+                                    <th>Names</th>
+                                    <th>Parcentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    for (NonIndividual_Owners ib : NonIndividual_Owners.listNonIndividualOwners()) {
+                                        if (ib.getNonIndividualId() == currentIndividual) {
+                                %>
+                                <tr>
+                                    <td><%=ib.getTaxpayerNationalId()%></td>
+                                    <td><%=ib.getNames()%></td>
+                                    <td><%=ib.getParcentage()%></td>
+                                </tr>
+                                <%
+                                        }
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+                        <%}%>
                     <form class="form-horizontal" id="bankAccount" action="ownerShipProcess.jsp" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
