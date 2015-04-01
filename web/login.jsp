@@ -3,6 +3,7 @@
     Created on : Mar 8, 2015, 11:46:03 AM
     Author     : Fabrice
 --%>
+
 <jsp:useBean id="lo" class="com.djuma.Acount.Management.Login" scope="request"/>
  
 <!DOCTYPE html>
