@@ -3,7 +3,26 @@
     Created on : Mar 26, 2015, 9:09:15 AM
     Author     : Fabrice
 --%>
+<%@page import="com.djuma.Acount.Management.User"%>
+<%
+    //int currentIndividual = 0;
+    String names = "";
+    String user = (String) session.getAttribute("userRole");
+    if (user == null) {
+%>
+<jsp:forward page="login.jsp"/>
+<%
+    } else {
+        String userId = (String) session.getAttribute("userId");
+        for (User u : User.listUser()) {
+            if (u.getId() == Integer.parseInt(userId)) {
+                names = u.getFirstName() + " " + u.getLastName();
+            }
+        }
+       // currentIndividual = (Integer) session.getAttribute("individualTicket");
+    }
 
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,6 +42,20 @@
 
         <script src="TPRS/bower_components/jquery/js/jquery.min.js"></script>
         <script src="TPRS/js/formToWizard.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#vat').hide();
+                $('#tin').hide();     
+            });
+            function showTin() {
+                $('#vat').hide();
+                $('#tin').show();
+            }
+            function showVat() {
+                $('#tin').hide();
+                $('#vat').show();
+            }
+        </script>
     </head>
     <body class="skin-blue">
         <div class="wrapper">
@@ -43,14 +76,14 @@
                     <br>
                     <div class="row">
                         <div class="btn btn-group">
-                            <a href="TINCertificate.jsp">
+                            <a href="javascript:void(0)" onclick="showTin()">
                                 <button class="btn btn-dropbox">
                                     <i class="fa fa-print fa-5x"></i>
                                     <br>
                                     TIN Certificate
                                 </button>
                             </a>
-                            <a href="VATCertificate.jsp">
+                            <a href="javascript:void(0)" onclick="showVat()">
                                 <button class="btn btn-instagram">
                                     <i class="fa fa-print fa-5x"></i>
                                     <br>
@@ -59,7 +92,48 @@
                             </a>
                         </div>
                     </div>
-                    
+                    <div id="tin">
+                <div class="row">
+                    <form action="TINCertificate.jsp" method="POST">
+             <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-8">
+                    <label for="TinNumber"> TIN Number</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="tinNumber" required="">
+                </div>
+                <div class="col-lg-8">
+                    <p class="text-center">
+            <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="Preview" />
+        </p>
+                </div>
+            </div>
+        </div>
+           </form>
+                    </div>
+                    </div>
+                    <div id="vat">
+                    <div class="row">
+             <form action="VATCertificate.jsp" method="POST">
+             <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-8">
+                    <label for="TinNumber"> TIN Number</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="tinNumber" placeholder="" required="">
+                </div>
+                <div class="col-lg-8">
+                    <p class="text-center">
+            <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="Preview" />
+             </p>
+                </div>
+            </div>
+        </div>
+                    </form>
+                    </div>
+                    </div>
                 </section>
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>

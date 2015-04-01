@@ -3,7 +3,9 @@
     Created on : Mar 25, 2015, 8:56:29 AM
     Author     : Fabrice
 --%>
-
+<jsp:useBean id="s" class="com.djuma.Sector.Sector" scope="request"/>
+<%@page import="com.djuma.Sector.Industry"%>
+<%@page import="com.djuma.Sector.Sector"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,7 +47,7 @@
                             <h3>New Sector</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" action="#" method="post">
+                            <form class="form-horizontal" action="sectorProcess.jsp" method="POST">
                                 <div class="form-group">
                                     <div class="col-sm-4">
                                         <label>Industry</label>
@@ -53,8 +55,13 @@
                                     <div class="col-sm-8">
                                         <div class="input-group">
                                             <select class="form-control" name="industryId">
-                                                <option>Industry One</option>
-                                                <option>Industry Two</option>
+                                                <%
+                                                for(Industry in: Industry.listIndistry()){
+                                                %>
+                                                <option value="<%=in.getId()%>"><%=in.getName()%></option>
+                                                <%
+                                                }
+                                                %>
                                             </select>
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
                                         </div>
@@ -65,7 +72,7 @@
                                         <label>Name</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="name">
+                                        <input type="text" class="form-control" name="name" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -82,6 +89,49 @@
                             </form>
                         </div>
                     </div>
+                                                                <div class="col-xs-12">
+        <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">List Of Industries</h3>
+        </div>
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped table-hover table-mailbox" border="1">
+                <thead>
+                    <tr>
+                        <th class="bg-blue">Name</th>
+                        <th class="bg-blue">Industry</th>
+                        <th class="bg-blue">Description</th>               
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                    for(Sector ins: Sector.listSector()){
+                        for(Industry i: Industry.listIndistry()){
+                            if(ins.getIndustryId()==i.getId()){
+                    %>
+                     <tr>
+                        <td><%=ins.getName()%></td>
+                        <td><%=i.getName()%></td>
+                        <td><%=ins.getDescription()%></td>
+                    </tr>
+                    <%
+                            }
+                        }
+                    }
+                    %>
+    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="bg-blue">Name</th>
+                        <th class="bg-blue">Industry</th>
+                        <th class="bg-blue">Description</th>  
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
                 </section>
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>

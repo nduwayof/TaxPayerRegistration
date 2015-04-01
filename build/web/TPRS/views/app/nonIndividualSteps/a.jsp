@@ -60,7 +60,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="incBenefitsInvestment">Benefits from investment incentives</label>
+                    <label for="incBenefitsInvestment">Tax/investment incentives</label>
                 </div>
                 <div class="col-lg-8">
                     <input type="text" class="form-control" name="incBenefitsInvestment"/>
@@ -171,7 +171,7 @@
          <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="nssfRegistrationNo">NSSF registration No</label>
+                    <label for="nssfRegistrationNo">Social Security Number</label>
                 </div>
                 <div class="col-lg-8">
                     <input type="text" class="form-control" name="nssfRegistrationNo"/>

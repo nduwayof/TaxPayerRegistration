@@ -4,7 +4,10 @@
     Author     : Fabrice
 --%>
 
+<%@page import="com.djuma.Sector.Industry"%>
+<%@page import="com.djuma.Individual.Individual"%>
 <!DOCTYPE html>
+<jsp:useBean id="in" class="com.djuma.Sector.Industry" scope="request"/>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -45,13 +48,13 @@
                             <h3>New Industry Type</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" action="#" method="post">
+                            <form class="form-horizontal" action="industryProcess.jsp" method="POST">
                                 <div class="form-group">
                                     <div class="col-sm-4">
                                         <label>Name</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="name" class="form-control" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -68,6 +71,42 @@
                             </form>
                         </div>
                     </div>
+                    <div class="col-xs-12">
+        <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">List Of Industries</h3>
+        </div>
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped table-hover table-mailbox" border="1">
+                <thead>
+                    <tr>
+                        <th class="bg-blue">Name</th>
+                        <th class="bg-blue">Description</th>               
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                    for(Industry ins: Industry.listIndistry()){
+                    %>
+                     <tr>
+                        <td><%=ins.getName()%></td>
+                        <td><%=ins.getDescription()%></td>
+                    </tr>
+                    <%
+                    }
+                    %>
+    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="bg-blue">Name</th>
+                        <th class="bg-blue">Description</th>  
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
                 </section>
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>

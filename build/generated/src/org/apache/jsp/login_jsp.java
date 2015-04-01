@@ -42,6 +42,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write('\n');
+      out.write('\n');
       com.djuma.Acount.Management.Login lo = null;
       synchronized (request) {
         lo = (com.djuma.Acount.Management.Login) _jspx_page_context.getAttribute("lo", PageContext.REQUEST_SCOPE);

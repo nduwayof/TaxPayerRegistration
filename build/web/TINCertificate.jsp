@@ -30,7 +30,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%
-    int currentIndividual = 0;
+    //int currentIndividual = 0;
     String names = "";
     String user = (String) session.getAttribute("userRole");
     if (user == null) {
@@ -44,7 +44,7 @@
                 names = u.getFirstName() + " " + u.getLastName();
             }
         }
-        currentIndividual = (Integer) session.getAttribute("individualTicket");
+     //   currentIndividual = (Integer) session.getAttribute("individualTicket");
     }
 
 %>
@@ -56,17 +56,28 @@
         <title>TIN CERTIFICATE</title>
     </head>
     <body>
-        <%            response.setContentType("application/pdf");
+        <%      
+        int indvidualId=0;
+        String tinNumber=request.getParameter("tinNumber");
+        for(Individual i: Individual.listIndividual()){
+        if(i.getTinNumber().equalsIgnoreCase(tinNumber)){
+        indvidualId=i.getIndividualId();
+        }
+        }
+            response.setContentType("application/pdf");
             Document document = new Document(new Rectangle(1000, 1000));
+        Rectangle pagesize = new Rectangle(700f, 590f);
+        //Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
+            document.setPageSize(pagesize);
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
             Rectangle rect = document.getPageSize();
             rect.setBorder(Rectangle.BOX); // left, right, top, bottom border
-            rect.setBorderWidth(5); // a width of 5 user units
-            rect.setBorderColor(BaseColor.RED); // a red border
+            rect.setBorderWidth(19); // a width of 5 user units
+            rect.setBorderColor(BaseColor.CYAN); // a red border
             rect.setUseVariableBorders(true);
             document.addTitle("TIN Certificate");
-
+            document.add(rect);
             Date date = new Date();
             SimpleDateFormat simpleDateformat = new SimpleDateFormat("dd/MM/yyyy");
             String da = simpleDateformat.format(date);
@@ -85,14 +96,14 @@
 
             try {
                 for (Individual in : Individual.listIndividual()) {
-                    if (in.getIndividualId() == (currentIndividual-1)) {
-          // Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
-                        //image.setAlignment(Element.ALIGN_LEFT);
-                        //image.setAbsolutePosition(50f, 50f);
-                        //image.scaleAbsolute(150, 90);
-                        //image.setBorderWidth(40);
-                        //image.setWidthPercentage(widthPercentage);
-                        //document.add((Element) image);
+                    if (in.getIndividualId() == (indvidualId)) {
+           Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
+                        image.setAlignment(Element.ALIGN_LEFT);
+                       // image.setAbsolutePosition(50f, 50f);
+                        image.scaleAbsolute(150, 90);
+                        image.setBorderWidth(40);
+                       // image.setWidthPercentage(widthPercentage);
+                        document.add((Element) image);
 
                         Paragraph par2 = new Paragraph(new Chunk(" Names:  " + in.getOwnerSurname() + " " + in.getOwnerFirstName(), font3));
                         par2.setAlignment(Element.ALIGN_LEFT);

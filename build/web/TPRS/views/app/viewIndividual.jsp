@@ -14,11 +14,13 @@
             <table id="example1" class="table table-bordered table-striped table-hover table-mailbox" border="1">
                 <thead>
                     <tr>
-                        <th>TIN Number</th>
-                        <th>Owner's Names</th>
-                        <th>Gender</th>
-                        <th>Nationality</th>
+                        <th class="bg-blue">TIN Number</th>
+                        <th class="bg-blue">Owner's Names</th>
+                        <th class="bg-blue">Gender</th>
+                        <th class="bg-blue">Nationality</th>
+                        <!--
                         <th>Photo</th>
+                        -->
                     </tr>
                 </thead>
                 <tbody>
@@ -31,8 +33,9 @@
                         <td><%=in.getOwnerSurname()%> <%=in.getOwnerFirstName()%></td>
                         <td><%=in.getGender()%></td>
                         <td><%=in.getNationality()%></td>
+                        <!--
                         <td><img src="<%=in.getPhoto()%>"></td>
-                        </td>
+                        -->
                     </tr>
                     <%
                     }
@@ -42,11 +45,13 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>TIN Number</th>
-                        <th>Owner's Names</th>
-                        <th>Gender</th>
-                        <th>Nationality</th>
+                        <th class="bg-blue">TIN Number</th>
+                        <th class="bg-blue">Owner's Names</th>
+                        <th class="bg-blue">Gender</th>
+                        <th class="bg-blue">Nationality</th>
+                        <!--
                         <th>Photo</th>
+                        -->
                     </tr>
                 </tfoot>
             </table>
