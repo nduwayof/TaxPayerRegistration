@@ -12,14 +12,14 @@
 <%
     } else {
         String userId = (String) session.getAttribute("userId");
-        int lastTicket=Individual.getLastTicket();
-        int ticket=0;
-        if(Individual.createNewTicket(lastTicket)){
-        Individual in=new Individual();
-        in.SaveIndividual();
-        ticket=Individual.getLastTicket();
-        }else{
-          ticket=lastTicket;
+        int lastTicket = Individual.getLastTicket();
+        int ticket = 0;
+        if (Individual.createNewTicket(lastTicket)) {
+            Individual in = new Individual();
+            in.SaveIndividual();
+            ticket = Individual.getLastTicket();
+        } else {
+            ticket = lastTicket;
         }
         session.setAttribute("individualTicket", ticket);
     }
@@ -35,6 +35,7 @@
         <link href="TPRS/bower_components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
         <link href="TPRS/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/bower_components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+        <link href="TPRS/bower_components/chosen/chosen.min.css" rel="stylesheet" type="text/css" />    
         <link href="TPRS/css/TPRS.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
@@ -66,18 +67,18 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $("#SignupForm").formToWizard({submitButton: 'SaveAccount'});
-                
+
                 $('#individual').hide();
                 $('#nonIndividual').hide();
                 $('#deceasedDate').hide();
                 $('#civilId').hide();
                 $('#residentFabrice').hide();
                 $('#mailingAddress').hide();
-                 $('#businessActivity').hide();
-                 $('#oldTin').hide();
+                $('#businessActivity').hide();
+                $('#oldTin').hide();
             });
-            
-             function showIndividual() {
+
+            function showIndividual() {
                 $('#nonIndividual').hide();
                 $('#individual').show();
                 Location.reload();
@@ -109,22 +110,22 @@
                 $('#residentFabrice').hide();
 
             }
-            function showMailing(){
+            function showMailing() {
                 $('#mailingAddress').show();
             }
-            function hideMailing(){
+            function hideMailing() {
                 $('#mailingAddress').hide();
             }
-            function showBusiness(){
+            function showBusiness() {
                 $('#businessActivity').show();
             }
-            function hideBusiness(){
+            function hideBusiness() {
                 $('#businessActivity').hide();
             }
-            function showOldTin(){
+            function showOldTin() {
                 $('#oldTin').show();
             }
-            function hideOldTin(){
+            function hideOldTin() {
                 $('#oldTin').hide();
             }
         </script>
@@ -157,10 +158,16 @@
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>
         </div>
-
+        
         <script src="TPRS/bower_components/bootstrap/js/bootstrap.min.js"></script>
+        <script src="TPRS/bower_components/chosen/chosen.jquery.min.js"></script>
         <script>
             $.widget.bridge('uibutton', $.ui.button);
+        </script>
+        <script>
+            jQuery(document).ready(function () {
+                jQuery(".chosen").chosen();
+            });
         </script>
         <script src="TPRS/js/raphael-min.js"></script>
         <script src="TPRS/js/app.min.js" type="text/javascript"></script>
