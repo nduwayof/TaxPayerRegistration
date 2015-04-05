@@ -6,6 +6,8 @@
 
 <%@page import="com.djuma.Sector.Sub_Sector"%>
 <%@page import="com.djuma.Sector.Sector"%>
+    
+      
 <fieldset>
     <legend>Activities Informations</legend>
     <br>
@@ -40,6 +42,7 @@
                         <label for="mainSectorActivity">Main Sector Activity</label> 
                     </div>
                     <div class="col-lg-8">
+                        
                         <%
                             for (Sector s : Sector.listSector()) {
                         //for(Sub_Sector su:Sub_Sector.listSubSector()){
@@ -59,6 +62,15 @@
                 <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
+                    <select class="chosen" multiple="true" style="width:400px;">
+                <%
+                for(Sector s: Sector.listSector()){
+                %>
+                  <option><%=s.getName()%></option>
+                <%
+                }
+                %>
+            </select> 
                     <div class="col-lg-4">
                         <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
                     </div>
@@ -165,3 +177,6 @@
         </div>
     </div>
 </fieldset>
+    
+                        
+                                       

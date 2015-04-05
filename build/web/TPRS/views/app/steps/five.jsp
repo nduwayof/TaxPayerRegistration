@@ -3,6 +3,7 @@
     Created on : Mar 13, 2015, 11:50:23 PM
     Author     : Fabrice
 --%>
+<%@page import="com.djuma.Sector.Sector"%>
 <%@page import="com.djuma.Individual.Individual_Branch"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -25,6 +26,20 @@
     <legend>Banking Informations & Enterprise Informations</legend>
     <br>
     <div class="row">
+            <!-- multiple dropdown -->
+            <select class="chosen" multiple="true" style="width:400px;">
+                <%
+                for(Sector s: Sector.listSector()){
+                %>
+                  <option><%=s.getName()%></option>
+                <%
+                }
+                %>
+            </select> 
+        </div>
+    <br>
+    <div class="row">
+        
         <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -125,5 +140,5 @@
             </div>
         </div>
     </div>
-<br>
+    <br>
 </fieldset>
