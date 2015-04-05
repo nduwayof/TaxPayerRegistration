@@ -25,18 +25,6 @@
     <legend>Banking Informations & Enterprise Informations</legend>
     <br>
     <div class="row">
-            <!-- multiple dropdown -->
-            <select class="chosen" multiple="true" style="width:400px;">
-                <option>Choose...</option>
-                <option>Djuma</option>
-                <option selected="selected">Fabrice</option>
-                <option>Justin</option>
-                <option>Benis</option>
-                <option>Ernest</option>
-            </select> 
-        </div>
-    <br>
-    <div class="row">
         
         <div class="row">
             <div class="panel panel-primary">
