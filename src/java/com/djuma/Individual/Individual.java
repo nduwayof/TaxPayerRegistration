@@ -7,9 +7,23 @@ package com.djuma.Individual;
 
 import java.sql.PreparedStatement;
 import com.djuma.Connection.SetCon;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.servlet.ServletOutputStream;
 
 /**
  *
@@ -481,23 +495,47 @@ public class Individual {
     }
     
     if(lastTinNumber.equalsIgnoreCase("")){
-            newTinNumber="TIN/IN/0001";
+            newTinNumber="TIN/IN/0000000001";
             msg=newTinNumber;
-        }else{
+      }else{
        lastTinNumber=lastTinNumber.substring(7);
-            if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) < 9) {
-                newTinNumber = "000" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) == 9) {
-                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) < 99) {
-                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) == 99) {
-                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) < 999) {
-                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) == 999) {
-                newTinNumber = "" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
-            } else {
+            if (lastTinNumber.length() == 10 && lastTinNumber.substring(0, 9).equalsIgnoreCase("000000000") && Integer.parseInt(lastTinNumber.substring(9)) < 9) {
+                                                                                newTinNumber = "000000000" + ((Integer.parseInt(lastTinNumber.substring(9))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 9).equalsIgnoreCase("000000000") && Integer.parseInt(lastTinNumber.substring(9)) == 9){
+                                                                                newTinNumber = "00000000" + ((Integer.parseInt(lastTinNumber.substring(9))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 8).equalsIgnoreCase("00000000") && Integer.parseInt(lastTinNumber.substring(8)) < 99){
+                                                                                newTinNumber = "00000000" + ((Integer.parseInt(lastTinNumber.substring(8))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 8).equalsIgnoreCase("00000000") && Integer.parseInt(lastTinNumber.substring(8)) == 99){
+                                                                                newTinNumber = "0000000" + ((Integer.parseInt(lastTinNumber.substring(8))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 7).equalsIgnoreCase("0000000") && Integer.parseInt(lastTinNumber.substring(8)) < 999){
+                                                                                newTinNumber = "0000000" + ((Integer.parseInt(lastTinNumber.substring(7))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 7).equalsIgnoreCase("0000000") && Integer.parseInt(lastTinNumber.substring(8)) == 999){
+                                                                                newTinNumber = "000000" + ((Integer.parseInt(lastTinNumber.substring(7))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 6).equalsIgnoreCase("000000") && Integer.parseInt(lastTinNumber.substring(6)) < 9999){
+                                                                                newTinNumber = "000000" + ((Integer.parseInt(lastTinNumber.substring(6))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 6).equalsIgnoreCase("000000") && Integer.parseInt(lastTinNumber.substring(6)) == 9999){
+                                                                                newTinNumber = "00000" + ((Integer.parseInt(lastTinNumber.substring(6))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 5).equalsIgnoreCase("00000") && Integer.parseInt(lastTinNumber.substring(5)) < 99999){
+                                                                                newTinNumber = "00000" + ((Integer.parseInt(lastTinNumber.substring(5))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 5).equalsIgnoreCase("00000") && Integer.parseInt(lastTinNumber.substring(5)) == 99999){
+                                                                                newTinNumber = "0000" + ((Integer.parseInt(lastTinNumber.substring(5))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 4).equalsIgnoreCase("0000") && Integer.parseInt(lastTinNumber.substring(4)) < 999999){
+                                                                                newTinNumber = "0000" + ((Integer.parseInt(lastTinNumber.substring(4))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 4).equalsIgnoreCase("0000") && Integer.parseInt(lastTinNumber.substring(4)) == 999999){
+                                                                                newTinNumber = "000" + ((Integer.parseInt(lastTinNumber.substring(4))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) < 9999999){
+                                                                                newTinNumber = "000" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) == 9999999){
+                                                                                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) < 99999999){
+                                                                                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) == 99999999){
+                                                                                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) < 999999999){
+                                                                                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+            }else if(lastTinNumber.length() == 10 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) == 999999999){
+                                                                                          newTinNumber = "" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+            }  else {
                 newTinNumber = "" + ((Integer.parseInt(lastTinNumber)) + 1);
             }
             msg="TIN/IN/"+newTinNumber;
@@ -521,5 +559,109 @@ public class Individual {
    id=((Integer.parseInt(lastDocNumber))+1)+"";
    }
    return id;
+   }
+   
+   public static Document getDocument(int individualId, ServletOutputStream s) throws DocumentException{
+ 
+ //           response.setContentType("application/pdf");
+            Document document = new Document(new Rectangle(1000, 1000));
+        Rectangle pagesize = new Rectangle(700f, 590f);
+        //Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
+            document.setPageSize(pagesize);
+            PdfWriter.getInstance(document, s);
+            document.open();
+            Rectangle rect = document.getPageSize();
+            rect.setBorder(Rectangle.BOX); // left, right, top, bottom border
+            rect.setBorderWidth(19); // a width of 5 user units
+            rect.setBorderColor(BaseColor.CYAN); // a red border
+            rect.setUseVariableBorders(true);
+            document.addTitle("TIN Certificate");
+            document.add(rect);
+            Date date = new Date();
+            SimpleDateFormat simpleDateformat = new SimpleDateFormat("dd/MM/yyyy");
+            String da = simpleDateformat.format(date);
+
+            Font font2 = new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD | Font.BOLD);
+            Font font3 = new Font(Font.FontFamily.HELVETICA, 15, Font.NORMAL | Font.NORMAL);
+            Font font5 = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD | Element.ALIGN_CENTER);
+
+            Paragraph par = new Paragraph(new Chunk(" Notice of Registration ", font2));
+            par.setAlignment(Element.ALIGN_CENTER);
+            document.add(par);
+            Paragraph par1 = new Paragraph(new Chunk("( Under the Law... Section ... )", font3));
+            par1.setAlignment(Element.ALIGN_CENTER);
+            document.add(par1);
+            document.add(new Paragraph("\n"));
+
+            try {
+                for (Individual in : Individual.listIndividual()) {
+                    if (in.getIndividualId() == (individualId)) {
+           Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
+                        image.setAlignment(Element.ALIGN_LEFT);
+                       // image.setAbsolutePosition(50f, 50f);
+                        image.scaleAbsolute(150, 90);
+                        image.setBorderWidth(40);
+                       // image.setWidthPercentage(widthPercentage);
+                        document.add((Element) image);
+
+                        Paragraph par2 = new Paragraph(new Chunk(" Names:  " + in.getOwnerSurname() + " " + in.getOwnerFirstName(), font3));
+                        par2.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par2);
+                        document.add(new Paragraph("\n"));
+
+                        Paragraph par3 = new Paragraph(new Chunk(" Business Activity:  ", font3));
+                        par3.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par3);
+                        document.add(new Paragraph("\n"));
+
+                        Paragraph par4 = new Paragraph(new Chunk(" Tax Center:  ", font3));
+                        par4.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par4);
+                        document.add(new Paragraph("\n"));
+                        Paragraph par5 = new Paragraph(new Chunk(" is registered for tax purposes and assigned :  ", font3));
+                        par5.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par5);
+                        document.add(new Paragraph("\n"));
+                        Paragraph par6 = new Paragraph(" TaxPayers' Identification Number:  " + in.getTinNumber(), font3);
+                        par6.setAlignment(Element.ALIGN_CENTER);
+            //document.add(par6);
+            //document.add(new Paragraph("\n"));
+            
+            PdfPTable table = new PdfPTable(1);
+            table.setWidthPercentage(40);
+            PdfPCell cell = new PdfPCell();
+            //cell.setFixedHeight(20f);
+            cell.setMinimumHeight(40);
+            cell.setVerticalAlignment(Element.ALIGN_CENTER);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.addElement(par6);
+
+            //PdfPTable table1 = new PdfPTable(1);
+                        //table1.addCell(new Phrase(new Chunk(" TaxPayers' Identification Number:  "+in.getTinNumber(), font3)));
+                        table.addCell(cell);
+                        document.add(table);
+
+                        Paragraph par7 = new Paragraph(new Chunk(" With effect from :  " + da, font3));
+                        par7.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par7);
+                        document.add(new Paragraph("\n"));
+                        Paragraph par8 = new Paragraph(new Chunk(" Signed:  ", font3));
+                        par8.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par8);
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("\n"));
+
+                        Paragraph par9 = new Paragraph(new Chunk(" Doc Number:  " + in.getDocNumber(), font3));
+                        par9.setAlignment(Element.ALIGN_RIGHT);
+                        document.add(par9);
+                        document.add(new Paragraph("\n"));
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            document.close();
+            return  document;
    }
 }

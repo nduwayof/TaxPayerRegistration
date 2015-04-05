@@ -5,6 +5,7 @@
  */
 package com.djuma.Individual;
 
+import com.djuma.Tax.TaxPayerType;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -47,7 +48,7 @@ public class CommonIndividual {
    //individualTaxPayerType
    
  //private String individualId;
- private String taxPayerTypeId="";
+// private String taxPayerTypeId="";
  
  //individual TaxType
  
@@ -282,13 +283,13 @@ public class CommonIndividual {
         this.notionalPhotocopy = notionalPhotocopy;
     }
 
-    public String getTaxPayerTypeId() {
-        return taxPayerTypeId;
-    }
+   // public String getTaxPayerTypeId() {
+     //   return taxPayerTypeId;
+    //}
 
-    public void setTaxPayerTypeId(String taxPayerTypeId) {
-        this.taxPayerTypeId = taxPayerTypeId;
-    }
+    //public void setTaxPayerTypeId(String taxPayerTypeId) {
+      //  this.taxPayerTypeId = taxPayerTypeId;
+    //}
 
     public String getTaxTypeId() {
         return taxTypeId;
@@ -577,6 +578,35 @@ public class CommonIndividual {
 
     
     public void saveIndividualInfo(){
+       int smallId=0;
+       int mediumId=0;
+       int largeId=0;
+       int microId=0;
+       for(TaxPayerType t: TaxPayerType.listTaxPayerType()){
+       if(t.getTaxpayerType().equalsIgnoreCase("samll")||t.getTaxpayerType().contains("small")){
+       smallId=t.getId();
+       }else if(t.getTaxpayerType().equalsIgnoreCase("medium")||t.getTaxpayerType().contains("medium")){
+       mediumId=t.getId();
+       }else if(t.getTaxpayerType().equalsIgnoreCase("large")||t.getTaxpayerType().contains("large")){
+       largeId=t.getId();
+       }else if(t.getTaxpayerType().equalsIgnoreCase("micro")||t.getTaxpayerType().contains("micro")){
+       microId=t.getId();
+       }
+       }
+        if(estmatedAnnualTurnOver >=2000000&&estmatedAnnualTurnOver<=12000000){
+        IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, microId);
+     i.SaveTaxPayerType();
+        }else if(estmatedAnnualTurnOver>12000000&&estmatedAnnualTurnOver<=50000000){
+           IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, smallId);
+     i.SaveTaxPayerType();
+        }else if(estmatedAnnualTurnOver >50000000&&estmatedAnnualTurnOver<= 400000000){
+           IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, mediumId);
+     i.SaveTaxPayerType();
+        }else if(estmatedAnnualTurnOver >400000000){
+           IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, largeId);
+     i.SaveTaxPayerType();
+        }
+        
        if(estmatedAnnualTurnOver>=20000000){
        optionVat=false;
        }else{
@@ -594,11 +624,11 @@ public class CommonIndividual {
      it.setOptionVat(optionVat);
      it.SaveTaxType();
      }
-     String taxPayerTypeParts[]=taxPayerTypeId.split("#");
-     for(int j=0;j<taxPayerTypeParts.length;j++){
-     IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, Integer.parseInt(taxPayerTypeParts[j]));
-     i.SaveTaxPayerType();
-     }
+     //String taxPayerTypeParts[]=taxPayerTypeId.split("#");
+     //for(int j=0;j<taxPayerTypeParts.length;j++){
+     //IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, Integer.parseInt(taxPayerTypeParts[j]));
+     //i.SaveTaxPayerType();
+     //}
      Individual_Activity iac=new Individual_Activity(businessActivty, estmatedAnnualTurnOver, estimatedNumberOfEmployees, accountingMethod, mainSourceOfIncome, employmentMethod, businessPremiseRented, individualId);
       iac.SaveActivity();
       Individual_Address iad=new Individual_Address(plotNo, street, sector, district, province, mailingAddress, mailHouseNo, mailStreet, mailPoBox, mailCity, mailSector, mailDistrict, mailProvince, individualId);

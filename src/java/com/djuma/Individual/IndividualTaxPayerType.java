@@ -57,14 +57,14 @@ public class IndividualTaxPayerType {
     }
 
     public static List<IndividualTaxPayerType> listsizeOfTaxForIndividual() {
-        List<IndividualTaxPayerType> list = new ArrayList<>();
+        List<IndividualTaxPayerType> list = new ArrayList<IndividualTaxPayerType>();
         try {
             PreparedStatement djuma = SetCon.getCon().prepareStatement("select * from individual_taxPayerType");
             ResultSet rs = djuma.executeQuery();
             while (rs.next()) {
                 IndividualTaxPayerType in = new IndividualTaxPayerType();
-                in.setIndividualId(rs.getInt(1));
-                in.setTaxPayerTypeId(rs.getInt(2));
+                in.setIndividualId(rs.getInt(2));
+                in.setTaxPayerTypeId(rs.getInt(3));
                 list.add(in);
             }
         } catch (Exception e) {
@@ -81,8 +81,8 @@ public class IndividualTaxPayerType {
             ResultSet rs = djuma.executeQuery();
             while (rs.next()) {
                 IndividualTaxPayerType in = new IndividualTaxPayerType();
-                in.setIndividualId(rs.getInt(1));
-                in.setTaxPayerTypeId(rs.getInt(2));
+                in.setIndividualId(rs.getInt(2));
+                in.setTaxPayerTypeId(rs.getInt(3));
                 list.add(in);
             }
         } catch (Exception e) {

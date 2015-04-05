@@ -20,7 +20,7 @@ String userId = (String) session.getAttribute("userId");
                 names = u.getFirstName() + " " + u.getLastName();
             }
         }
- currentIndividual=(Integer)session.getAttribute("individualTicket");
+ //currentIndividual=(Integer)session.getAttribute("individualTicket");
 }
 
 %>

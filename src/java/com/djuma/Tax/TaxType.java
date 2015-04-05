@@ -20,12 +20,21 @@ public class TaxType {
     private int id;
     private String taxType;
     private String description="";
+    private String code;
     private String error;
     private String info;
     private Timestamp doneAt=new Timestamp(new Date().getTime());
     private String doneBy="";
     private boolean deletedStatus=false;
     private boolean valid=true;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     public String getDescription() {
         return description;
@@ -106,12 +115,13 @@ public class TaxType {
    public void save(){
    try{
        if(valid){
-       PreparedStatement st=SetCon.getCon().prepareStatement("insert into taxType values(id,?,?,?,?,?)");
+       PreparedStatement st=SetCon.getCon().prepareStatement("insert into taxType values(id,?,?,?,?,?,?)");
        st.setString(1, taxType);
-       st.setString(2, description);
-        st.setTimestamp(3, doneAt);
-        st.setString(4, doneBy);
-        st.setBoolean(5, deletedStatus);
+       st.setString(2, code);
+       st.setString(3, description);
+        st.setTimestamp(4, doneAt);
+        st.setString(5, doneBy);
+        st.setBoolean(6, deletedStatus);
         st.execute();
         info="New TaxPayerType Added";
        }
@@ -130,10 +140,11 @@ public class TaxType {
         TaxType t=new TaxType();
         t.setId(rs.getInt(1));
         t.setTaxType(rs.getString(2));
-        t.setDescription(rs.getString(3));
-        t.setDoneAt(rs.getTimestamp(4));
-        t.setDoneBy(rs.getString(5));
-        t.setDeletedStatus(rs.getBoolean(6));
+        t.setCode(rs.getString(3));
+        t.setDescription(rs.getString(4));
+        t.setDoneAt(rs.getTimestamp(5));
+        t.setDoneBy(rs.getString(6));
+        t.setDeletedStatus(rs.getBoolean(7));
         list.add(t);
         }
     }catch(Exception e){

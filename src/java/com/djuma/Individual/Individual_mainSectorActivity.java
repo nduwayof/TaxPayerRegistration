@@ -78,8 +78,8 @@ public class Individual_mainSectorActivity {
         ResultSet rs=djuma.executeQuery();
         while(rs.next()){
         Individual_mainSectorActivity in=new Individual_mainSectorActivity();
-        in.setIndividualId(rs.getInt(1));
-        in.setSectorId(rs.getInt(2));
+        in.setIndividualId(rs.getInt(2));
+        in.setSectorId(rs.getInt(3));
         l.add(in);
         }
     }catch(Exception e){}

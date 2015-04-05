@@ -66,6 +66,27 @@
                     <li><a href="deRegistration.jsp"><i class="fa fa-circle-o"></i> DeRegister</a></li>
                 </ul>
             </li>
+             <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file"></i>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    <span>Reports</span>
+                    <span class="label label-primary pull-right">10</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="reports.jsp"><i class="fa fa-circle-o"></i>Certificates</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>By Location</a></li>
+                    <li><a href="SizeOfTaxReport.jsp"><i class="fa fa-circle-o"></i>By Size</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>By Enterprise Type</a></li>
+                    <li><a href="ByIndustryReport.jsp"><i class="fa fa-circle-o"></i>By Industry</a></li>
+                    <li><a href="ByTaxTypeReport.jsp"><i class="fa fa-circle-o"></i> By Tax Type</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>By Investment incentives</a></li>
+                    <li><a href="BySourceIncomeReport.jsp"><i class="fa fa-circle-o"></i>By Source of Income</a></li>
+                    <li><a href="ByAccountingRegimeReport.jsp"><i class="fa fa-circle-o"></i>By Accounting Regime</a></li>
+                    <li><a href="ByYearReport.jsp"><i class="fa fa-circle-o"></i>Registered Business By Year</a></li>
+                </ul>
+               
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-file"></i>
@@ -78,17 +99,7 @@
                     <li><a href="#"><i class="fa fa-circle-o"></i> Non Individual</a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-file"></i>
-                    <i class="fa fa-angle-left pull-right"></i>
-                    <span>Reports</span>
-                    <span class="label label-primary pull-right">1</span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="reports.jsp"><i class="fa fa-circle-o"></i>Reports</a></li>
-                </ul>
-            </li>
+           
             <%
                 }
             %>

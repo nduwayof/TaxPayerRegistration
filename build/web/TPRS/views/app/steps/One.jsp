@@ -278,25 +278,6 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="taxpayerType">Size of Taxpayer</label>
-                </div>
-                <div class="col-lg-8">
-                    <%
-                        for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
-                            if (t.isDeletedStatus() == false) {
-                    %>
-                    <input type="checkbox" name="taxPayerTypeId" value="<%=t.getId()%>#" /><%=t.getTaxpayerType()%>
-
-                    <%
-                            }
-                        }
-                    %>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="form-group">
-                <div class="col-lg-4">
                     <label for="taxType">Type of Taxes</label>
                 </div>
                 <div class="col-lg-8">

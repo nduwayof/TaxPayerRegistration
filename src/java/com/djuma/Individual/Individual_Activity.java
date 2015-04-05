@@ -144,8 +144,9 @@ PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from individu
     in.setEstimatedNumberOfEmployees(rs.getInt(4));
     in.setAccountingMethod(rs.getString(5));
     in.setMainSourceOfIncome(rs.getString(6));
-    in.setBusinessPremiseRented(rs.getBoolean(7));
-    in.setIndividualId(rs.getInt(8));
+    in.setEmploymentMethod(rs.getString(7));
+    in.setBusinessPremiseRented(rs.getBoolean(8));
+    in.setIndividualId(rs.getInt(9));
     list.add(in);
     }
 }catch(Exception e){

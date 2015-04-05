@@ -73,9 +73,9 @@ public class IndividualTaxType {
         ResultSet rs=djuma.executeQuery();
         while(rs.next()){
         IndividualTaxType in=new IndividualTaxType();
-        in.setIndividualId(rs.getInt(1));
-        in.setTaxTypeId(rs.getInt(2));
-        in.setOptionVat(rs.getBoolean(3));
+        in.setIndividualId(rs.getInt(2));
+        in.setTaxTypeId(rs.getInt(3));
+        in.setOptionVat(rs.getBoolean(4));
         list.add(in);
         }
     }catch(Exception e){
@@ -92,9 +92,9 @@ public class IndividualTaxType {
         ResultSet rs=djuma.executeQuery();
         while(rs.next()){
         IndividualTaxType in=new IndividualTaxType();
-        in.setIndividualId(rs.getInt(1));
-        in.setTaxTypeId(rs.getInt(2));
-        in.setOptionVat(rs.getBoolean(3));
+        in.setIndividualId(rs.getInt(2));
+        in.setTaxTypeId(rs.getInt(3));
+        in.setOptionVat(rs.getBoolean(4));
         list.add(in);
         }
     }catch(Exception e){

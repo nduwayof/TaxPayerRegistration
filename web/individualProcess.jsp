@@ -78,7 +78,7 @@
                     String tinNumber = "";
                     String oldTinNumber = "";
 
-                    String taxPayerTypeId = "";
+                    //String taxPayerTypeId = "";
 
 //individual TaxType
                     //private int individualId;
@@ -176,9 +176,11 @@
                                 mariageDob = value;
                             } else if (name.equalsIgnoreCase("oldTinNumber")) {
                                 oldTinNumber = value;
-                            } else if (name.equalsIgnoreCase("taxPayerTypeId")) {
-                                taxPayerTypeId = value;
-                            } else if (name.equalsIgnoreCase("taxTypeId")) {
+                            }
+                            //else if (name.equalsIgnoreCase("taxPayerTypeId")) {
+                              //  taxPayerTypeId = value;
+                            //} 
+                            else if (name.equalsIgnoreCase("taxTypeId")) {
                                 taxTypeId = value;
                             } else if (name.equalsIgnoreCase("businessActivty")) {
                                 businessActivty = Boolean.parseBoolean(value);
@@ -278,7 +280,7 @@
                         c.setPhoto(itemName);
                         c.setNotionalPhotocopy(itemName);
                         c.setOldTinNumber(oldTinNumber);
-                        c.setTaxPayerTypeId(taxPayerTypeId);
+                        //c.setTaxPayerTypeId(taxPayerTypeId);
                         c.setTaxTypeId(taxTypeId);
                         c.setBusinessActivty(businessActivty);
                         c.setEstmatedAnnualTurnOver(estmatedAnnualTurnOver);
@@ -319,7 +321,7 @@
             c.setIndividualId(currentIndividual);
             c.setDoneBy(names);
             c.saveIndividualInfo();
-            response.sendRedirect("TINCertificate.jsp");
+            response.sendRedirect("individual.jsp");
         %>
         <%
         //c.setIndividualId(currentIndividual);
