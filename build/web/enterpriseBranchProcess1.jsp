@@ -30,7 +30,7 @@ String userId = (String) session.getAttribute("userId");
         <%
         br.setNonIndividualId(currentIndividual);
         br.saveBranch();
-        response.sendRedirect("nonIndividual.jsp");
+        response.sendRedirect("nonindividualBanks.jsp");
         %>
     </body>
 </html>
