@@ -23,6 +23,7 @@
                     <%
                         }
                     %>
+                    <option value="0">All</option>
                     </select>
                     
                 </div>

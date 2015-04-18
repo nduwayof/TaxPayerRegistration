@@ -7,6 +7,7 @@ package com.djuma;
 
 import com.djuma.NonIndividual.*;
 import com.djuma.Connection.SetCon;
+import com.djuma.Individual.Individual;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
@@ -382,28 +383,46 @@ public class NonIndividual {
     }
     
     if(lastTinNumber.equalsIgnoreCase("")){
-            newTinNumber="TIN/NIN/0001";
+            newTinNumber="TIN/NIN/00000001";
             msg=newTinNumber;
-        }else{
-       lastTinNumber=lastTinNumber.substring(7);
-            if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) < 9) {
-                newTinNumber = "000" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) == 9) {
-                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) < 99) {
-                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) == 99) {
-                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) < 999) {
-                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
-            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) == 999) {
-                newTinNumber = "" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
-            } else {
+      }else{
+       lastTinNumber=lastTinNumber.substring(8);
+            if (lastTinNumber.length() == 8 && lastTinNumber.substring(0, 7).equalsIgnoreCase("0000000") && Integer.parseInt(lastTinNumber.substring(7)) < 9) {
+                                                                                newTinNumber = "0000000" + ((Integer.parseInt(lastTinNumber.substring(7))) + 1);
+            }else if(lastTinNumber.length() ==8 && lastTinNumber.substring(0, 7).equalsIgnoreCase("0000000") && Integer.parseInt(lastTinNumber.substring(7)) == 9){
+                                                                                newTinNumber = "000000" + ((Integer.parseInt(lastTinNumber.substring(7))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 6).equalsIgnoreCase("000000") && Integer.parseInt(lastTinNumber.substring(6)) < 99){
+                                                                                newTinNumber = "000000" + ((Integer.parseInt(lastTinNumber.substring(6))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 6).equalsIgnoreCase("000000") && Integer.parseInt(lastTinNumber.substring(6)) == 99){
+                                                                                newTinNumber = "00000" + ((Integer.parseInt(lastTinNumber.substring(6))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 5).equalsIgnoreCase("00000") && Integer.parseInt(lastTinNumber.substring(5)) < 999){
+                                                                                newTinNumber = "00000" + ((Integer.parseInt(lastTinNumber.substring(5))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 7).equalsIgnoreCase("00000") && Integer.parseInt(lastTinNumber.substring(5)) == 999){
+                                                                                newTinNumber = "0000" + ((Integer.parseInt(lastTinNumber.substring(5))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 4).equalsIgnoreCase("0000") && Integer.parseInt(lastTinNumber.substring(4)) < 9999){
+                                                                                newTinNumber = "0000" + ((Integer.parseInt(lastTinNumber.substring(4))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 4).equalsIgnoreCase("0000") && Integer.parseInt(lastTinNumber.substring(4)) == 9999){
+                                                                                newTinNumber = "000" + ((Integer.parseInt(lastTinNumber.substring(4))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) < 99999){
+                                                                                newTinNumber = "000" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) == 99999){
+                                                                                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) < 999999){
+                                                                                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) == 999999){
+                                                                                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) < 9999999){
+                                                                                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+            }else if(lastTinNumber.length() == 8 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) == 9999999){
+                                                                                newTinNumber = "" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+                                                                                      newTinNumber = "" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+            }  else {
                 newTinNumber = "" + ((Integer.parseInt(lastTinNumber)) + 1);
             }
-            msg="TIN/NIN/"+newTinNumber;
+            msg="TIN/IN/"+newTinNumber;
         }
     
     return msg;
-   }
+    
+    }
 }

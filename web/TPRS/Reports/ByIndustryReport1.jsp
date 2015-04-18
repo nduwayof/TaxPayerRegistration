@@ -44,6 +44,99 @@
         <%
             String value=request.getParameter("industry");
             String type="";
+            if(Integer.parseInt(value)==0){
+            response.setContentType("application/pdf");
+            //Document document = new Document(new Rectangle(1000, 1000));
+            Rectangle pagesize = new Rectangle(700f, 590f);
+            Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
+            document.setPageSize(pagesize);
+            PdfWriter.getInstance(document, response.getOutputStream());
+            document.open();
+             
+            Date date = new Date();
+            SimpleDateFormat simpleDateformat = new SimpleDateFormat("dd/MM/yyyy");
+            String da = simpleDateformat.format(date);
+          //  String itn = request.getParameter("itnm");
+           // String title=itn.toUpperCase();
+            Font font2 = new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD | Font.UNDERLINE);
+            Font font5 = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD | Element.ALIGN_CENTER );
+           // Image image = Image.getInstance("C:\\Users\\Joe\\Desktop\\my web  projects\\StockTest\\web\\images\\pih.jpg");
+           
+           //image.scaleAbsolute(400, 50);
+
+            //document.add((Element) image);
+           
+            Paragraph par = new Paragraph(new Chunk( " "+   "Report of "+type+" Industry on " + da , font2));
+            par.setAlignment(Element.ALIGN_CENTER);
+            document.add(par);
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph("\n"));
+
+            PdfPTable tablee = new PdfPTable(2);
+             
+            tablee.setWidthPercentage(100);
+            PdfPTable tablee1 = new PdfPTable(1);
+            tablee1.addCell(new Phrase(new Chunk(" Industry Name ", FontFactory.getFont(FontFactory.TIMES_BOLD, 13, Font.BOLD, BaseColor.MAGENTA))));
+            PdfPTable tablee2 = new PdfPTable(1);
+            tablee2.addCell(new Phrase(new Chunk(" Number of Business Registered ", FontFactory.getFont(FontFactory.TIMES_BOLD, 13, Font.BOLD, BaseColor.MAGENTA))));
+            
+        
+            tablee.addCell(tablee1);
+            tablee.addCell(tablee2);
+            document.add(tablee);
+     
+            int i = 0;
+            try {
+              //  String itnm = request.getParameter("username");
+                
+                for(Industry t: Industry.listIndistry()){
+                    PdfPTable table = new PdfPTable(2);
+                    table.setWidthPercentage(100);
+                   
+                    i = i + 1;
+                    PdfPTable table1 = new PdfPTable(1);
+                    table1.addCell(new Phrase(new Chunk(t.getName(), FontFactory.getFont(FontFactory.TIMES_BOLD, 9, Font.BOLD, BaseColor.BLACK))));
+                    
+
+                    PdfPTable table2 = new PdfPTable(1);
+                    table2.addCell(new Phrase(new Chunk("", font5)));
+
+                    
+                    table.addCell(table1);
+                    table.addCell(table2);
+                  
+                    document.add(table);
+                   if(t.getId()==Integer.parseInt(value)){ 
+                    for(Sector s: Sector.listSector()){
+                    if(s.getIndustryId()==t.getId()){
+                    for(Individual_mainSectorActivity m: Individual_mainSectorActivity.list()){
+                        if(m.getSectorId()==s.getId()){
+                for(Individual in: Individual.listIndividual()) {
+                   if(in.getIndividualId()==m.getIndividualId()&&in.isHasInfo()&&in.isDeRegistered()==false){
+                    
+                }
+                }
+                        }
+                    }
+                           }
+                       }
+                }
+                }
+               
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            PdfPTable tableee = new PdfPTable(2);
+            tablee.setWidthPercentage(100);
+            PdfPTable tableee1 = new PdfPTable(1);
+            tableee1.addCell(new Phrase(new Chunk("Total Number of Industries  ", FontFactory.getFont(FontFactory.TIMES_BOLD, 9, Font.BOLD, BaseColor.BLUE))));
+            PdfPTable tableee2 = new PdfPTable(1);
+            tableee2.addCell(new Phrase(new Chunk(i+"      ", FontFactory.getFont(FontFactory.TIMES_BOLD, 9, Font.BOLD, BaseColor.BLUE))));
+            tableee.addCell(tableee1);
+            tableee.addCell(tableee2);
+            document.add(tableee);
+            document.close();
+            }else{
             for(Industry t: Industry.listIndistry()){
             if(t.getId()==Integer.parseInt(value)){
             type=t.getName();
@@ -156,6 +249,7 @@
             tableee.addCell(tableee2);
             document.add(tableee);
             document.close();
+            }
         %>
     </body>
 </html>
