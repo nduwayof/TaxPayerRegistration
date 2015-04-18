@@ -27,10 +27,9 @@
             <jsp:include page="steps/two.jsp"/>
             <jsp:include page="steps/three.jsp"/>
             <jsp:include page="steps/four.jsp"/>
-
         </div>
         <p class="text-center pull-right">
-            <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="Submit form" />
+            <input id="SaveAccount" class="btn btn-danger" type="submit" value="Next" />
         </p>
     </form>
   
