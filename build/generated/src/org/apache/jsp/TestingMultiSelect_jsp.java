@@ -67,14 +67,17 @@ public final class TestingMultiSelect_jsp extends org.apache.jasper.runtime.Http
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div class=\"row\">\n");
+      out.write("            <form action=\"TestingMultProcess.jsp\" method=\"POST\">\n");
       out.write("            <!-- multiple dropdown -->\n");
-      out.write("            <select class=\"chosen\" multiple=\"true\" style=\"width:400px;\">\n");
+      out.write("            <select class=\"chosen\" multiple=\"true\" style=\"width:400px;\" name=\"sector\">\n");
       out.write("                ");
 
                 for(Sector s: Sector.listSector()){
                 
       out.write("\n");
-      out.write("                  <option>");
+      out.write("                <option value=\"");
+      out.print(s.getId());
+      out.write("#\">");
       out.print(s.getName());
       out.write("</option>\n");
       out.write("                ");
@@ -83,6 +86,8 @@ public final class TestingMultiSelect_jsp extends org.apache.jasper.runtime.Http
                 
       out.write("\n");
       out.write("            </select> \n");
+      out.write("            <input type=\"submit\" value=\"Save\" />\n");
+      out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");

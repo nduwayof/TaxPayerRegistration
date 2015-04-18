@@ -11,6 +11,7 @@
 <fieldset>
     <legend>Activities Informations</legend>
     <br>
+    <!--
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
@@ -59,18 +60,10 @@
             </div>
         </div>
     </div>
+                    -->
                 <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <select class="chosen" multiple="true" style="width:400px;">
-                <%
-                for(Sector s: Sector.listSector()){
-                %>
-                  <option><%=s.getName()%></option>
-                <%
-                }
-                %>
-            </select> 
                     <div class="col-lg-4">
                         <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
                     </div>
@@ -138,7 +131,7 @@
                </div>
                 <div class="col-lg-8">
                     <div class="input-group">
-                        <select name="mainSourceOfIncome" id="selectMainSourceIncome">
+                        <select name="mainSourceOfIncome"  class="form-control" id="selectMainSourceIncome">
                             <option>Business</option>
                             <option>Rental</option>
                             <option>Employment</option>

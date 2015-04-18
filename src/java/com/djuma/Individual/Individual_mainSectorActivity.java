@@ -66,6 +66,7 @@ public class Individual_mainSectorActivity {
         PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual_mainSectorActivity values(id,?,?)");
         djuma.setInt(1, individualId);
         djuma.setInt(2, sectorId);
+        djuma.execute();
     }catch(Exception e){
     
     }

@@ -23,12 +23,13 @@
 <div class="col-lg-10">
     <form id="SignupForm" action="individualProcess.jsp" class="form-horizontal" method="POST" enctype="multipart/form-data">
         <div id="steping">
-            <jsp:include page="steps/five.jsp"/>
             <jsp:include page="steps/One.jsp"/>
             <jsp:include page="steps/two.jsp"/>
             <jsp:include page="steps/three.jsp"/>
             
             <jsp:include page="steps/four.jsp"/>
+            <jsp:include page="steps/five.jsp"/>
+
         </div>
         <p class="text-center">
             <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="Submit form" />
@@ -118,7 +119,7 @@
         <div class="modal fade" id="enterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                   
+
                     <form class="form-horizontal" id="bankAccount" action="entrepriseBranchProcess.jsp" method="POST">
                         <div class="modal-body">
                             <div class="form-group">

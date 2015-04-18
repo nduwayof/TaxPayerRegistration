@@ -6,6 +6,7 @@
 
 
 
+<%@page import="com.djuma.Sector.Sector"%>
 <%@page import="com.djuma.Tax.TaxPayerType"%>
 <%@page import="com.djuma.Tax.TaxType"%>
 <%@page import="com.djuma.Individual.Individual"%>
@@ -280,6 +281,7 @@
                 <div class="col-lg-4">
                     <label for="taxType">Type of Taxes</label>
                 </div>
+                <!--
                 <div class="col-lg-8">
                     <%
                         for (TaxType t : TaxType.listTaxType()) {
@@ -292,6 +294,16 @@
                         }
                     %>
                 </div>
+                -->                
+                <select class="chosen" multiple="true" style="width:400px;" name="taxTypeId">
+                <%
+                for(TaxType t: TaxType.listTaxType()){
+                %>
+                <option value="<%=t.getId()%>#"><%=t.getTaxType()%></option>
+                <%
+                }
+                %>
+            </select> 
             </div>
         </div>
     </div>
@@ -343,6 +355,66 @@
                     </div>
                     <div class="col-lg-8">
                         <input type="date" name="dob" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+          <!--  
+        <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-8">
+                    <label for="bussinessActivity">Do you do business activity</label> 
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label onclick="showBusiness()">
+                                <input type="radio" name="businessActivty" autocomplete="off" value="1"> Yes 
+                            </label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label onclick="hideBusiness()">
+                                <input type="radio" name="businessActivty" autocomplete="off" value="0"> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+          -->
+    <div id="businessActivitys">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="mainSectorActivity">Main Sector Activity</label> 
+                    </div>
+                    <div class="col-lg-8">
+                        <!--
+                        <%
+                            for (Sector s : Sector.listSector()) {
+                        //for(Sub_Sector su:Sub_Sector.listSubSector()){
+                                //if(s.getId()==su.getSectorId()){
+%>
+                        <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
+                        <%
+                       // }
+                                // }
+                            }
+                        %>
+                        -->
+                        <select class="chosen" multiple="true" style="width:400px;" name="mainSectorActivity">
+                <%
+                for(Sector  s: Sector.listSector()){
+                %>
+                <option value="<%=s.getId()%>#"><%=s.getName()%></option>
+                <%
+                }
+                %>
+            </select> 
                     </div>
                 </div>
             </div>

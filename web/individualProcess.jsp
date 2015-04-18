@@ -44,7 +44,7 @@
         <title>Process</title>
     </head>
     <body>
-        <%                    try {
+        <%             try {
                 boolean isMultipart = ServletFileUpload.isMultipartContent(request);
                 if (isMultipart) {
                     FileItemFactory factory = new DiskFileItemFactory();
@@ -130,6 +130,7 @@
 
                             String name = item.getFieldName();
                             String value = item.getString();
+                            
                             if (name.equals("photo")) {
                                 photo = value;
                             } else if (name.equalsIgnoreCase("notionalPhotocopy")) {

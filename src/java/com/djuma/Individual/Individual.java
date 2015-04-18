@@ -7,6 +7,8 @@ package com.djuma.Individual;
 
 import java.sql.PreparedStatement;
 import com.djuma.Connection.SetCon;
+import com.djuma.Sector.Industry;
+import com.djuma.Sector.Sector;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -608,15 +610,30 @@ public class Individual {
                         par2.setAlignment(Element.ALIGN_LEFT);
                         document.add(par2);
                         document.add(new Paragraph("\n"));
-
-                        Paragraph par3 = new Paragraph(new Chunk(" Business Activity:  ", font3));
+                         
+                        for(Individual_mainSectorActivity i: Individual_mainSectorActivity.list()){
+                            if(i.getIndividualId()==in.getIndividualId()){
+                                for(Sector se: Sector.listSector()){
+                                    if(se.getId()==i.getSectorId()){
+                                        for(Industry id:Industry.listIndistry()){
+                                            if(id.getId()==se.getIndustryId()){
+                        Paragraph par3 = new Paragraph(new Chunk(" Business Activity:  "+id.getName()+" - "+se.getName(), font3));
                         par3.setAlignment(Element.ALIGN_LEFT);
                         document.add(par3);
+                        }
+                                        }
+                                    }
+                                }
+                        }
+                        }
                         document.add(new Paragraph("\n"));
-
-                        Paragraph par4 = new Paragraph(new Chunk(" Tax Center:  ", font3));
+                        for(Individual_Address a: Individual_Address.listOfIndividualAddress()){
+                            if(a.getIndividualId()==in.getIndividualId()){
+                        Paragraph par4 = new Paragraph(new Chunk(" Tax Center:  "+a.getProvince()+" - "+a.getDistrict(), font3));
                         par4.setAlignment(Element.ALIGN_LEFT);
                         document.add(par4);
+                        }
+                        }
                         document.add(new Paragraph("\n"));
                         Paragraph par5 = new Paragraph(new Chunk(" is registered for tax purposes and assigned :  ", font3));
                         par5.setAlignment(Element.ALIGN_LEFT);

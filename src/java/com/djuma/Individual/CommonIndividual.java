@@ -593,16 +593,20 @@ public class CommonIndividual {
        microId=t.getId();
        }
        }
-        if(estmatedAnnualTurnOver >=2000000&&estmatedAnnualTurnOver<=12000000){
+        if(estmatedAnnualTurnOver >=2000000&&estmatedAnnualTurnOver<12000000){
         IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, microId);
      i.SaveTaxPayerType();
-        }else if(estmatedAnnualTurnOver>12000000&&estmatedAnnualTurnOver<=50000000){
+        }
+        if(estmatedAnnualTurnOver>12000001&&estmatedAnnualTurnOver<=50000000){
            IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, smallId);
      i.SaveTaxPayerType();
-        }else if(estmatedAnnualTurnOver >50000000&&estmatedAnnualTurnOver<= 400000000){
+        }
+        if(estmatedAnnualTurnOver >=50000001&&estmatedAnnualTurnOver<= 400000000){
            IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, mediumId);
      i.SaveTaxPayerType();
-        }else if(estmatedAnnualTurnOver >400000000){
+        }
+        
+        if(estmatedAnnualTurnOver >=400000001){
            IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, largeId);
      i.SaveTaxPayerType();
         }
@@ -612,12 +616,13 @@ public class CommonIndividual {
        }else{
        optionVat=true;
        }
-        if(businessActivty==true){
+        //if(businessActivty==true){
       String sectorActivityParts[]=mainSectorActivity.split("#");
       for(int d=0;d<sectorActivityParts.length;d++){
       Individual_mainSectorActivity is=new Individual_mainSectorActivity(individualId,Integer.parseInt(sectorActivityParts[d]));
+      is.SaveMainSectorActivity();
       }
-        }
+       // }
      String taxTypeParts[]=taxTypeId.split("#");
      for(int i=0; i<taxTypeParts.length;i++){
      IndividualTaxType it=new IndividualTaxType(individualId, Integer.parseInt(taxTypeParts[i]));
