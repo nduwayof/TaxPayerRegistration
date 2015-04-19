@@ -601,7 +601,7 @@ public class CommonIndividual {
        }
         if(estmatedAnnualTurnOver >=2000000&&estmatedAnnualTurnOver<12000000){
         IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, microId);
-     i.SaveTaxPayerType();
+         i.SaveTaxPayerType();
         }
         if(estmatedAnnualTurnOver>12000001&&estmatedAnnualTurnOver<=50000000){
            IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, smallId);

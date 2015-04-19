@@ -594,7 +594,7 @@ public class Individual {
    String id="";
    String lastDocNumber="";
    for(Individual in: Individual.listIndividual()){
-       if(in.hasInfo&&in.isDeRegistered()==false){
+       if(in.isHasInfo()&&in.isDeRegistered()==false){
    lastDocNumber=in.getDocNumber();
        }
    }
@@ -605,11 +605,13 @@ public class Individual {
    }
    return id;
    }
+   
+   
    public static String getVatNewDocumentId(){
    String id="";
    String lastDocNumber="";
    for(Individual in: Individual.listIndividual()){
-       if(in.hasInfo&&in.isDeRegistered()==false){
+       if(in.isHasInfo()&&in.isDeRegistered()==false){
    lastDocNumber=in.getVatDocumentNumber();
        }
    }

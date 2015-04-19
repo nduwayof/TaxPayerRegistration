@@ -153,6 +153,7 @@ public class Individual_Address {
     public void setIndividualId(int individualId) {
         this.individualId = individualId;
     }
+    
 
     public Individual_Address(String plotNo, String street, String sector, String district, String province, String mailingAddress, String mailHouseNo, String mailStreet, String mailPoBox, String mailCity, String mailSector, String mailDistrict, String mailProvince, int individualId) {
         this.plotNo = plotNo;

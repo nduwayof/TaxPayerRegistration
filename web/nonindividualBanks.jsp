@@ -42,9 +42,12 @@
         <link href="TPRS/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+          <link href="TPRS/bower_components/bootstrap-fileinput/css/fileinput.css" rel="stylesheet" type="text/css" /> 
 
         <script src="TPRS/bower_components/jquery/js/jquery.min.js"></script>
         <script src="TPRS/js/formToWizard.js"></script>
+                <script src="TPRS/bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
+
     </head>
     <body class="skin-blue">
         <div class="wrapper">

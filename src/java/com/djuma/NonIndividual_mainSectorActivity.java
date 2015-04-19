@@ -71,9 +71,10 @@ public class NonIndividual_mainSectorActivity {
     
     public void SaveMainSectorActivity(){
     try{
-        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into nonIndividual_mainSectorActivity values(id,?,?)");
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into nonIndividual_mainsectorActivity values(id,?,?)");
         djuma.setInt(1, nonIndividualId);
         djuma.setInt(2, sectorId);
+        djuma.execute();
     }catch(Exception e){
     
     }

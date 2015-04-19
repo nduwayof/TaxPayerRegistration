@@ -8,6 +8,8 @@ package com.djuma.Acount.Management;
 import com.djuma.Connection.SetCon;
 import com.djuma.Individual.Individual;
 import com.djuma.Individual.IndividualTaxPayerType;
+import com.djuma.NonIndividual;
+import com.djuma.NonIndividual_Address;
 
 import com.djuma.Sector.Industry;
 import com.djuma.Sector.Sector;
@@ -80,20 +82,11 @@ public class test {
 //        }
         
         
-           for(TaxPayerType t1: TaxPayerType.listTaxPayerType()){
-                   if(t1.getId()==2){ 
-                    for(IndividualTaxPayerType it: IndividualTaxPayerType.listsizeOfTaxForIndividual()){
-                    if(it.getTaxPayerTypeId()==t1.getId()){
-                for(Individual in: Individual.listIndividual()) {
-                   if(in.getIndividualId()==it.getIndividualId()&&in.isHasInfo()&&in.isDeRegistered()==false){
-                     System.out.println(in.getTinNumber());
-                   }
-                }
-           }
-                   }
-                   }
+          
      
-    }
+        NonIndividual_Address n=new NonIndividual_Address();
+        n.setNonIndividualId(2);
+        n.saveAddress();
            
            
     }

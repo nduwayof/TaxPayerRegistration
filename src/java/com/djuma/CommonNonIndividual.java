@@ -5,7 +5,9 @@
  */
 package com.djuma;
 
+import com.djuma.Individual.IndividualTaxPayerType;
 import com.djuma.NonIndividual.*;
+import com.djuma.Tax.TaxPayerType;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -36,9 +38,13 @@ public class CommonNonIndividual {
     private Timestamp doneAt=new Timestamp(new Date().getTime());
     private String doneBy="";
     private boolean hasInfo;
+    private String tinDocumentNumber;
+    private String vatDocumentNumber;
+    private String  photo;
+    private boolean deregistered=false;
 
     
-    private String plotNo;
+ private String plotNo;
  private String street;
  private String sector;
  private String district;
@@ -558,33 +564,131 @@ public class CommonNonIndividual {
         this.businessPremiseRented = businessPremiseRented;
     }
 
+    public String getTinDocumentNumber() {
+        return tinDocumentNumber;
+    }
+
+    public void setTinDocumentNumber(String tinDocumentNumber) {
+        this.tinDocumentNumber = tinDocumentNumber;
+    }
+
+    public String getVatDocumentNumber() {
+        return vatDocumentNumber;
+    }
+
+    public void setVatDocumentNumber(String vatDocumentNumber) {
+        this.vatDocumentNumber = vatDocumentNumber;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public boolean isDeregistered() {
+        return deregistered;
+    }
+
+    public void setDeregistered(boolean deregistered) {
+        this.deregistered = deregistered;
+    }
+    
+
     public CommonNonIndividual() {
     }
     
     public void saveCommonNonIndividual(){
-    if(businessActivty==true){
+        
+        
+        int smallId=0;
+       int mediumId=0;
+       int largeId=0;
+       int microId=0;
+       for(TaxPayerType t: TaxPayerType.listTaxPayerType()){
+       if(t.getTaxpayerType().equalsIgnoreCase("samll")||t.getTaxpayerType().contains("small")){
+       smallId=t.getId();
+       }else if(t.getTaxpayerType().equalsIgnoreCase("medium")||t.getTaxpayerType().contains("medium")){
+       mediumId=t.getId();
+       }else if(t.getTaxpayerType().equalsIgnoreCase("large")||t.getTaxpayerType().contains("large")){
+       largeId=t.getId();
+       }else if(t.getTaxpayerType().equalsIgnoreCase("micro")||t.getTaxpayerType().contains("micro")){
+       microId=t.getId();
+       }
+       }
+        if(estmatedAnnualTurnOver >=2000000&&estmatedAnnualTurnOver<12000000){
+        Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, microId);
+         i.SaveTaxPayerType();
+        }
+        if(estmatedAnnualTurnOver>12000001&&estmatedAnnualTurnOver<=50000000){
+            Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, smallId);
+         i.SaveTaxPayerType();
+ 
+        }
+        if(estmatedAnnualTurnOver >=50000001&&estmatedAnnualTurnOver<= 400000000){
+            Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, mediumId);
+         i.SaveTaxPayerType();
+        }
+        
+        if(estmatedAnnualTurnOver >=400000001){
+            Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, largeId);
+         i.SaveTaxPayerType();
+        }
+
       String sectorActivityParts[]=mainSectorActivity.split("#");
       for(int d=0;d<sectorActivityParts.length;d++){
       NonIndividual_mainSectorActivity is=new NonIndividual_mainSectorActivity(nonIndividualId,Integer.parseInt(sectorActivityParts[d]));
-      }
+      is.SaveMainSectorActivity();
         }
      String taxTypeParts[]=taxTypeId.split("#");
      for(int i=0; i<taxTypeParts.length;i++){
          Nonindividual_TaxType it=new Nonindividual_TaxType(nonIndividualId, Integer.parseInt(taxTypeParts[i]));
      it.SaveTaxType();
      }
-     String taxPayerTypeParts[]=taxPayerTypeId.split("#");
-     for(int j=0;j<taxPayerTypeParts.length;j++){
-         Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, Integer.parseInt(taxPayerTypeParts[j]));
-     i.SaveTaxPayerType();
-     }
+    
      NonIndividual_Activity iac=new NonIndividual_Activity(businessActivty, estmatedAnnualTurnOver, estimatedNumberOfEmployees, accountingMethod, mainSourceOfIncome, employmentMethod, businessPremiseRented, nonIndividualId);
       iac.SaveActivity();
-      NonIndividual_Address iad=new NonIndividual_Address(plotNo, street, sector, district, province, mailingAddress, mailHouseNo, mailStreet, mailPoBox, mailCity, mailSector, mailDistrict, mailProvince, nonIndividualId);
+      //NonIndividual_Address iad=new NonIndividual_Address(plotNo, street, sector, district, province, mailingAddress, mailHouseNo, mailStreet, mailPoBox, mailCity, mailSector, mailDistrict, mailProvince, nonIndividualId);
+      NonIndividual_Address iad=new NonIndividual_Address();
+      iad.setPlotNo(plotNo);
+      iad.setStreet(street);
+     iad.setSector(sector);
+     iad.setDistrict(district);
+     iad.setProvince(province);
+     iad.setNonIndividualId(nonIndividualId);
       iad.saveAddress();
+      
       NonIndividual_Representative ir=new NonIndividual_Representative(taxpayerRepresentativeName, representativeTitle, representativePhoneNo, contactName, contactTitle, contactPhoneNo, nonIndividualId);
       ir.saveRepresentative();
-      NonIndividual noin=new NonIndividual(enterpriseType, incBenefitsInvestment, noOfExpiration, expirationDate, registeredName, registrationDate, comRegistrationNo, resident, countryOfResidence, entrepriseEmail, nssfRegistrationNo, entreprisePhoneNo, entrepriseFaxNo, startDate, noOfShares, sharesValue, tinNumber, oldTinNumber, doneBy);
+      //NonIndividual noin=new NonIndividual(enterpriseType, incBenefitsInvestment, noOfExpiration, expirationDate, registeredName, registrationDate, comRegistrationNo, resident, countryOfResidence, entrepriseEmail, nssfRegistrationNo, entreprisePhoneNo, entrepriseFaxNo, startDate, noOfShares, sharesValue, tinNumber, oldTinNumber, doneBy);
+    NonIndividual noin=new NonIndividual();
+    noin.setEnterpriseType(enterpriseType);
+    noin.setIncBenefitsInvestment(incBenefitsInvestment);
+    noin.setNoOfExpiration(noOfExpiration);
+    noin.setExpirationDate(expirationDate);
+    noin.setRegisteredName(registeredName);
+    noin.setRegistrationDate(registrationDate);
+    noin.setComRegistrationNo(comRegistrationNo);
+    noin.setResident(resident);
+    noin.setCountryOfResidence(countryOfResidence);
+    noin.setEntrepriseEmail(entrepriseEmail);
+    noin.setNssfRegistrationNo(nssfRegistrationNo);
+    noin.setEntreprisePhoneNo(entreprisePhoneNo);
+    noin.setEntrepriseFaxNo(entrepriseFaxNo);
+    noin.setStartDate(startDate);
+    noin.setNoOfShares(noOfShares);
+    noin.setSharesValue(sharesValue);
+    noin.setOldTinNumber(oldTinNumber);
+    noin.setDoneBy(doneBy);
+    noin.setTinNumber(tinNumber);
+    noin.setNonIndividualId(nonIndividualId);
+    noin.setTinNumber(NonIndividual.newTinNumber());
+    noin.setTinDocumentNumber(NonIndividual.getTinNewDocumentId());
+    noin.setVatDocumentNumber(NonIndividual.getVatNewDocumentId());
+    noin.setPhoto(photo);
+    noin.setDeregistered(deregistered);
     noin.updateNonIndividual();
     NonIndividual_Parent p=new NonIndividual_Parent(foreignParentName, foreignAddress, foreignTown, foreignProvince, foreignCountry, foreingPhoneNo, foreignFaxNumber, nonIndividualId);
     p.saveParent();

@@ -3,6 +3,7 @@
     Created on : Mar 16, 2015, 3:17:00 PM
     Author     : SULAIMAN
 --%>
+<%@page import="com.djuma.NonIndividual_Address"%>
 <%@page import="com.djuma.Acount.Management.User"%>
 <%
     int currentIndividual=0;
@@ -35,10 +36,29 @@ String userId = (String) session.getAttribute("userId");
     </head>
     <body>
         <%
+    String taxTypeValues[]=request.getParameterValues("taxTypeId");
+        String type="";
+        for(int i=0; i<taxTypeValues.length;i++){
+            type+=taxTypeValues[i];
+        }
+        String mainSectorActivity[]=request.getParameterValues("mainSectorActivity");
+        String sectors="";
+        for(int i=0; i<mainSectorActivity.length;i++){
+        sectors+=mainSectorActivity[i];
+        }
         co.setNonIndividualId(currentIndividual);
+        co.setTaxTypeId(type);
+        co.setMainSectorActivity(sectors);
         co.setDoneBy(names);
         co.saveCommonNonIndividual();
-        response.sendRedirect("nonIndividual.jsp");
+        NonIndividual_Address n=new NonIndividual_Address();
+        n.setPlotNo(request.getParameter("plotNo"));
+        n.setStreet(request.getParameter("street"));
+        n.setDistrict(request.getParameter("district"));
+        n.setProvince(request.getParameter("province"));
+        n.setNonIndividualId(currentIndividual);
+        n.saveAddress();
+        response.sendRedirect("nonindividualBanks.jsp");
         %>
     </body>
 </html>

@@ -83,60 +83,13 @@
         <div class="header">
             <h1>Activities Informations</h1>
         </div>
-        <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <div class="col-lg-8">
-                    <label for="bussinessActivity">Do you do business activity</label> 
-                </div>
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label onclick="showBusiness()">
-                                <input type="radio" name="businessActivity" autocomplete="off"> Yes 
-                            </label>
-                        </div>
-                        <div class="col-lg-6">
-                            <label onclick="hideBusiness()">
-                                <input type="radio" name="businessActivity" autocomplete="off"> No
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-       <div id="businessActivity">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="mainSectorActivity">Main Sector Activity</label> 
-                    </div>
-                    <div class="col-lg-8">
-                        <%
-                        for(Sector s: Sector.listSector()){
-                        //for(Sub_Sector su:Sub_Sector.listSubSector()){
-                        //if(s.getId()==su.getSectorId()){
-                        %>
-                        <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
-                        <%
-                       // }
-                       // }
-                        }
-                        %>
-                    </div>
-                </div>
-            </div>
-                </div>
-                </div>
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">
                         <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
                     </div>
                     <div class="col-lg-8">
-                        <input type="text" name="estmatedAnnualTurnOver" class="form-control">
+                        <input type="text" name="estmatedAnnualTurnOver" class="form-control" required="" value="0">
                     </div>
                 </div>
             </div>
@@ -147,11 +100,10 @@
                         <label for="estimatedNumberOfEmployees">Estimated Employees</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="number" name="estimatedNumberOfEmployees" class="form-control">
+                        <input type="number" name="estimatedNumberOfEmployees" class="form-control" required="" value="0">
                     </div>
                 </div>
             </div>
-                         <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
                 <div class="col-lg-3">
@@ -170,6 +122,7 @@
             </div>
         </div>
     </div>
+        <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">

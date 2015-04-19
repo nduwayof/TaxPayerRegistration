@@ -252,7 +252,7 @@
 </div>   
 <div class="row">
     <div class="header">
-        <h2>Enterprise Owner's image/photo</h2>
+        <h2>Enterprise Owner's photo</h2>
     </div>
     <form action="individualPhoto.jsp" method="POST" enctype="multipart/form-data">
         <input id="file-0" name="photo"class="file" type="file" multiple data-min-file-count="1">

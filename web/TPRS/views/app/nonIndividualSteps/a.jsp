@@ -4,6 +4,7 @@
     Author     : Fabrice
 --%>
 
+<%@page import="com.djuma.Sector.Sector"%>
 <%@page import="com.djuma.NonIndividual_Owners"%>
 <%@page import="com.djuma.NonIndividual_Branches"%>
 <%@page import="com.djuma.NonIndividual_Bank"%>
@@ -57,23 +58,26 @@
                 <div class="col-lg-4">
                     <label for="enterpriseType">Enterprise Type</label>
                 </div>
-                <div class="col-lg-8">
-                    <input type="text" class="form-control" name="enterpriseType"/>
+                <div class="col-lg-8">                    
+                <div class="input-group">
+                    <select name="enterpriseType" class="form-control">
+                        <option>Legal format</option>
+                        <option>Sole Trade</option>
+                        <option>Partnership</option>
+                        <option>Private Limited Company</option>
+                        <option>Public Limited Company</option>
+                        <option>Not-For-Profit Organisation</option>
+                        <option>Government Agency</option>
+                    </select>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="form-group">
-                <div class="col-lg-4">
-                    <label for="incBenefitsInvestment">Tax/investment incentives</label>
-                </div>
-                <div class="col-lg-8">
-                    <input type="text" class="form-control" name="incBenefitsInvestment"/>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <div class="row">
+        <!--
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
@@ -81,6 +85,17 @@
                 </div>
                 <div class="col-lg-8">
                     <input type="text" class="form-control" name="noOfExpiration"/>
+                </div>
+            </div>
+        </div>
+        -->
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="incBenefitsInvestment">Tax/investment incentives</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="incBenefitsInvestment"/>
                 </div>
             </div>
         </div>
@@ -235,7 +250,7 @@
                     <label for="noOfShares">No of shares or Units</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" name="noOfShares"/>
+                    <input type="text" class="form-control" name="noOfShares" value="0"/>
                 </div>
             </div>
         </div>
@@ -245,47 +260,93 @@
                     <label for="sharesValue">Shares / Units value</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" name="sharesValue"/>
+                    <input type="text" class="form-control" name="sharesValue" value="0"/>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <div class="col-lg-4">
-                    <label for="taxpayerType">Size of Taxpayer</label>
-                </div>
-                <div class="col-lg-8">
-                    <%
-                        for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
-                            if (t.isDeletedStatus() == false) {
-                    %>
-                    <input type="checkbox" name="taxPayerTypeId" value="<%=t.getId()%>#" /><%=t.getTaxpayerType()%>
-
-                    <%
-                            }
-                        }
-                    %>
-                </div>
-            </div>
-        </div>
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
                     <label for="taxType">Type of Taxes</label>
                 </div>
                 <div class="col-lg-8">
-                    <%
-                        for (TaxType t : TaxType.listTaxType()) {
-                            if (t.isDeletedStatus() == false && !t.getTaxType().equalsIgnoreCase("PIT")) {
-                    %>
+                    <select class="chosen form-control" multiple="true" name="taxTypeId" required="">
+                        <%
+                            for (TaxType t : TaxType.listTaxType()) {
+                                if (t.isDeletedStatus() == false && !t.getTaxType().equalsIgnoreCase("CIT")) {
+                        %>
+                        <option value="<%=t.getId()%>#"><%=t.getTaxType()%></option>
 
-                    <input type="checkbox" name="taxTypeId" value="<%=t.getId()%>#" /><%=t.getTaxType()%>
-                    <%
+                        <%
+                                }
                             }
-                        }
-                    %>
+                        %>
+
+                </div>
+                </select> 
+            </div>
+        </div>
+    </div>
+</div>
+    <!--  
+  <div class="row">
+  <div class="col-lg-6">
+      <div class="form-group">
+          <div class="col-lg-8">
+              <label for="bussinessActivity">Do you do business activity</label> 
+          </div>
+          <div class="col-lg-4">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <label onclick="showBusiness()">
+                          <input type="radio" name="businessActivty" autocomplete="off" value="1"> Yes 
+                      </label>
+                  </div>
+                  <div class="col-lg-6">
+                      <label onclick="hideBusiness()">
+                          <input type="radio" name="businessActivty" autocomplete="off" value="0"> No
+                      </label>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+    -->
+    <div id="businessActivitys">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="mainSectorActivity">Main Sector Activity</label> 
+                    </div>
+                    <div class="col-lg-8">
+                        <!--
+                        <%
+                            for (Sector s : Sector.listSector()) {
+                                //for(Sub_Sector su:Sub_Sector.listSubSector()){
+                                //if(s.getId()==su.getSectorId()){
+%>
+                                                <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
+                        <%
+                                // }
+                                // }
+                            }
+                        %>
+                        -->
+                        <select class="chosen" multiple="true" style="width:400px;" name="mainSectorActivity" required="">
+                            <%
+                                for (Sector s : Sector.listSector()) {
+                            %>
+                            <option value="<%=s.getId()%>#"><%=s.getName()%></option>
+                            <%
+                                }
+                            %>
+                        </select> 
+                    </div>
                 </div>
             </div>
         </div>

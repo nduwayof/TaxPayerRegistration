@@ -352,3 +352,15 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="header">
+        <h2>Business Manager's photo</h2>
+    </div>
+    <form action="NonIndividualPhoto.jsp" method="POST" enctype="multipart/form-data">
+        <input id="file-0" name="photo"class="file" type="file" multiple data-min-file-count="1">
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+   
+</div>

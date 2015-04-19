@@ -43,6 +43,8 @@
         <link href="TPRS/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+        <link href="TPRS/bower_components/chosen/chosen.min.css" rel="stylesheet" type="text/css" />    
+
 
 
         <style type="text/css">
@@ -159,6 +161,15 @@
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>
         </div>
         <script src="TPRS/bower_components/bootstrap/js/bootstrap.min.js"></script>
+        <script src="TPRS/bower_components/chosen/chosen.jquery.min.js"></script>
+        <script>
+            $.widget.bridge('uibutton', $.ui.button);
+        </script>
+        <script>
+            jQuery(document).ready(function () {
+                jQuery(".chosen").chosen();
+            });
+        </script>
         <script>
             $.widget.bridge('uibutton', $.ui.button);
         </script>

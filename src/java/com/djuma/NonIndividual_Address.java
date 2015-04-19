@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
  * @author SULAIMAN
  */
 public class NonIndividual_Address {
-     private Long addressId;
+ private long addressId;
  private String plotNo;
  private String street;
  private String sector;
@@ -30,14 +30,15 @@ public class NonIndividual_Address {
  private String mailProvince;
  private int nonIndividualId;
 
-    public Long getAddressId() {
+    public long getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(Long addressId) {
+    public void setAddressId(long addressId) {
         this.addressId = addressId;
     }
 
+    
     
 
     public String getPlotNo() {
@@ -177,6 +178,9 @@ public class NonIndividual_Address {
         this.nonIndividualId = nonIndividualId;
     }
 
+    public NonIndividual_Address() {
+    }
+
     
  public void saveAddress(){
  try{
@@ -196,9 +200,9 @@ public class NonIndividual_Address {
      djuma.setString(13, mailProvince);
      djuma.setInt(14, nonIndividualId);
      djuma.execute();
- }catch(Exception e){}
+ }catch(Exception e){
  
- 
- 
+ } 
+
  }
 }

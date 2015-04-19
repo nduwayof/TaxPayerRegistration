@@ -40,25 +40,55 @@
                 </div>
             </div>
         </div>
-         <div class="col-lg-6">
+          <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
                     <label for="district">District</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="district" class="form-control">
+                    <div class="input-group">
+                        <select name="district" class="form-control">
+                            <option>Hargeisa</option>
+                                <option>Berbera</option>
+                                <option>Burao</option>
+                                <option>Erigavo</option>
+                                <option>Las Anod</option>
+                                <option>Borama</option>
+                                <option>Zeila</option>
+                                <option>Las Khorey</option>
+                                <option>Gabiley</option>
+                                <option>Oodweyne</option>
+                        </select>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
+         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
                     <label for="province">Province</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="province" class="form-control">
+                    <div>
+                        <div class="input-group">
+                            <select name="province" class="form-control">
+                            <option>Woqooyi Galbeed</option>
+                            <option>Woqooyi Galbeed</option>
+                            <option>Togdheer</option>
+                            <option>Sanaag</option>
+                            <option>Sool</option>
+                            <option>Awdal</option>
+                            <option>Awdal</option>
+                            <option>Sanaag</option>
+                            <option>Woqooyi Galbeed</option>
+                            <option>Togdheer</option>
+                            </select>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

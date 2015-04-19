@@ -42,7 +42,11 @@ public class NonIndividual {
     private Timestamp doneAt=new Timestamp(new Date().getTime());
     private String doneBy;
     private boolean hasInfo;
-
+    private String tinDocumentNumber;
+    private String vatDocumentNumber;
+    private String  photo;
+    private boolean deregistered=false;
+    
     public int getNonIndividualId() {
         return nonIndividualId;
     }
@@ -223,6 +227,39 @@ public class NonIndividual {
         this.hasInfo = hasInfo;
     }
 
+    public String getTinDocumentNumber() {
+        return tinDocumentNumber;
+    }
+
+    public void setTinDocumentNumber(String tinDocumentNumber) {
+        this.tinDocumentNumber = tinDocumentNumber;
+    }
+
+    public String getVatDocumentNumber() {
+        return vatDocumentNumber;
+    }
+
+    public void setVatDocumentNumber(String vatDocumentNumber) {
+        this.vatDocumentNumber = vatDocumentNumber;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public boolean isDeregistered() {
+        return deregistered;
+    }
+
+    public void setDeregistered(boolean deregistered) {
+        this.deregistered = deregistered;
+    }
+    
+
     public NonIndividual(String enterpriseType, boolean incBenefitsInvestment, String noOfExpiration, String expirationDate, String registeredName, String registrationDate, String comRegistrationNo, boolean resident, String countryOfResidence, String entrepriseEmail, String nssfRegistrationNo, String entreprisePhoneNo, String entrepriseFaxNo, String startDate, String noOfShares, String sharesValue, String tinNumber, String oldTinNumber, String doneBy) {
         this.enterpriseType = enterpriseType;
         this.incBenefitsInvestment = incBenefitsInvestment;
@@ -254,7 +291,7 @@ public class NonIndividual {
     public void SaveNonIndividual(){
     
     try{
-        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into nonIndividual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into nonIndividual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
          djuma.setString(1, enterpriseType);
          djuma.setBoolean(2, incBenefitsInvestment);
          djuma.setString(3, noOfExpiration);
@@ -276,6 +313,10 @@ public class NonIndividual {
          djuma.setTimestamp(19, doneAt);
          djuma.setString(20, doneBy);
          djuma.setString(21, tinNumber);
+         djuma.setString(22, tinDocumentNumber);
+         djuma.setString(23, vatDocumentNumber);
+         djuma.setString(24, photo);
+         djuma.setBoolean(25, deregistered);
          djuma.execute();
     }catch(Exception e){
     
@@ -284,7 +325,7 @@ public class NonIndividual {
     
     public void updateNonIndividual(){
     try{
-        PreparedStatement djuma=SetCon.getCon().prepareStatement("update nonIndividual set enterpriseType=?, incBenefitsInvestment=?, noOfExpiration=?, expirationDate=?, registeredName=?, registrationDate=?, comRegistrationNo=?, resident=?, countryOfResidence=?, entrepriseEmail=?, nssfRegistrationNo=?, entreprisePhoneNo=?, entrepriseFaxNo=?, startDate=?, noOfShares=?, sharesValue=?, hasInfo=?, oldTinNumber=?, doneAt=?, doneBy=?, tinNumber=? where id=?");
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("update nonIndividual set enterpriseType=?, incBenefitsInvestment=?, noOfExpiration=?, expirationDate=?, registeredName=?, registrationDate=?, comRegistrationNo=?, resident=?, countryOfResidence=?, entrepriseEmail=?, nssfRegistrationNo=?, entreprisePhoneNo=?, entrepriseFaxNo=?, startDate=?, noOfShares=?, sharesValue=?, hasInfo=?, oldTinNumber=?, doneAt=?, doneBy=?, tinNumber=?, tinDocumentNumber=?, vatDocumentNumber=?, photo=?, deregistered=?  where id=?");
          djuma.setString(1, enterpriseType);
          djuma.setBoolean(2, incBenefitsInvestment);
          djuma.setString(3, noOfExpiration);
@@ -301,12 +342,16 @@ public class NonIndividual {
          djuma.setString(14, startDate);
          djuma.setString(15, noOfShares);
          djuma.setString(16, sharesValue);
-         djuma.setBoolean(17, true);
+         djuma.setBoolean(17, false);
          djuma.setString(18, oldTinNumber);
          djuma.setTimestamp(19, doneAt);
          djuma.setString(20, doneBy);
          djuma.setString(21, tinNumber);
-         djuma.setInt(22, nonIndividualId);
+         djuma.setString(22, tinDocumentNumber);
+         djuma.setString(23, vatDocumentNumber);
+         djuma.setString(24, photo);
+         djuma.setBoolean(25, false);
+         djuma.setInt(26, nonIndividualId);
          djuma.execute();
     }catch(Exception e){
     
@@ -343,6 +388,10 @@ public class NonIndividual {
         n.setDoneAt(rs.getTimestamp(20));
         n.setDoneBy(rs.getString(21));
         n.setTinNumber(rs.getString(22));
+        n.setTinDocumentNumber(rs.getString(23));
+        n.setVatDocumentNumber(rs.getString(24));
+        n.setPhoto(rs.getString(25));
+        n.setDeregistered(rs.getBoolean(26));
         list.add(n);
         
         }
@@ -419,10 +468,56 @@ public class NonIndividual {
             }  else {
                 newTinNumber = "" + ((Integer.parseInt(lastTinNumber)) + 1);
             }
-            msg="TIN/IN/"+newTinNumber;
+            msg="TIN/NIN/"+newTinNumber;
         }
     
     return msg;
     
     }
+   
+   public static String getVatNewDocumentId(){
+   String id="";
+   String lastDocNumber="";
+   for(NonIndividual in: NonIndividual.listNonIndividual()){
+       if(in.isHasInfo()&&in.isDeregistered()==false){
+   lastDocNumber=in.getVatDocumentNumber();
+       }
+   }
+   if(lastDocNumber.equalsIgnoreCase("")){
+   id="10";
+   }else{
+   id=((Integer.parseInt(lastDocNumber))+1)+"";
+   }
+   return id;
+   }
+   public static String getTinNewDocumentId(){
+   String id="";
+   String lastDocNumber="";
+   for(NonIndividual in: NonIndividual.listNonIndividual()){
+       if(in.isHasInfo()&&in.isDeregistered()==false){
+   lastDocNumber=in.getTinDocumentNumber();
+       }
+   }
+   if(lastDocNumber.equalsIgnoreCase("")){
+   id="1";
+   }else{
+   id=((Integer.parseInt(lastDocNumber))+1)+"";
+   }
+   return id;
+   }
+   
+   public static void saveNonIndividualPhoto(int nonIndividualId, String photo){
+   
+   try{
+   PreparedStatement djuma=SetCon.getCon().prepareStatement("update nonindividual set photo=?,hasInfo=? where id=?");
+   djuma.setString(1, photo);
+   djuma.setBoolean(2, true);
+   djuma.setInt(3, nonIndividualId);
+   djuma.execute();
+   }catch(Exception e){
+   
+   }
+   }
+   
+   
 }
