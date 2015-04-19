@@ -14,10 +14,12 @@
     <body>
         <%
         String values[]=request.getParameterValues("sector");
-        
+        String option="";
         for(int i=0; i<values.length; i++){
-        out.println(values[i]);
+       // out.println(values[i]);
+        option+=values[i];
         }
+        out.println(option);
         %>
     </body>
 </html>

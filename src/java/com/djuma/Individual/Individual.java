@@ -63,6 +63,11 @@ public class Individual {
   private String doneBy="";
   private String docNumber="";
   private boolean deRegistered=false;
+  private String investmentIncentives;
+  private String incentiveStartDate="";
+ private String incentivesExpirationDate="";
+ private String vatDocumentNumber="";
+  
     public int getIndividualId() {
         return individualId;
     }
@@ -303,6 +308,39 @@ public class Individual {
         this.deRegistered = deRegistered;
     }
 
+    public String getInvestmentIncentives() {
+        return investmentIncentives;
+    }
+
+    public void setInvestmentIncentives(String investmentIncentives) {
+        this.investmentIncentives = investmentIncentives;
+    }
+
+    public String getIncentiveStartDate() {
+        return incentiveStartDate;
+    }
+
+    public void setIncentiveStartDate(String incentiveStartDate) {
+        this.incentiveStartDate = incentiveStartDate;
+    }
+
+    public String getIncentivesExpirationDate() {
+        return incentivesExpirationDate;
+    }
+
+    public void setIncentivesExpirationDate(String incentivesExpirationDate) {
+        this.incentivesExpirationDate = incentivesExpirationDate;
+    }
+
+    public String getVatDocumentNumber() {
+        return vatDocumentNumber;
+    }
+
+    public void setVatDocumentNumber(String vatDocumentNumber) {
+        this.vatDocumentNumber = vatDocumentNumber;
+    }
+    
+
     public Individual() {
     }
 
@@ -333,7 +371,7 @@ public class Individual {
    
     public void SaveIndividual(){
     try{
-        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         djuma.setString(1, ownerSurname);
         djuma.setString(2, ownerFirstName);
         djuma.setString(3, dob);
@@ -367,6 +405,10 @@ public class Individual {
         djuma.setString(27, doneBy);
         djuma.setString(28, docNumber);
         djuma.setBoolean(29, deRegistered);
+        djuma.setString(30, investmentIncentives);
+        djuma.setString(31, incentiveStartDate);
+        djuma.setString(32, incentivesExpirationDate);
+        djuma.setString(33, vatDocumentNumber);
         djuma.execute();
     }catch(Exception e){
     
@@ -376,7 +418,7 @@ public class Individual {
     
     public void UpdateIndividual(){
     try{
-       PreparedStatement djuma=SetCon.getCon().prepareStatement("update individual set ownerSurname=?,ownerFirstName=?,dob=?,deceadDate=?,gender=?,occupatio=?,nationality=?,nationalId=?,socialSecurityNumber=?,passport=?,homePhone=?,workPhone=?,cellPhone=?,faxNo=?,resident=?,countryOfResidence=?,civilStatus=?,mariageName=?,mariageSurname=?,mariageDob=?,photo=?,notionalPhotocopy=?,hasInfo=?,tinNumber=?,oldTinNumber=?,doneAt=?,doneBy=?, docNumber=?, deRegistered=? where id=?");
+       PreparedStatement djuma=SetCon.getCon().prepareStatement("update individual set ownerSurname=?,ownerFirstName=?,dob=?,deceadDate=?,gender=?,occupatio=?,nationality=?,nationalId=?,socialSecurityNumber=?,passport=?,homePhone=?,workPhone=?,cellPhone=?,faxNo=?,resident=?,countryOfResidence=?,civilStatus=?,mariageName=?,mariageSurname=?,mariageDob=?,photo=?,notionalPhotocopy=?,hasInfo=?,tinNumber=?,oldTinNumber=?,doneAt=?,doneBy=?, docNumber=?, deRegistered=?, investmentIncentives=?,incentiveStartDate=?, incentivesExpirationDate=?, vatDocumentNumber=? where id=?");
         djuma.setString(1, ownerSurname);
         djuma.setString(2, ownerFirstName);
         djuma.setString(3, dob);
@@ -403,14 +445,18 @@ public class Individual {
         djuma.setString(20, mariageDob);
         djuma.setString(21, photo);
         djuma.setString(22, notionalPhotocopy);
-        djuma.setBoolean(23, true);
+        djuma.setBoolean(23, false);
         djuma.setString(24, tinNumber);
         djuma.setString(25, oldTinNumber);
         djuma.setTimestamp(26, doneAt);
         djuma.setString(27, doneBy);
         djuma.setString(28, docNumber);
         djuma.setBoolean(29, deRegistered);
-        djuma.setInt(30, individualId);
+        djuma.setString(30, investmentIncentives);
+        djuma.setString(31, incentiveStartDate);
+        djuma.setString(32, incentivesExpirationDate);
+        djuma.setString(33, vatDocumentNumber);
+        djuma.setInt(34, individualId);
         djuma.execute();
     }catch(Exception e){
     
@@ -458,6 +504,10 @@ public class Individual {
         in.setDoneBy(rs.getString(28));
         in.setDocNumber(rs.getString(29));
         in.setDeRegistered(rs.getBoolean(30));
+        in.setInvestmentIncentives(rs.getString(31));
+        in.setIncentiveStartDate(rs.getString(32));
+        in.setIncentivesExpirationDate(rs.getString(33));
+        in.setVatDocumentNumber(rs.getString(34));
         list.add(in);
         }
     }catch(Exception e){
@@ -549,7 +599,22 @@ public class Individual {
        }
    }
    if(lastDocNumber.equalsIgnoreCase("")){
-   id="111";
+   id="1";
+   }else{
+   id=((Integer.parseInt(lastDocNumber))+1)+"";
+   }
+   return id;
+   }
+   public static String getVatNewDocumentId(){
+   String id="";
+   String lastDocNumber="";
+   for(Individual in: Individual.listIndividual()){
+       if(in.hasInfo&&in.isDeRegistered()==false){
+   lastDocNumber=in.getVatDocumentNumber();
+       }
+   }
+   if(lastDocNumber.equalsIgnoreCase("")){
+   id="10";
    }else{
    id=((Integer.parseInt(lastDocNumber))+1)+"";
    }
@@ -673,5 +738,17 @@ public class Individual {
             }
             document.close();
             return  document;
+   }
+   
+   public static void saveIndividualPhoto(int individualId, String photo){
+   try{
+   PreparedStatement djuma=SetCon.getCon().prepareStatement("update individual set photo=?,hasInfo=? where id=?");
+   djuma.setString(1, photo);
+   djuma.setBoolean(2, true);
+   djuma.setInt(3, individualId);
+   djuma.execute();
+   }catch(Exception e){
+   
+   }
    }
 }

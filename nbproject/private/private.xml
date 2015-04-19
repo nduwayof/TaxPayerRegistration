@@ -4,6 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/individualProcess.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/CommonIndividual.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/individualBanks.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/One.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -11,3 +11,9 @@ $(function () {
         increaseArea: '20%' // optional
     });
 });
+ function saveBank() {
+        var formDat = [];
+        formDat = $("#bankAccount").serializeArray();
+        $.post("bankProcess.jsp", formDat);
+        location.reload();
+    }

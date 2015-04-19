@@ -44,6 +44,12 @@ public class CommonIndividual {
   private String doneBy="";
   private boolean  deRegistered=false;
   
+ private String investmentIncentives;
+  private String incentiveStartDate="";
+ private String incentivesExpirationDate="";
+ private String vatDocumentNumber="";
+  
+  
    
    //individualTaxPayerType
    
@@ -671,7 +677,11 @@ public class CommonIndividual {
    in.setDoneAt(doneAt);
    in.setDoneBy(doneBy);
    in.setDeRegistered(deRegistered);
+   in.setInvestmentIncentives(investmentIncentives);
+   in.setIncentiveStartDate(incentiveStartDate);
+   in.setIncentivesExpirationDate(incentivesExpirationDate);
    in.setDocNumber(Individual.getNewDocumentId());
+   in.setVatDocumentNumber(Individual.getVatNewDocumentId());
     in.UpdateIndividual();
     }
 }

@@ -31,7 +31,7 @@ String userId = (String) session.getAttribute("userId");
         <%
     br.setIndividualId(currentIndividual);
     br.saveBranch();
-    response.sendRedirect("individual.jsp");
+    response.sendRedirect("individualBanks.jsp");
         %>
     </body>
 </html>

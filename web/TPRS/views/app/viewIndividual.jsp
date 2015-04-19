@@ -26,7 +26,7 @@
                 <tbody>
                     <%
                     for(Individual in: Individual.listIndividual()){
-                    if(in.isDeRegistered()==false){
+                    if(in.isDeRegistered()==false&& in.isHasInfo()){
                     %>
                      <tr>
                         <td><%=in.getTinNumber()%></td>

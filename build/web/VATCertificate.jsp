@@ -184,7 +184,7 @@
                         document.add(new Paragraph("\n"));
                         document.add(new Paragraph("\n"));
 
-                        Paragraph par9 = new Paragraph(new Chunk(" Doc Number:  " + in.getDocNumber(), font3));
+                        Paragraph par9 = new Paragraph(new Chunk(" Doc Number:  " + in.getVatDocumentNumber(), font3));
                         par9.setAlignment(Element.ALIGN_RIGHT);
                         document.add(par9);
                         document.add(new Paragraph("\n"));

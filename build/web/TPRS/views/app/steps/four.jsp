@@ -11,56 +11,6 @@
 <fieldset>
     <legend>Activities Informations</legend>
     <br>
-    <!--
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <div class="col-lg-8">
-                    <label for="bussinessActivity">Do you do business activity</label> 
-                </div>
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label onclick="showBusiness()">
-                                <input type="radio" name="businessActivty" autocomplete="off" value="1"> Yes 
-                            </label>
-                        </div>
-                        <div class="col-lg-6">
-                            <label onclick="hideBusiness()">
-                                <input type="radio" name="businessActivty" autocomplete="off" value="0"> No
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="businessActivity">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="mainSectorActivity">Main Sector Activity</label> 
-                    </div>
-                    <div class="col-lg-8">
-                        
-                        <%
-                            for (Sector s : Sector.listSector()) {
-                        //for(Sub_Sector su:Sub_Sector.listSubSector()){
-                                //if(s.getId()==su.getSectorId()){
-%>
-                        <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
-                        <%
-                       // }
-                                // }
-                            }
-                        %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-                    -->
                 <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
@@ -72,8 +22,6 @@
                     </div>
               </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">
@@ -91,7 +39,7 @@
                 <div class="col-lg-3">
                     <label for="employmentMethod">Employment Details</label>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <label>
                         <input type="checkbox" name="employmentMethod" value="full-time" autocomplete="off">Full Time
                     </label>
@@ -150,6 +98,29 @@
         </div> 
     </div>
 
+    
+    <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="">Investment Incentives</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" name="investmentIncentives" class="form-control" >
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="">Incentive StartDate</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="date" name="incentiveStartDate" class="form-control" >
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">

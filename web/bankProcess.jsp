@@ -30,7 +30,7 @@ String userId = (String) session.getAttribute("userId");
         <%
     b.setIndividualId(currentIndividual);
     b.SaveBank();
-    response.sendRedirect("individual.jsp");
+    response.sendRedirect("individualBanks.jsp");
         %>
     </body>
 </html>
