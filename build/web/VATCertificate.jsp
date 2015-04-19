@@ -100,10 +100,13 @@
             par1.setAlignment(Element.ALIGN_CENTER);
             document.add(par1);
             document.add(new Paragraph("\n"));
-
+      String tin="";
+      String vatDocumentNumber="";
             try {
                 for (Individual in : Individual.listIndividual()) {
                     if (in.getIndividualId() == (indvidualId)) {
+                        tin=in.getTinNumber();
+                        vatDocumentNumber=in.getVatDocumentNumber();
            Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
                         image.setAlignment(Element.ALIGN_LEFT);
                         //image.setAbsolutePosition(50f, 50f);
@@ -121,16 +124,20 @@
                         par2.setAlignment(Element.ALIGN_LEFT);
                         document.add(par2);
                         document.add(new Paragraph("\n"));
-
+    }
+                }
+                Paragraph par3 = new Paragraph(new Chunk(" Business Activity:  ", font3));
+                        par3.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par3);
                         for(Individual_mainSectorActivity i: Individual_mainSectorActivity.list()){
-                            if(i.getIndividualId()==in.getIndividualId()){
+                            if(i.getIndividualId()==indvidualId){
                                 for(Sector se: Sector.listSector()){
                                     if(se.getId()==i.getSectorId()){
                                         for(Industry id:Industry.listIndistry()){
                                             if(id.getId()==se.getIndustryId()){
-                        Paragraph par3 = new Paragraph(new Chunk(" Business Activity:  "+id.getName()+" - "+se.getName(), font3));
-                        par3.setAlignment(Element.ALIGN_LEFT);
-                        document.add(par3);
+                        Paragraph par4 = new Paragraph(new Chunk(" "+id.getName()+" - "+se.getName(), font3));
+                        par4.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par4);
                         }
                                         }
                                     }
@@ -138,12 +145,14 @@
                         }
                         }
                         document.add(new Paragraph("\n"));
-
-                        for(Individual_Address a: Individual_Address.listOfIndividualAddress()){
-                            if(a.getIndividualId()==in.getIndividualId()){
-                        Paragraph par4 = new Paragraph(new Chunk(" Tax Center:  "+a.getProvince()+" - "+a.getDistrict(), font3));
+                        Paragraph par4 = new Paragraph(new Chunk(" Tax Center:  ", font3));
                         par4.setAlignment(Element.ALIGN_LEFT);
                         document.add(par4);
+                        for(Individual_Address a: Individual_Address.listOfIndividualAddress()){
+                            if(a.getIndividualId()==indvidualId){
+                        Paragraph par5 = new Paragraph(new Chunk(" "+a.getProvince()+" - "+a.getDistrict(), font3));
+                        par5.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par5);
                         }
                         }
                         
@@ -152,7 +161,7 @@
                         par5.setAlignment(Element.ALIGN_LEFT);
                         document.add(par5);
                         document.add(new Paragraph("\n"));
-                        Paragraph par6 = new Paragraph(" VAT registration Number:  " + in.getTinNumber(), font3);
+                        Paragraph par6 = new Paragraph(" VAT registration Number:  " + tin, font3);
                         par6.setAlignment(Element.ALIGN_CENTER);
             //document.add(par6);
                         //document.add(new Paragraph("\n"));
@@ -184,12 +193,11 @@
                         document.add(new Paragraph("\n"));
                         document.add(new Paragraph("\n"));
 
-                        Paragraph par9 = new Paragraph(new Chunk(" Doc Number:  " + in.getVatDocumentNumber(), font3));
+                        Paragraph par9 = new Paragraph(new Chunk(" Doc Number:  " + vatDocumentNumber, font3));
                         par9.setAlignment(Element.ALIGN_RIGHT);
                         document.add(par9);
                         document.add(new Paragraph("\n"));
-                    }
-                }
+                
 
             } catch (Exception e) {
                 e.printStackTrace();
