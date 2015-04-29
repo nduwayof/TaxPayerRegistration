@@ -206,6 +206,7 @@
                 </div>
                 <div class="col-lg-8">
                     <input type="text" name="homePhone" id="homePhone" class="form-control">
+                    <span class="text-danger" id="homePhoneMsg"></span>
                 </div>
             </div>
         </div>
@@ -216,6 +217,7 @@
                 </div>
                 <div class="col-lg-8">
                     <input type="text" name="workPhone" id="workPhone" class="form-control">
+                    <span class="text-danger" id="workPhoneMsg"></span>
                 </div>
             </div>
         </div>
@@ -228,6 +230,7 @@
                 </div>
                 <div class="col-lg-8">
                     <input type="text" name="cellPhone" id="cellPhone" class="form-control">
+                     <span class="text-danger" id="cellPhoneMsg"></span>
                 </div>
             </div>
         </div>

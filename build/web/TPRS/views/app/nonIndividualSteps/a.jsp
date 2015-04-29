@@ -206,7 +206,8 @@
                     <label for="entreprisePhoneNo">Enterprise Phone No</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" name="entreprisePhoneNo"/>
+                    <input type="text" class="form-control" name="entreprisePhoneNo" id="entreprisePhoneNo"/>
+                    <span class="text-danger" id="entreprisePhoneNoMsg"></span>
                 </div>
             </div>
         </div>

@@ -68,7 +68,8 @@
                     <label for="foreingPhoneNo">Phone No</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" name="foreingPhoneNo">
+                    <input type="text" class="form-control" name="foreingPhoneNo" id="foreingPhoneNo">
+                    <span class="text-danger" id="foreingPhoneNoMsg"></span>
                 </div>
             </div>  
         </div>

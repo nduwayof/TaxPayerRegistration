@@ -40,7 +40,8 @@
                         <label for="representativePhoneNo">Representative Phone No</label>
                     </div>
                     <div class="col-lg-7">
-                        <input type="text" name="representativePhoneNo" class="form-control">
+                        <input type="text" name="representativePhoneNo" id="representativePhoneNo" class="form-control">
+                        <span class="text-danger" id="representativePhoneNoMsg"></span>
                     </div>
                 </div>
             </div>
@@ -72,7 +73,8 @@
                         <label for="contactPhoneNo">Contact phone No</label>
                     </div>
                     <div class="col-lg-7">
-                        <input type="text" name="contactPhoneNo" class="form-control">
+                        <input type="text" name="contactPhoneNo" id="contactPhoneNo" class="form-control">
+                        <span class="text-danger" id="contactPhoneNoMsg"></span>
                     </div>
                 </div>
             </div>
@@ -155,7 +157,8 @@
                         <label for="entreprisePhoneNo">Enterprise Phone No</label>
                     </div>
                     <div class="col-lg-7">
-                        <input type="text" name="entreprisePhoneNo" class="form-control">
+                        <input type="text" name="entreprisePhoneNo" id="entreprisePhoneNo" class="form-control">
+                        <span class="text-danger" id="entreprisePhoneNoMsg"></span>
                     </div>
                 </div>
             </div>

@@ -5,16 +5,46 @@
  */
 
 
-$("#SignupForm").validate({
-    rules :{
-        homePhone:{
-            required : true,
-            number : true
-        }
-    },
-    mesages :{
-        homePhone : {
-            number : "Invalid phone number, only use the numbers"
-        }
+$(document).ready(function () {
+  $("#homePhone").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        $("#homePhoneMsg").html("Numbers Only").show().fadeOut("slow");
+               return false;
     }
+   });
+   
+    $("#cellPhone").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        $("#cellPhoneMsg").html("Numbers Only").show().fadeOut("slow");
+               return false;
+    }
+   });
+   
+   $("#workPhone").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        $("#workPhoneMsg").html("Numbers Only").show().fadeOut("slow");
+               return false;
+    }
+   });
+   $("#representativePhoneNo").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        $("#representativePhoneNoMsg").html("Numbers Only").show().fadeOut("slow");
+               return false;
+    }
+   });
+   
+   $("#contactPhoneNo").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        $("#contactPhoneNoMsg").html("Numbers Only").show().fadeOut("slow");
+               return false;
+    }
+   });
+   
+   $("#entreprisePhoneNo").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        $("#entreprisePhoneNoMsg").html("Numbers Only").show().fadeOut("slow");
+               return false;
+    }
+   });
+   
 });

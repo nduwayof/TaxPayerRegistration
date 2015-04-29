@@ -187,5 +187,6 @@
         <script src="TPRS/js/app.min.js" type="text/javascript"></script>
         <script src="TPRS/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
         <script src="TPRS/js/TPRS.js"></script>
+        <script src="TPRS/js/nonIndividual.js"></script>
     </body>
 </html>
