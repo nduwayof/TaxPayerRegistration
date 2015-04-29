@@ -30,6 +30,28 @@
         <link href="TPRS/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
+        <script type="text/javascript" src="TPRS/Library/jsapi.js"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Individual',     10],
+          ['NonIndividual',     5],                             
+        ]);
+
+        var options = {
+          title: 'Bussiness Registered'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+        
     </head>
     <body class="skin-blue">
         <div class="wrapper">
@@ -47,7 +69,7 @@
                     </ol>
                 </section>
                 <section class="content">
-
+                    <div id="piechart" style="width: 900px; height: 500px;"></div>
                 </section>
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>

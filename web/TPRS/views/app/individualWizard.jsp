@@ -19,6 +19,9 @@
     }
 
 %>
+<jsp:useBean id="c" class="com.djuma.Individual.CommonIndividual">
+    <jsp:setProperty name="c" property="*"/>
+</jsp:useBean>
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
     <form id="SignupForm" action="individualProcess.jsp" class="form-horizontal" method="POST">

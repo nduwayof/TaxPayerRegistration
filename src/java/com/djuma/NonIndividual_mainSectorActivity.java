@@ -8,6 +8,9 @@ package com.djuma;
 import com.djuma.NonIndividual.*;
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,14 +28,6 @@ public class NonIndividual_mainSectorActivity {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIndividualId() {
-        return nonIndividualId;
-    }
-
-    public void setIndividualId(int nonIndividualId) {
-        this.nonIndividualId = nonIndividualId;
     }
 
     public int getSectorId() {
@@ -78,5 +73,23 @@ public class NonIndividual_mainSectorActivity {
     }catch(Exception e){
     
     }
+    }
+    
+    public static List<NonIndividual_mainSectorActivity>list(){
+    List<NonIndividual_mainSectorActivity>l=new ArrayList<NonIndividual_mainSectorActivity>();
+    try{
+    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from nonindividual_mainsectorActivity");
+    ResultSet rs=djuma.executeQuery();
+    while(rs.next()){
+    NonIndividual_mainSectorActivity n=new NonIndividual_mainSectorActivity();
+    n.setId(rs.getInt(1));
+    n.setNonIndividualId(rs.getInt(2));
+    n.setSectorId(rs.getInt(3));
+    l.add(n);
+    }
+    }catch(Exception e){
+    
+    }
+    return l;
     }
 }

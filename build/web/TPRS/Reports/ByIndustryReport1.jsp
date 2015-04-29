@@ -9,7 +9,6 @@
 <%@page import="com.djuma.Sector.Industry"%>
 <%@page import="com.djuma.Individual.Individual_representative"%>
 <%@page import="com.djuma.Individual.Individual"%>
-<%@page import="com.djuma.Individual.IndividualTaxPayerType"%>
 <%@page import="com.djuma.Tax.TaxPayerType"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.awt.Color"%>
@@ -90,37 +89,28 @@
               //  String itnm = request.getParameter("username");
                 
                 for(Industry t: Industry.listIndistry()){
+                    
                     PdfPTable table = new PdfPTable(2);
                     table.setWidthPercentage(100);
                    
                     i = i + 1;
+                    int number=0;
                     PdfPTable table1 = new PdfPTable(1);
-                    table1.addCell(new Phrase(new Chunk(t.getName(), FontFactory.getFont(FontFactory.TIMES_BOLD, 9, Font.BOLD, BaseColor.BLACK))));
-                    
-
+                    table1.addCell(new Phrase(new Chunk(t.getName(), FontFactory.getFont(FontFactory.TIMES_BOLD, 9, Font.BOLD, BaseColor.BLACK))));     
+                  for(Sector s: Sector.listSector()){
+                      if(s.getIndustryId()==t.getId()){                      
+                      for(Individual_mainSectorActivity im: Individual_mainSectorActivity.list()){
+                      if(im.getSectorId()==s.getId()){
+                      number++;
+                      }
+                      }
+                      }
+                      }
                     PdfPTable table2 = new PdfPTable(1);
-                    table2.addCell(new Phrase(new Chunk("", font5)));
-
-                    
+                    table2.addCell(new Phrase(new Chunk(""+number, font5)));               
                     table.addCell(table1);
-                    table.addCell(table2);
-                  
+                    table.addCell(table2);              
                     document.add(table);
-                   if(t.getId()==Integer.parseInt(value)){ 
-                    for(Sector s: Sector.listSector()){
-                    if(s.getIndustryId()==t.getId()){
-                    for(Individual_mainSectorActivity m: Individual_mainSectorActivity.list()){
-                        if(m.getSectorId()==s.getId()){
-                for(Individual in: Individual.listIndividual()) {
-                   if(in.getIndividualId()==m.getIndividualId()&&in.isHasInfo()&&in.isDeRegistered()==false){
-                    
-                }
-                }
-                        }
-                    }
-                           }
-                       }
-                }
                 }
                
             } catch (Exception e) {

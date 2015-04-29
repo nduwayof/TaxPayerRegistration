@@ -7,9 +7,10 @@ package com.djuma.Acount.Management;
 
 import com.djuma.Connection.SetCon;
 import com.djuma.Individual.Individual;
-import com.djuma.Individual.IndividualTaxPayerType;
 import com.djuma.NonIndividual;
+import com.djuma.NonIndividual_Activity;
 import com.djuma.NonIndividual_Address;
+import com.djuma.Nonindividual_TaxPayerType;
 
 import com.djuma.Sector.Industry;
 import com.djuma.Sector.Sector;
@@ -17,6 +18,8 @@ import com.djuma.Sector.Sub_Sector;
 import com.djuma.Tax.TaxPayerType;
 import java.sql.PreparedStatement;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -84,11 +87,32 @@ public class test {
         
           
      
-        NonIndividual_Address n=new NonIndividual_Address();
-        n.setNonIndividualId(2);
-        n.saveAddress();
-           
-           
+      
+       try{
+        SimpleDateFormat j=new SimpleDateFormat("yyyy-MM-dd");
+        Date dat1=j.parse("2015-04-18");
+        Date dat2=j.parse("2015-04-18");
+       for(Individual in: Individual.listIndividual()){
+           Date d1=j.parse(in.getDoneAt().toString());
+       if(d1.getTime()>=dat1.getTime()&&d1.getTime()<=dat2.getTime()){
+       System.out.println(in.getIndividualId());
+       }
+       }
+       }catch(Exception e){}
+       
+       NonIndividual_Address n=new NonIndividual_Address();
+       n.setPlotNo("112R");
+       n.setDistrict("Kacyiru");
+       n.setProvince("Kigali");
+       n.setNonIndividualId(15);
+       //n.saveAddress();
+         // Nonindividual_TaxPayerType.SaveNonIndividualTaxPayerType(30000000, 22);
+          Nonindividual_TaxPayerType ni=new Nonindividual_TaxPayerType();
+          ni.setNonIndividualId(26);
+         // ni.SaveTaxPayerType(50000000);
     }
+    
+       
+    
     
 }

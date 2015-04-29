@@ -8,13 +8,16 @@ package com.djuma;
 import com.djuma.NonIndividual.*;
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author SULAIMAN
  */
 public class NonIndividual_Parent {
-    private int parentId;
+    private long parentId;
     private String foreignParentName;
     private String foreignAddress;
     private String foreignTown;
@@ -24,13 +27,16 @@ public class NonIndividual_Parent {
     private String foreignFaxNumber;
     private int nonIndividualId;
 
-    public int getParentId() {
+    public long getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(long parentId) {
         this.parentId = parentId;
     }
+
+   
+    
 
     public String getForeignParentName() {
         return foreignParentName;
@@ -125,6 +131,31 @@ public class NonIndividual_Parent {
    }catch(Exception e){
    
    }
+   }
+   
+   public static List<NonIndividual_Parent>list(){
+   List<NonIndividual_Parent>l=new ArrayList<NonIndividual_Parent>();
+   try{
+   PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from NonIndividual_Parent");
+       ResultSet rs=djuma.executeQuery();
+       while(rs.next()){
+       NonIndividual_Parent n=new NonIndividual_Parent();
+       n.setParentId(rs.getLong(1));
+       n.setForeignParentName(rs.getString(2));
+       n.setForeignAddress(rs.getString(3));
+       n.setForeignTown(rs.getString(4));
+       n.setForeignProvince(rs.getString(5));
+       n.setForeignCountry(rs.getString(6));
+       n.setForeingPhoneNo(rs.getString(7));
+       n.setForeignFaxNumber(rs.getString(8));
+       n.setNonIndividualId(rs.getInt(9));
+       l.add(n);
+       }
+   
+   }catch(Exception e){
+   
+   }
+   return l;
    }
     
 }

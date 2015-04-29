@@ -121,7 +121,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="col-lg-4">
-                        <label for="mailHouseNo">House No</label>
+                        <label for="mailPlotNo">House No</label>
                     </div>
                     <div class="col-lg-8">
                         <input type="text" name="mailPlotNo" class="form-control">

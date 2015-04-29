@@ -74,18 +74,23 @@
                 $('#civilId').hide();
                 $('#residentFabrice').hide();
                 $('#mailingAddress').hide();
-                 $('#businessActivity').hide();
-                 $('#oldTin').hide();
-                 $('#otherOption').hide();
-                 var selectMainSourceIncome=document.getElementById("selectMainSourceIncome").value;
-                 if(selectMainSourceIncome=="Other"){
-                 $('#otherOption').show();
-                 }
-                 
-                 
+                $('#businessActivity').hide();
+                $('#oldTin').hide();
+                $('#otherOption').hide();
+
+
+
 
             });
 
+            function chooseOther() {
+                var selectMainSourceIncome = document.getElementById("selectMainSourceIncome").value;
+                if (selectMainSourceIncome == "Other") {
+                    $('#otherOption').show();
+                } else {
+                    $('#otherOption').hide();
+                }
+            }
             function showIndividual() {
                 $('#nonIndividual').hide();
                 $('#individual').show();
@@ -166,9 +171,11 @@
             </div>
             <jsp:include page="TPRS/views/layouts/a/footer.jsp"/>
         </div>
-        
-        <script src="TPRS/bower_components/bootstrap/js/bootstrap.min.js"></script>
         <script src="TPRS/bower_components/chosen/chosen.jquery.min.js"></script>
+        <script src="TPRS/bower_components/bootstrap/js/bootstrap.min.js"></script>
+        <script src="TPRS/bower_components/validations/jquery.validate.min.js"></script>
+        <script src="TPRS/bower_components/validations/additional-methods.min.js"></script>
+
         <script>
             $.widget.bridge('uibutton', $.ui.button);
         </script>
@@ -181,5 +188,6 @@
         <script src="TPRS/js/app.min.js" type="text/javascript"></script>
         <script src="TPRS/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
         <script src="TPRS/js/TPRS.js"></script>
+        <script src="TPRS/js/validations.js"></script>
     </body>
 </html>

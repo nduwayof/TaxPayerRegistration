@@ -44,7 +44,7 @@ public class CommonIndividual {
   private String doneBy="";
   private boolean  deRegistered=false;
   
- private String investmentIncentives;
+ private String investmentIncentives="";
   private String incentiveStartDate="";
  private String incentivesExpirationDate="";
  private String vatDocumentNumber="";
@@ -64,42 +64,42 @@ public class CommonIndividual {
  
  //activity
  
- private  boolean businessActivty=false;
+ private  boolean businessActivty=true;
     private double estmatedAnnualTurnOver;
     private int estimatedNumberOfEmployees;
-    private String accountingMethod;
-    private String mainSourceOfIncome;
-    private String employmentMethod;
+    private String accountingMethod="";
+    private String mainSourceOfIncome="";
+    private String employmentMethod="";
     private boolean businessPremiseRented;
     //private int individualId;
     private int  sectorId;
-    private String mainSectorActivity;
+    private String mainSectorActivity="";
     
     //Address
     
-    private String plotNo;
- private String street;
- private String sector;
- private String district;
- private String province;
- private String mailingAddress;
- private String mailHouseNo;
- private String mailStreet;
- private String mailPoBox;
- private String mailCity;
- private String mailSector;
- private String mailDistrict;
- private String mailProvince;
+    private String plotNo="";
+ private String street="";
+ private String sector="";
+ private String district="";
+ private String province="";
+ private String mailingAddress="";
+ private String mailHouseNo="";
+ private String mailStreet="";
+ private String mailPoBox="";
+ private String mailCity="";
+ private String mailSector="";
+ private String mailDistrict="";
+ private String mailProvince="";
  //private int individualId;
  
  //Representative
  
- private String  taxpayerRepresentativeName;
-    private String  representativeTitle;
-    private String representativePhoneNo;
-    private String contactName;
-    private String contactTitle;
-    private String contactPhoneNo;
+ private String  taxpayerRepresentativeName="";
+    private String  representativeTitle="";
+    private String representativePhoneNo="";
+    private String contactName="";
+    private String contactTitle="";
+    private String contactPhoneNo="";
     //private int individualId;
     
 
@@ -577,6 +577,38 @@ public class CommonIndividual {
     public void setDeRegistered(boolean deRegistered) {
         this.deRegistered = deRegistered;
     }
+
+    public String getInvestmentIncentives() {
+        return investmentIncentives;
+    }
+
+    public void setInvestmentIncentives(String investmentIncentives) {
+        this.investmentIncentives = investmentIncentives;
+    }
+
+    public String getIncentiveStartDate() {
+        return incentiveStartDate;
+    }
+
+    public void setIncentiveStartDate(String incentiveStartDate) {
+        this.incentiveStartDate = incentiveStartDate;
+    }
+
+    public String getIncentivesExpirationDate() {
+        return incentivesExpirationDate;
+    }
+
+    public void setIncentivesExpirationDate(String incentivesExpirationDate) {
+        this.incentivesExpirationDate = incentivesExpirationDate;
+    }
+
+    public String getVatDocumentNumber() {
+        return vatDocumentNumber;
+    }
+
+    public void setVatDocumentNumber(String vatDocumentNumber) {
+        this.vatDocumentNumber = vatDocumentNumber;
+    }
     
 
     public CommonIndividual() {
@@ -584,38 +616,7 @@ public class CommonIndividual {
 
     
     public void saveIndividualInfo(){
-       int smallId=0;
-       int mediumId=0;
-       int largeId=0;
-       int microId=0;
-       for(TaxPayerType t: TaxPayerType.listTaxPayerType()){
-       if(t.getTaxpayerType().equalsIgnoreCase("samll")||t.getTaxpayerType().contains("small")){
-       smallId=t.getId();
-       }else if(t.getTaxpayerType().equalsIgnoreCase("medium")||t.getTaxpayerType().contains("medium")){
-       mediumId=t.getId();
-       }else if(t.getTaxpayerType().equalsIgnoreCase("large")||t.getTaxpayerType().contains("large")){
-       largeId=t.getId();
-       }else if(t.getTaxpayerType().equalsIgnoreCase("micro")||t.getTaxpayerType().contains("micro")){
-       microId=t.getId();
-       }
-       }
-        if(estmatedAnnualTurnOver >=2000000&&estmatedAnnualTurnOver<12000000){
-        IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, microId);
-         i.SaveTaxPayerType();
-        }
-        if(estmatedAnnualTurnOver>12000001&&estmatedAnnualTurnOver<=50000000){
-           IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, smallId);
-     i.SaveTaxPayerType();
-        }
-        if(estmatedAnnualTurnOver >=50000001&&estmatedAnnualTurnOver<= 400000000){
-           IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, mediumId);
-     i.SaveTaxPayerType();
-        }
-        
-        if(estmatedAnnualTurnOver >=400000001){
-           IndividualTaxPayerType i=new IndividualTaxPayerType(individualId, largeId);
-     i.SaveTaxPayerType();
-        }
+     
         
        if(estmatedAnnualTurnOver>=20000000){
        optionVat=false;

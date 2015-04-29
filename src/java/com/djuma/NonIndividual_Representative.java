@@ -8,28 +8,34 @@ package com.djuma;
 import com.djuma.NonIndividual.*;
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author SULAIMAN
  */
 public class NonIndividual_Representative {
- private int representativeId;
-    private String  taxpayerRepresentativeName;
-    private String  representativeTitle;
+
+    private long representativeId;
+    private String taxpayerRepresentativeName;
+    private String representativeTitle;
     private String representativePhoneNo;
     private String contactName;
     private String contactTitle;
     private String contactPhoneNo;
     private int nonIndividualId;
 
-    public int getRepresentativeId() {
+    public long getRepresentativeId() {
         return representativeId;
     }
 
-    public void setRepresentativeId(int representativeId) {
+    public void setRepresentativeId(long representativeId) {
         this.representativeId = representativeId;
     }
+
+   
 
     public String getTaxpayerRepresentativeName() {
         return taxpayerRepresentativeName;
@@ -87,7 +93,6 @@ public class NonIndividual_Representative {
         this.nonIndividualId = nonIndividualId;
     }
 
-    
     public NonIndividual_Representative() {
     }
 
@@ -101,20 +106,42 @@ public class NonIndividual_Representative {
         this.nonIndividualId = nonIndividualId;
     }
 
-   
-   public void saveRepresentative(){
-   try{
-       PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into nonIndividual_representative values(id,?,?,?,?,?,?,?)");
-       djuma.setString(1, taxpayerRepresentativeName);
-       djuma.setString(2, representativeTitle);
-       djuma.setString(3, representativePhoneNo);
-       djuma.setString(4, contactName);
-       djuma.setString(5, contactTitle);
-       djuma.setString(6, contactPhoneNo);
-       djuma.setInt(7, nonIndividualId);
-       djuma.execute();
-   }catch(Exception e){}
-   
-   
-   }    
+    public void saveRepresentative() {
+        try {
+            PreparedStatement djuma = SetCon.getCon().prepareStatement("insert into nonIndividual_representative values(id,?,?,?,?,?,?,?)");
+            djuma.setString(1, taxpayerRepresentativeName);
+            djuma.setString(2, representativeTitle);
+            djuma.setString(3, representativePhoneNo);
+            djuma.setString(4, contactName);
+            djuma.setString(5, contactTitle);
+            djuma.setString(6, contactPhoneNo);
+            djuma.setInt(7, nonIndividualId);
+            djuma.execute();
+        } catch (Exception e) {
+        }
+
+    }
+    
+    public static List<NonIndividual_Representative>list(){
+    List<NonIndividual_Representative>l=new ArrayList<NonIndividual_Representative>();
+    try{
+    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from nonIndividual_representative ");
+        ResultSet rs=djuma.executeQuery();
+        while(rs.next()){
+        NonIndividual_Representative n=new NonIndividual_Representative();
+        n.setRepresentativeId(rs.getLong(1));
+        n.setTaxpayerRepresentativeName(rs.getString(2));
+        n.setRepresentativeTitle(rs.getString(3));
+        n.setRepresentativePhoneNo(rs.getString(4));
+        n.setContactName(rs.getString(5));
+        n.setContactTitle(rs.getString(6));
+        n.setContactPhoneNo(rs.getString(7));
+        n.setNonIndividualId(rs.getInt(8));
+        l.add(n);
+        }
+    }catch(Exception e){
+    
+    }
+    return l;
+    }
 }

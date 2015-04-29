@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class Individual_Activity {
     private Long activityId;
-    private  boolean businessActivty;
+    private  boolean businessActivty=true;
     private double estmatedAnnualTurnOver;
     private int estimatedNumberOfEmployees;
     private String accountingMethod;

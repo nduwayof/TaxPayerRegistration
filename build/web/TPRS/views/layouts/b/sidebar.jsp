@@ -35,7 +35,7 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="actve">
-                <a href="#">
+                <a href="index.jsp">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
@@ -47,7 +47,7 @@
                 <a href="#">
                     <i class="fa fa-file"></i>
                     <i class="fa fa-angle-left pull-right"></i>
-                    <span>Register Enterprises</span>
+                    <span>Register Business</span>
                     <span class="label label-primary pull-right">2</span>
                 </a>
                 <ul class="treeview-menu">
@@ -59,33 +59,59 @@
                 <a href="#">
                     <i class="fa fa-file"></i>
                     <i class="fa fa-angle-left pull-right"></i>
-                    <span>DeRegister Enterprises</span>
-                    <span class="label label-primary pull-right">1</span>
+                    <span>DeRegister Business</span>
+                    <span class="label label-primary pull-right">2</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="deRegistration.jsp"><i class="fa fa-circle-o"></i> DeRegister</a></li>
+                    <li><a href="deRegistration.jsp"><i class="fa fa-circle-o"></i> Individual</a></li>
+                    <li><a href="deRegistration1.jsp"><i class="fa fa-circle-o"></i> NonIndividual</a></li>
                 </ul>
             </li>
              <li class="treeview">
                 <a href="#">
                     <i class="fa fa-file"></i>
                     <i class="fa fa-angle-left pull-right"></i>
-                    <span>Reports</span>
-                    <span class="label label-primary pull-right">10</span>
+                    <span>Reports -Individual</span>
+                    <span class="label label-primary pull-right">8</span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="reports.jsp"><i class="fa fa-circle-o"></i>Certificates</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>By Location</a></li>
+                    <li><a href="ByLocation.jsp"><i class="fa fa-circle-o"></i>By Location</a></li>
                     <li><a href="SizeOfTaxReport.jsp"><i class="fa fa-circle-o"></i>By Size</a></li>
+                    <!--
                     <li><a href="#"><i class="fa fa-circle-o"></i>By Enterprise Type</a></li>
+                    -->
                     <li><a href="ByIndustryReport.jsp"><i class="fa fa-circle-o"></i>By Industry</a></li>
                     <li><a href="ByTaxTypeReport.jsp"><i class="fa fa-circle-o"></i> By Tax Type</a></li>
+                    <!--
                     <li><a href="#"><i class="fa fa-circle-o"></i>By Investment incentives</a></li>
+                    -->
                     <li><a href="BySourceIncomeReport.jsp"><i class="fa fa-circle-o"></i>By Source of Income</a></li>
                     <li><a href="ByAccountingRegimeReport.jsp"><i class="fa fa-circle-o"></i>By Accounting Regime</a></li>
                     <li><a href="ByYearReport.jsp"><i class="fa fa-circle-o"></i>Registered Business By Year</a></li>
                 </ul>
-               
+            </li>
+             <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file"></i>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    <span>Reports -NonIndividual</span>
+                    <span class="label label-primary pull-right">9</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="reports1.jsp"><i class="fa fa-circle-o"></i>Certificates</a></li>
+                    <li><a href="ByLocation1.jsp"><i class="fa fa-circle-o"></i>By Location</a></li>
+                    <li><a href="SizeOfTaxReport1.jsp"><i class="fa fa-circle-o"></i>By Size</a></li>
+                    <li><a href="ByEnterpriseType.jsp"><i class="fa fa-circle-o"></i>By Enterprise Type</a></li>
+                    <li><a href="ByIndustryReport1.jsp"><i class="fa fa-circle-o"></i>By Industry</a></li>
+                    <li><a href="ByTaxTypeReport1.jsp"><i class="fa fa-circle-o"></i> By Tax Type</a></li>
+                    <!--
+                    <li><a href="#"><i class="fa fa-circle-o"></i>By Investment incentives</a></li>
+                    -->
+                    <li><a href="BySourceIncomeReport1.jsp"><i class="fa fa-circle-o"></i>By Source of Income</a></li>
+                    <li><a href="ByAccountingRegimeReport1.jsp"><i class="fa fa-circle-o"></i>By Accounting Regime</a></li>
+                    <li><a href="ByYearReport1.jsp"><i class="fa fa-circle-o"></i>Registered Business By Year</a></li>
+                </ul>
             </li>
             <li class="treeview">
                 <a href="#">
@@ -96,7 +122,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="listIndividual.jsp"><i class="fa fa-circle-o"></i> Individual</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Non Individual</a></li>
+                    <li><a href="listNonIdividual.jsp"><i class="fa fa-circle-o"></i> Non Individual</a></li>
                 </ul>
             </li>
            

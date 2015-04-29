@@ -3,10 +3,50 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/individualProcess.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByYearReport1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByIndustryReport1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TINCertificate1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByIndustry.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/BySourceOfIncomeReport1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByAccountingRegime.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/BySourceOfIncome.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/ByIndustryReport.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByTaxTypeReport1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByLocation.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByAccountingRegimeReport1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Nonindividual_TaxPayerType.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByLocationReport2.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/VATCertificate1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/nonIndividualSteps/c.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByIndustryReport2.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByEnterpriseType1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/SizeOfTaxReport1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByLocationReport1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TINCertificate.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByTaxType1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByAccountingRegime1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Acount/Management/test.java</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/VATCertificate.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByTaxType.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/SizeOfTax1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByIndustry1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/SizeOfTax.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByTaxTypeReport2.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/layouts/b/sidebar.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/nonIndividualWizard.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByAccountingRegimeReport2.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByYear.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/nonIndividualProcess.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/individualWizard.jsp</file>
             <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/src/java/com/djuma/Individual/CommonIndividual.java</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/individualBanks.jsp</file>
-            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/views/app/steps/One.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/BySourceOfIncomeReport2.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/BySourceOfIncome1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByYear1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/SizeOfTaxReport2.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByEnterpriseType.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByLocation1.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/nonIndividual.jsp</file>
+            <file>file:/Users/SULAIMAN/NetBeansProjects/TaxPayerRegistration/web/TPRS/Reports/ByYearReport2.jsp</file>
         </group>
     </open-files>
 </project-private>

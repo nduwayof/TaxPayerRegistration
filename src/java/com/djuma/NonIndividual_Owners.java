@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class NonIndividual_Owners {
     private int ownerId;
-    private String taxpayerNationalId;
+    private String tinNumber;
     private String names;
     private String parcentage;
     private int nonIndividualId;
@@ -31,13 +31,15 @@ public class NonIndividual_Owners {
         this.ownerId = ownerId;
     }
 
-    public String getTaxpayerNationalId() {
-        return taxpayerNationalId;
+    public String getTinNumber() {
+        return tinNumber;
     }
 
-    public void setTaxpayerNationalId(String taxpayerNationalId) {
-        this.taxpayerNationalId = taxpayerNationalId;
+    public void setTinNumber(String tinNumber) {
+        this.tinNumber = tinNumber;
     }
+
+    
 
     public String getNames() {
         return names;
@@ -63,8 +65,8 @@ public class NonIndividual_Owners {
         this.nonIndividualId = nonIndividualId;
     }
 
-    public NonIndividual_Owners(String taxpayerNationalId, String names, String parcentage, int nonIndividualId) {
-        this.taxpayerNationalId = taxpayerNationalId;
+    public NonIndividual_Owners(String tinNumber, String names, String parcentage, int nonIndividualId) {
+        this.tinNumber = tinNumber;
         this.names = names;
         this.parcentage = parcentage;
         this.nonIndividualId = nonIndividualId;
@@ -77,7 +79,7 @@ public class NonIndividual_Owners {
     public void saveOwners(){
     try{
         PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into nonIndividual_Owners values(id,?,?,?,?)");
-        djuma.setString(1, taxpayerNationalId);
+        djuma.setString(1, tinNumber);
         djuma.setString(2, names);
         djuma.setDouble(3, Double.parseDouble(parcentage));
         djuma.setInt(4, nonIndividualId);
@@ -95,7 +97,7 @@ public class NonIndividual_Owners {
         while(rs.next()){
         NonIndividual_Owners n=new NonIndividual_Owners();
         n.setOwnerId(rs.getInt(1));
-        n.setTaxpayerNationalId(rs.getString(2));
+        n.setTinNumber(rs.getString(2));
         n.setNames(rs.getString(3));
         n.setParcentage(rs.getDouble(4)+"");
         n.setNonIndividualId(rs.getInt(5));
@@ -115,7 +117,7 @@ public class NonIndividual_Owners {
         while(rs.next()){
         NonIndividual_Owners n=new NonIndividual_Owners();
         n.setOwnerId(rs.getInt(1));
-        n.setTaxpayerNationalId(rs.getString(2));
+        n.setTinNumber(rs.getString(2));
         n.setNames(rs.getString(3));
         n.setParcentage(rs.getDouble(4)+"");
         n.setNonIndividualId(rs.getInt(5));

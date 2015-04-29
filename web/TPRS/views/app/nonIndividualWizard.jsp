@@ -21,6 +21,7 @@
     }
 
 %>
+<jsp:useBean id="co" class="com.djuma.CommonNonIndividual" scope="request"></jsp:useBean>
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
     <form id="SignupForm" action="nonIndividualProcess.jsp" class="form-horizontal" method="POST">

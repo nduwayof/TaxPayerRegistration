@@ -92,10 +92,10 @@ String userId = (String) session.getAttribute("userId");
             <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="tinNumber">Reason</label>
+                    <label for="">Reason</label>
                 </div>
                 <div class="col-lg-4">
-                    <textarea name="reason" rows="4" cols="20" maxlength="255">
+                    <textarea name="thereason" rows="4" cols="20" maxlength="255">
                     
                     </textarea>
                 </div>

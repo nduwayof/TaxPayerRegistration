@@ -3,6 +3,8 @@
     Created on : Mar 14, 2015, 9:05:25 PM
     Author     : SULAIMAN
 --%>
+
+<%@page import="com.djuma.Individual.Individual_TaxPayerType"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.io.File"%>
 <%@page import="java.util.List"%>
@@ -44,24 +46,33 @@
         <title>Process</title>
     </head>
     <body>
-        <%            
-        String taxTypeValues[]=request.getParameterValues("taxTypeId");
-        String type="";
-        for(int i=0; i<taxTypeValues.length;i++){
-            type+=taxTypeValues[i];
-        }
-        String mainSectorActivity[]=request.getParameterValues("mainSectorActivity");
-        String sectors="";
-        for(int i=0; i<mainSectorActivity.length;i++){
-        sectors+=mainSectorActivity[i];
-        }
-        c.setIndividualId(currentIndividual);
-        c.setDoneBy(names);
-        c.setTaxTypeId(type);
-        c.setMainSectorActivity(sectors);
-        c.saveIndividualInfo();
-        response.sendRedirect("individualBanks.jsp");
-       
+        <%  
+            
+            String taxTypeValues[] = request.getParameterValues("taxTypeId");
+            String type = "";
+            for (int i = 0; i < taxTypeValues.length; i++) {
+                type += taxTypeValues[i];
+            }
+            String mainSectorActivity[] = request.getParameterValues("mainSectorActivity");
+            String sectors = "";
+            for (int i = 0; i < mainSectorActivity.length; i++) {
+                sectors += mainSectorActivity[i];
+            }
+            String mainSourceOfIncome=request.getParameter("mainSourceOfIncome");
+            if(mainSourceOfIncome.equalsIgnoreCase("Other")){
+            c.setMainSourceOfIncome(request.getParameter("otherMainSourceOfIncome"));
+            }else{
+            c.setMainSourceOfIncome(mainSourceOfIncome);
+            }
+            c.setIndividualId(currentIndividual);
+            c.setDoneBy(names);
+            c.setTaxTypeId(type);
+            c.setMainSectorActivity(sectors);
+            c.setEstmatedAnnualTurnOver(Double.parseDouble(request.getParameter("estmatedAnnualTurnOver")));
+            
+            c.saveIndividualInfo();
+            Individual_TaxPayerType.SaveTaxPayerType(Double.parseDouble(request.getParameter("estmatedAnnualTurnOver")), currentIndividual);
+            response.sendRedirect("individualBanks.jsp");
         %>
     </body>
 </html>

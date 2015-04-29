@@ -78,7 +78,17 @@
                 $('#mailingAddress').hide();
                  $('#businessActivity').hide();
                  $('#oldTin').hide();
+                 $('#otherOption').hide();
             });
+            
+            function chooseOther(){
+       var selectMainSourceIncome=document.getElementById("selectMainSourceIncome").value;
+                 if(selectMainSourceIncome=="Other"){
+                 $('#otherOption').show();
+                 }else{
+                $('#otherOption').hide();   
+                 } 
+      }
             
              function showIndividual() {
                 $('#nonIndividual').hide();

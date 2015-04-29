@@ -5,7 +5,7 @@
  */
 package com.djuma;
 
-import com.djuma.Individual.IndividualTaxPayerType;
+
 import com.djuma.NonIndividual.*;
 import com.djuma.Tax.TaxPayerType;
 import java.sql.Timestamp;
@@ -38,57 +38,77 @@ public class CommonNonIndividual {
     private Timestamp doneAt=new Timestamp(new Date().getTime());
     private String doneBy="";
     private boolean hasInfo;
-    private String tinDocumentNumber;
-    private String vatDocumentNumber;
-    private String  photo;
+    private String tinDocumentNumber="";
+    private String vatDocumentNumber="";
+    private String  photo="";
     private boolean deregistered=false;
 
     
- private String plotNo;
- private String street;
- private String sector;
- private String district;
- private String province;
- private String mailingAddress;
- private String mailHouseNo;
- private String mailStreet;
- private String mailPoBox;
- private String mailCity;
- private String mailSector;
- private String mailDistrict;
- private String mailProvince;
+ private String plotNo="";
+ private String street="";
+ private String sector="";
+ private String district="";
+ private String province="";
+ private String mailingAddress="";
+ private String mailHouseNo="";
+ private String mailStreet="";
+ private String mailPoBox="";
+ private String mailCity="";
+ private String mailSector="";
+ private String mailDistrict="";
+ private String mailProvince="";
  
  
- private String foreignParentName;
-    private String foreignAddress;
-    private String foreignTown;
-    private String foreignProvince ;
-    private String foreignCountry;
-    private String foreingPhoneNo;
-    private String foreignFaxNumber;
+ private String foreignParentName="";
+    private String foreignAddress="";
+    private String foreignTown="";
+    private String foreignProvince="";
+    private String foreignCountry="";
+    private String foreingPhoneNo="";
+    private String foreignFaxNumber="";
     
     
-    private String  taxpayerRepresentativeName;
-    private String  representativeTitle;
-    private String representativePhoneNo;
-    private String contactName;
-    private String contactTitle;
-    private String contactPhoneNo;
+    private String  taxpayerRepresentativeName="";
+    private String  representativeTitle="";
+    private String representativePhoneNo="";
+    private String contactName="";
+    private String contactTitle="";
+    private String contactPhoneNo="";
     
-    private String taxPayerTypeId;
+    private String taxPayerTypeId="";
     
-    private String taxTypeId;
+    private String taxTypeId="";
     
     private int sectorId;
     
     private  boolean businessActivty;
     private double estmatedAnnualTurnOver;
     private int estimatedNumberOfEmployees;
-    private String accountingMethod;
-    private String mainSourceOfIncome;
-    private String employmentMethod;
+    private String accountingMethod="";
+    private String mainSourceOfIncome="";
+    private String employmentMethod="";
     private boolean businessPremiseRented;
-    private String mainSectorActivity;
+    private String mainSectorActivity="";
+    
+    private Long activityId;
+    private String  businessActivityStartDate="";
+
+    public Long getActivityId() {
+        return activityId;
+    }
+
+    public void setActivityId(Long activityId) {
+        this.activityId = activityId;
+    }
+
+    public String getBusinessActivityStartDate() {
+        return businessActivityStartDate;
+    }
+
+    public void setBusinessActivityStartDate(String businessActivityStartDate) {
+        this.businessActivityStartDate = businessActivityStartDate;
+    }
+  
 
     public int getNonIndividualId() {
         return nonIndividualId;
@@ -600,43 +620,8 @@ public class CommonNonIndividual {
     public CommonNonIndividual() {
     }
     
-    public void saveCommonNonIndividual(){
-        
-        
-        int smallId=0;
-       int mediumId=0;
-       int largeId=0;
-       int microId=0;
-       for(TaxPayerType t: TaxPayerType.listTaxPayerType()){
-       if(t.getTaxpayerType().equalsIgnoreCase("samll")||t.getTaxpayerType().contains("small")){
-       smallId=t.getId();
-       }else if(t.getTaxpayerType().equalsIgnoreCase("medium")||t.getTaxpayerType().contains("medium")){
-       mediumId=t.getId();
-       }else if(t.getTaxpayerType().equalsIgnoreCase("large")||t.getTaxpayerType().contains("large")){
-       largeId=t.getId();
-       }else if(t.getTaxpayerType().equalsIgnoreCase("micro")||t.getTaxpayerType().contains("micro")){
-       microId=t.getId();
-       }
-       }
-        if(estmatedAnnualTurnOver >=2000000&&estmatedAnnualTurnOver<12000000){
-        Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, microId);
-         i.SaveTaxPayerType();
-        }
-        if(estmatedAnnualTurnOver>12000001&&estmatedAnnualTurnOver<=50000000){
-            Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, smallId);
-         i.SaveTaxPayerType();
- 
-        }
-        if(estmatedAnnualTurnOver >=50000001&&estmatedAnnualTurnOver<= 400000000){
-            Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, mediumId);
-         i.SaveTaxPayerType();
-        }
-        
-        if(estmatedAnnualTurnOver >=400000001){
-            Nonindividual_TaxPayerType i=new Nonindividual_TaxPayerType(nonIndividualId, largeId);
-         i.SaveTaxPayerType();
-        }
-
+    public void saveCommonNonIndividual(){ 
+      
       String sectorActivityParts[]=mainSectorActivity.split("#");
       for(int d=0;d<sectorActivityParts.length;d++){
       NonIndividual_mainSectorActivity is=new NonIndividual_mainSectorActivity(nonIndividualId,Integer.parseInt(sectorActivityParts[d]));

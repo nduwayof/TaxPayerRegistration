@@ -8,6 +8,9 @@ package com.djuma;
 import com.djuma.NonIndividual.*;
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -204,5 +207,35 @@ public class NonIndividual_Address {
  
  } 
 
+ }
+ 
+ public static List<NonIndividual_Address>list(){
+ List<NonIndividual_Address>l=new ArrayList<NonIndividual_Address>();
+ 
+ try{
+ PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from nonIndividual_address");
+     ResultSet rs=djuma.executeQuery();
+     while(rs.next()){
+     NonIndividual_Address n=new NonIndividual_Address();
+     n.setAddressId(rs.getLong(1));
+     n.setPlotNo(rs.getString(2));
+     n.setStreet(rs.getString(3));
+     n.setSector(rs.getString(4));
+     n.setDistrict(rs.getString(5));
+     n.setProvince(rs.getString(6));
+     n.setMailingAddress(rs.getString(7));
+     n.setMailHouseNo(rs.getString(8));
+     n.setMailStreet(rs.getString(9));
+     n.setMailPoBox(rs.getString(10));
+     n.setMailCity(rs.getString(11));
+     n.setMailSector(rs.getString(12));
+     n.setMailDistrict(rs.getString(13));
+     n.setMailProvince(rs.getString(14));
+     n.setNonIndividualId(rs.getInt(15));
+     l.add(n);
+     }
+ }catch(Exception e){}
+ return l;
+ 
  }
 }

@@ -12,9 +12,10 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="taxType">Choose The Year</label>
+                    <label>From</label>
                 </div>
                 <div class="col-lg-8">
+                    <!--
                     <select name="year">
                             <option>2015</option>
                             <option>2016</option>
@@ -23,13 +24,25 @@
                             <option>2019</option>
                             <option>2020</option>
                     </select>
+                    -->
                     
+                    <input type="date" name="from" value="" class="form-control" />
+                </div>
+                <div class="col-lg-4">
+                    <label>To</label>
+                </div>
+                <div class="col-lg-8">
+                    
+                    
+                    <input type="date" name="to" value="" class="form-control" />
                 </div>
             </div>
         </div>
+     
                     <div class="col-lg-6">
                                     <input id="SaveAccount" class="btn btn-success btn-lg" type="submit" value="preview" />
                     </div>
+
                  </form>
 
     </div>

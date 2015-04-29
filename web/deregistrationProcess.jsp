@@ -19,7 +19,6 @@ String userId = (String) session.getAttribute("userId");
                 names = u.getFirstName() + " " + u.getLastName();
             }
         }
- currentIndividual=(Integer)session.getAttribute("individualTicket");
 }
 
 %>
@@ -36,7 +35,7 @@ String userId = (String) session.getAttribute("userId");
     <body>
        <%
        d.setDoneBy(names);
-       d.setReason(request.getParameter("reason"));
+       d.setThereason(request.getParameter("thereason"));
        d.Deregister();
        %>
     </body>

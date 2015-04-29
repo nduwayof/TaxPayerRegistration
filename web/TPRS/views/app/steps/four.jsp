@@ -6,33 +6,33 @@
 
 <%@page import="com.djuma.Sector.Sub_Sector"%>
 <%@page import="com.djuma.Sector.Sector"%>
-    
-      
+
+
 <fieldset>
     <legend>Activities Informations</legend>
     <br>
-                <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="text" name="estmatedAnnualTurnOver" class="form-control" required="">
-                    </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="estimatedNumberOfEmployees">Estimated Employees</label>
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="number" name="estimatedNumberOfEmployees" class="form-control" required="">
-                    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="estmatedAnnualTurnOver">Annual TurnOver</label> 
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" name="estmatedAnnualTurnOver" class="form-control" required="">
                 </div>
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="estimatedNumberOfEmployees">Estimated Employees</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="number" name="estimatedNumberOfEmployees" class="form-control" required="">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
@@ -74,12 +74,12 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <label for="mainSourceOfIncome">Main Source Source of Income</label>
-               </div>
+                </div>
                 <div class="col-lg-8">
                     <div class="input-group">
-                        <select name="mainSourceOfIncome"  class="form-control" id="selectMainSourceIncome">
+                        <select name="mainSourceOfIncome" class="form-control" id="selectMainSourceIncome" onchange="chooseOther()">
                             <option>Business</option>
                             <option>Rental</option>
                             <option>Employment</option>
@@ -87,40 +87,42 @@
                             <option>Other</option>
                         </select>
                         <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                        <div class="col-lg-3" id="otherOption">
-                    <label>
-                        <input type="text" name="otherMainSourceOfIncome"  autocomplete="off">Yes
-                    </label>
-                </div>
                     </div>
-                </div>
+                </div> 
             </div>
+        </div>
+        <div class="form-group">
+                <div class="col-lg-4" id="otherOption">
+                    <label>
+                        <input type="text" name="otherMainSourceOfIncome" class="form-control"  placeholder="type the other main Source of income"autocomplete="off">
+                    </label>
+        </div>
         </div> 
     </div>
 
-    
+
     <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="">Investment Incentives</label>
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="text" name="investmentIncentives" class="form-control" >
-                    </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="">Investment Incentives</label>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="">Incentive StartDate</label>
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="date" name="incentiveStartDate" class="form-control" >
-                    </div>
+                <div class="col-lg-8">
+                    <input type="text" name="investmentIncentives" class="form-control" >
                 </div>
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="">Incentive StartDate</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="date" name="incentiveStartDate" class="form-control" >
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
@@ -141,6 +143,5 @@
         </div>
     </div>
 </fieldset>
-    
-                        
-                                       
+
+

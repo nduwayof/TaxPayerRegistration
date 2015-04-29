@@ -3,7 +3,6 @@
     Created on : Mar 20, 2015, 12:30:02 PM
     Author     : SULAIMAN
 --%>
-<%@page import="com.djuma.Individual.IndividualTaxPayerType"%>
 <%@page import="com.djuma.Individual.Individual"%>
 <%@page import="com.djuma.Tax.TaxPayerType"%>
 <%@page import="com.djuma.Acount.Management.User"%>

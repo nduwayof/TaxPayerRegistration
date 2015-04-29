@@ -27,7 +27,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <%                        List<NonIndividual_Bank> list = NonIndividual_Bank.listBankPerNonIndividual(1);
+                <%        List<NonIndividual_Bank> list = NonIndividual_Bank.listBank();
                     if (!list.isEmpty()) {
                 %>
                 <table class="table table-hover">
@@ -139,7 +139,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>taxpayerNationalId</th>
+                            <th>TIN</th>
                             <th>Names</th>
                             <th>Parcentage</th>
                         </tr>
@@ -150,7 +150,7 @@
                                 if (ib.getNonIndividualId() == currentIndividual) {
                         %>
                         <tr>
-                            <td><%=ib.getTaxpayerNationalId()%></td>
+                            <td><%=ib.getTinNumber()%></td>
                             <td><%=ib.getNames()%></td>
                             <td><%=ib.getParcentage()%></td>
                         </tr>
@@ -320,10 +320,10 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="col-md-4">
-                                <label for="taxpayerNationalId">TaxPayer National Id</label>
+                                <label for="tinNumber">TaxPayer TIN</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="taxpayerNationalId">
+                                <input type="text" class="form-control" name="tinNumber">
                             </div>
                         </div>
                         <div class="form-group">

@@ -8,6 +8,9 @@ package com.djuma;
 import com.djuma.NonIndividual.*;
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,10 +19,19 @@ import java.sql.PreparedStatement;
 public class Nonindividual_TaxType {
    private int nonIndividualId;
  private int taxTypeId;
+ private long id;
 
 
     public int getTaxTypeId() {
         return taxTypeId;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setTaxTypeId(int taxTypeId) {
@@ -39,6 +51,9 @@ public class Nonindividual_TaxType {
         this.nonIndividualId = nonIndividualId;
     }
 
+    public Nonindividual_TaxType() {
+    }
+
    
  public void SaveTaxType(){
     try{
@@ -50,5 +65,22 @@ public class Nonindividual_TaxType {
     
     }
     
-    } 
+    }
+ public static List<Nonindividual_TaxType>list(){
+ List<Nonindividual_TaxType>l=new ArrayList<Nonindividual_TaxType>();
+ try{
+ PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from nonIndividual_taxtype");
+        ResultSet rs=djuma.executeQuery();
+        while(rs.next()){
+        Nonindividual_TaxType n=new Nonindividual_TaxType();
+        n.setId(rs.getLong(1));
+        n.setNonIndividualId(rs.getInt(2));
+        n.setTaxTypeId(rs.getInt(3));
+        l.add(n);
+        }
+ }catch(Exception e){
+ 
+ }
+ return l;
+ }
 }

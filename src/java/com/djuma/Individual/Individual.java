@@ -644,7 +644,7 @@ public class Individual {
             String da = simpleDateformat.format(date);
 
             Font font2 = new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD | Font.BOLD);
-            Font font3 = new Font(Font.FontFamily.HELVETICA, 15, Font.NORMAL | Font.NORMAL);
+            Font font3 = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL | Font.NORMAL);
             Font font5 = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD | Element.ALIGN_CENTER);
 
             Paragraph par = new Paragraph(new Chunk(" Notice of Registration ", font2));
@@ -670,14 +670,16 @@ public class Individual {
                         par2.setAlignment(Element.ALIGN_LEFT);
                         document.add(par2);
                         document.add(new Paragraph("\n"));
-                         
+                         Paragraph par31 = new Paragraph(new Chunk(" Business Activity:  ", font3));
+                        par31.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par31);
                         for(Individual_mainSectorActivity i: Individual_mainSectorActivity.list()){
                             if(i.getIndividualId()==in.getIndividualId()){
                                 for(Sector se: Sector.listSector()){
                                     if(se.getId()==i.getSectorId()){
                                         for(Industry id:Industry.listIndistry()){
                                             if(id.getId()==se.getIndustryId()){
-                        Paragraph par3 = new Paragraph(new Chunk(" Business Activity:  "+id.getName()+" - "+se.getName(), font3));
+                        Paragraph par3 = new Paragraph(new Chunk(""+id.getName()+" - "+se.getName(), font3));
                         par3.setAlignment(Element.ALIGN_LEFT);
                         document.add(par3);
                         }
@@ -687,6 +689,10 @@ public class Individual {
                         }
                         }
                         document.add(new Paragraph("\n"));
+                        
+                        Paragraph par41 = new Paragraph(new Chunk(" ", font3));
+                        par41.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par41);
                         for(Individual_Address a: Individual_Address.listOfIndividualAddress()){
                             if(a.getIndividualId()==in.getIndividualId()){
                         Paragraph par4 = new Paragraph(new Chunk(" Tax Center:  "+a.getProvince()+" - "+a.getDistrict(), font3));

@@ -17,7 +17,7 @@ import java.util.Date;
 public class Individual_Deregistration {
  private int deregisterId;
  private String tinNumber;
- private String reason;
+ private String thereason;
  private String info;
  private String error;
  private Timestamp doneAt= new Timestamp(new Date().getTime());
@@ -41,13 +41,15 @@ public class Individual_Deregistration {
         this.tinNumber = tinNumber;
     }
 
-    public String getReason() {
-        return reason;
+    public String getThereason() {
+        return thereason;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setThereason(String thereason) {
+        this.thereason = thereason;
     }
+
+   
 
     public String getInfo() {
         return info;
@@ -122,7 +124,7 @@ public class Individual_Deregistration {
      if(valid){
      PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into individual_deregistration values(id,?,?,?,?)");
      djuma.setInt(1, individualId);
-     djuma.setString(2, reason);
+     djuma.setString(2, thereason);
      djuma.setString(3, doneBy);
      djuma.setTimestamp(4, doneAt);
      djuma.execute();     

@@ -7,7 +7,6 @@
 <%@page import="com.djuma.Sector.Industry"%>
 <%@page import="com.djuma.Sector.Sector"%>
 <%@page import="com.djuma.Individual.Individual_mainSectorActivity"%>
-<%@page import="com.djuma.Individual.IndividualTaxPayerType"%>
 <%@page import="com.djuma.Individual.Individual"%>
 <%@page import="com.djuma.Tax.TaxPayerType"%>
 <%@page import="com.djuma.Acount.Management.User"%>

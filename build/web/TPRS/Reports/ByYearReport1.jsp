@@ -13,7 +13,6 @@
 <%@page import="com.djuma.Sector.Industry"%>
 <%@page import="com.djuma.Individual.Individual_representative"%>
 <%@page import="com.djuma.Individual.Individual"%>
-<%@page import="com.djuma.Individual.IndividualTaxPayerType"%>
 <%@page import="com.djuma.Tax.TaxPayerType"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.awt.Color"%>
@@ -47,6 +46,11 @@
     <body>
         <%
             String value=request.getParameter("year");
+            String from=request.getParameter("from");
+            String to=request.getParameter("to");
+            SimpleDateFormat j=new SimpleDateFormat("yyyy-MM-dd");
+            Date from1=j.parse(from);
+            Date to1=j.parse(to);
             
             response.setContentType("application/pdf");
             Document document = new Document(new Rectangle(1000, 1000));
@@ -66,7 +70,7 @@
 
             //document.add((Element) image);
            
-            Paragraph par = new Paragraph(new Chunk( " "+   "Report of Registered Business in "+value+"  " + da , font2));
+            Paragraph par = new Paragraph(new Chunk( " "+   "Report of Registered Business from "+from1+" to " + to1 , font2));
             par.setAlignment(Element.ALIGN_CENTER);
             document.add(par);
             document.add(new Paragraph("\n"));
@@ -100,9 +104,8 @@
                 
                 
                 for(Individual in: Individual.listIndividual()) {
-                    Timestamp t=in.getDoneAt();
-                    String year=t.toString().substring(0,4);
-                   if(year.equalsIgnoreCase(value)&&in.isHasInfo()&&in.isDeRegistered()==false){
+                    Date d1=j.parse(in.getDoneAt().toString());
+                   if(d1.getTime()>=from1.getTime()&&d1.getTime()<=to1.getTime()&&in.isHasInfo()&&in.isDeRegistered()==false){
                     PdfPTable table = new PdfPTable(5);
                     table.setWidthPercentage(100);
                     

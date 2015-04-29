@@ -6,7 +6,6 @@
 
 <%@page import="com.djuma.Individual.Individual_representative"%>
 <%@page import="com.djuma.Individual.Individual"%>
-<%@page import="com.djuma.Individual.IndividualTaxPayerType"%>
 <%@page import="com.djuma.Tax.TaxPayerType"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.awt.Color"%>

@@ -8,27 +8,31 @@ package com.djuma;
 import com.djuma.NonIndividual.*;
 import com.djuma.Connection.SetCon;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author SULAIMAN
  */
 public class NonIndividual_Activity {
-    private Long activityId;
+    private long activityId;
     private  boolean businessActivty;
     private double estmatedAnnualTurnOver;
     private int estimatedNumberOfEmployees;
-    private String accountingMethod;
-    private String mainSourceOfIncome;
-    private String employmentMethod;
+    private String accountingMethod="";
+    private String mainSourceOfIncome="";
+    private String employmentMethod="";
     private boolean businessPremiseRented;
+    private String  businessActivityStartDate="";
     private int nonIndividualId;
 
-    public Long getActivityId() {
+    public long getActivityId() {
         return activityId;
     }
 
-    public void setActivityId(Long activityId) {
+    public void setActivityId(long activityId) {
         this.activityId = activityId;
     }
 
@@ -105,6 +109,14 @@ public class NonIndividual_Activity {
         this.nonIndividualId = nonIndividualId;
     }
 
+    public String getBusinessActivityStartDate() {
+        return businessActivityStartDate;
+    }
+
+    public void setBusinessActivityStartDate(String businessActivityStartDate) {
+        this.businessActivityStartDate = businessActivityStartDate;
+    }
+
     public NonIndividual_Activity(boolean businessActivty, double estmatedAnnualTurnOver, int estimatedNumberOfEmployees, String accountingMethod, String mainSourceOfIncome, String employmentMethod, boolean businessPremiseRented, int nonIndividualId) {
         this.businessActivty = businessActivty;
         this.estmatedAnnualTurnOver = estmatedAnnualTurnOver;
@@ -119,22 +131,45 @@ public class NonIndividual_Activity {
     public NonIndividual_Activity() {
     }
 
-    
     public void SaveActivity(){
     try{
-        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into nonIndividual_activity values(id,?,?,?,?,?,?,?,?)");
+        PreparedStatement djuma=SetCon.getCon().prepareStatement("insert into nonIndividual_activity values(id,?,?,?,?,?,?,?,?,?)");
         djuma.setBoolean(1, businessActivty);
         djuma.setDouble(2, estmatedAnnualTurnOver);
         djuma.setInt(3, estimatedNumberOfEmployees);
-        djuma.setString(4, accountingMethod);
-        djuma.setString(5, mainSourceOfIncome);
-        djuma.setString(6, employmentMethod);
-        djuma.setBoolean(7, businessPremiseRented);
-        djuma.setInt(8, nonIndividualId);
+        djuma.setString(4, businessActivityStartDate);
+        djuma.setString(5, accountingMethod);
+        djuma.setString(6, mainSourceOfIncome);
+        djuma.setString(7, employmentMethod);
+        djuma.setBoolean(8, businessPremiseRented);
+        djuma.setInt(9, nonIndividualId);
         djuma.execute();
     }catch(Exception e){
+    }
     
     }
     
+    public static List<NonIndividual_Activity>list(){
+    List<NonIndividual_Activity>l=new ArrayList<NonIndividual_Activity>();
+    try{
+    PreparedStatement djuma=SetCon.getCon().prepareStatement("select * from nonIndividual_activity");
+        ResultSet rs=djuma.executeQuery();
+        while(rs.next()){
+        NonIndividual_Activity i=new NonIndividual_Activity();
+        i.setActivityId(rs.getLong(1));
+        i.setBusinessActivty(rs.getBoolean(2));
+        i.setEstmatedAnnualTurnOver(rs.getDouble(3));
+        i.setEstimatedNumberOfEmployees(rs.getInt(4));
+        i.setBusinessActivityStartDate(rs.getString(5));
+        i.setAccountingMethod(rs.getString(6));
+        i.setMainSourceOfIncome(rs.getString(7));
+        i.setEmploymentMethod(rs.getString(8));
+        i.setBusinessPremiseRented(rs.getBoolean(9));
+        i.setNonIndividualId(rs.getInt(10));
+        l.add(i);
+        }
+    }catch(Exception e){   
+    }
+    return l;
     }
 }

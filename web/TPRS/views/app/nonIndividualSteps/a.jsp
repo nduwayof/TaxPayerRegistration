@@ -266,6 +266,43 @@
         </div>
     </div>
     
+    
+       <div id="businessActivitys">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="mainSectorActivity">Main Sector Activity</label> 
+                    </div>
+                    <div class="col-lg-8">
+                        <!--
+                        <%
+                            for (Sector s : Sector.listSector()) {
+                                //for(Sub_Sector su:Sub_Sector.listSubSector()){
+                                //if(s.getId()==su.getSectorId()){
+%>
+                                                <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
+                        <%
+                                // }
+                                // }
+                            }
+                        %>
+                        -->
+                        <select class="chosen" multiple="true" style="width:400px;" name="mainSectorActivity" required="">
+                            <%
+                                for (Sector s : Sector.listSector()) {
+                            %>
+                            <option value="<%=s.getId()%>#"><%=s.getName()%></option>
+                            <%
+                                }
+                            %>
+                        </select> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
@@ -276,7 +313,7 @@
                     <select class="chosen form-control" multiple="true" name="taxTypeId" required="">
                         <%
                             for (TaxType t : TaxType.listTaxType()) {
-                                if (t.isDeletedStatus() == false && !t.getTaxType().equalsIgnoreCase("CIT")) {
+                                if (t.isDeletedStatus() == false && !t.getTaxType().equalsIgnoreCase("PIT")) {
                         %>
                         <option value="<%=t.getId()%>#"><%=t.getTaxType()%></option>
 
@@ -316,39 +353,5 @@
   </div>
 </div>
     -->
-    <div id="businessActivitys">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="mainSectorActivity">Main Sector Activity</label> 
-                    </div>
-                    <div class="col-lg-8">
-                        <!--
-                        <%
-                            for (Sector s : Sector.listSector()) {
-                                //for(Sub_Sector su:Sub_Sector.listSubSector()){
-                                //if(s.getId()==su.getSectorId()){
-%>
-                                                <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
-                        <%
-                                // }
-                                // }
-                            }
-                        %>
-                        -->
-                        <select class="chosen" multiple="true" style="width:400px;" name="mainSectorActivity" required="">
-                            <%
-                                for (Sector s : Sector.listSector()) {
-                            %>
-                            <option value="<%=s.getId()%>#"><%=s.getName()%></option>
-                            <%
-                                }
-                            %>
-                        </select> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 </fieldset>

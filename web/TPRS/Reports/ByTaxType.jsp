@@ -19,9 +19,11 @@
                     <select name="taxType">
                     <%
                         for (TaxType t : TaxType.listTaxType()) {
+                            if(!t.getTaxType().equalsIgnoreCase("CIT")){
                     %>
                     <option value="<%=t.getId()%>"><%=t.getTaxType()%></option>
                     <%
+                        }
                         }
                     %>
                     </select>

@@ -8,12 +8,30 @@ package com.djuma;
 import com.djuma.NonIndividual.*;
 import com.djuma.Connection.SetCon;
 import com.djuma.Individual.Individual;
+import com.djuma.Individual.Individual_Address;
+import com.djuma.Individual.Individual_mainSectorActivity;
+import com.djuma.Sector.Industry;
+import com.djuma.Sector.Sector;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.servlet.ServletOutputStream;
 
 /**
  *
@@ -21,30 +39,30 @@ import java.util.List;
  */
 public class NonIndividual {
     private int nonIndividualId;
-    private String enterpriseType;
+    private String enterpriseType="";
     private boolean incBenefitsInvestment;
-    private String noOfExpiration;
-    private String expirationDate;
-    private String registeredName;
-    private String registrationDate;
-    private String comRegistrationNo;
+    private String noOfExpiration="";
+    private String expirationDate="";
+    private String registeredName="";
+    private String registrationDate="";
+    private String comRegistrationNo="";
     private boolean resident;
-    private String countryOfResidence;
-    private String entrepriseEmail;
-    private String nssfRegistrationNo;
-    private String entreprisePhoneNo;
-    private String entrepriseFaxNo;
-    private String startDate;
-    private String noOfShares;
-    private String sharesValue;
-    private String tinNumber;
-    private String oldTinNumber;
+    private String countryOfResidence="";
+    private String entrepriseEmail="";
+    private String nssfRegistrationNo="";
+    private String entreprisePhoneNo="";
+    private String entrepriseFaxNo="";
+    private String startDate="";
+    private String noOfShares="";
+    private String sharesValue="";
+    private String tinNumber="";
+    private String oldTinNumber="";
     private Timestamp doneAt=new Timestamp(new Date().getTime());
-    private String doneBy;
+    private String doneBy="";
     private boolean hasInfo;
-    private String tinDocumentNumber;
-    private String vatDocumentNumber;
-    private String  photo;
+    private String tinDocumentNumber="";
+    private String vatDocumentNumber="";
+    private String  photo="";
     private boolean deregistered=false;
     
     public int getNonIndividualId() {
@@ -517,6 +535,135 @@ public class NonIndividual {
    }catch(Exception e){
    
    }
+   }
+   
+      public static Document getDocument(int nonIndividualId, ServletOutputStream s) throws DocumentException{
+ 
+ //           response.setContentType("application/pdf");
+            Document document = new Document(new Rectangle(1000, 1000));
+        Rectangle pagesize = new Rectangle(700f, 590f);
+        //Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
+            document.setPageSize(pagesize);
+            PdfWriter.getInstance(document, s);
+            document.open();
+            Rectangle rect = document.getPageSize();
+            rect.setBorder(Rectangle.BOX); // left, right, top, bottom border
+            rect.setBorderWidth(19); // a width of 5 user units
+            rect.setBorderColor(BaseColor.CYAN); // a red border
+            rect.setUseVariableBorders(true);
+            document.addTitle("TIN Certificate");
+            document.add(rect);
+            Date date = new Date();
+            SimpleDateFormat simpleDateformat = new SimpleDateFormat("dd/MM/yyyy");
+            String da = simpleDateformat.format(date);
+
+            Font font2 = new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD | Font.BOLD);
+            Font font3 = new Font(Font.FontFamily.HELVETICA, 11, Font.NORMAL | Font.NORMAL);
+            Font font5 = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD | Element.ALIGN_CENTER);
+
+            Paragraph par = new Paragraph(new Chunk(" Notice of Registration ", font2));
+            par.setAlignment(Element.ALIGN_CENTER);
+            document.add(par);
+            Paragraph par1 = new Paragraph(new Chunk("( Under the Law... Section ... )", font3));
+            par1.setAlignment(Element.ALIGN_CENTER);
+            document.add(par1);
+            document.add(new Paragraph("\n"));
+
+            try {
+                for (NonIndividual in : NonIndividual.listNonIndividual()) {
+                    if (in.getNonIndividualId() == (nonIndividualId)) {
+           Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
+                        image.setAlignment(Element.ALIGN_LEFT);
+                       // image.setAbsolutePosition(50f, 50f);
+                        image.scaleAbsolute(150, 90);
+                        image.setBorderWidth(40);
+                       // image.setWidthPercentage(widthPercentage);
+                        document.add((Element) image);
+
+                        Paragraph par2 = new Paragraph(new Chunk(" Registered Name:  " + in.getRegisteredName(), font3));
+                        par2.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par2);
+                        //document.add(new Paragraph("\n"));
+                        Paragraph par21 = new Paragraph(new Chunk(" Enterprise Type:  " + in.getEnterpriseType(), font3));
+                        par21.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par21);
+                        document.add(new Paragraph("\n"));
+                        
+                         Paragraph par41 = new Paragraph(new Chunk(" Business Activity:  ", font3));
+                        par41.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par41);
+                        for(NonIndividual_mainSectorActivity i: NonIndividual_mainSectorActivity.list()){
+                            if(i.getNonIndividualId()==nonIndividualId){
+                                for(Sector se: Sector.listSector()){
+                                    if(se.getId()==i.getSectorId()){
+                                        for(Industry id:Industry.listIndistry()){
+                                            if(id.getId()==se.getIndustryId()){
+                        Paragraph par3 = new Paragraph(new Chunk(""+id.getName()+" - "+se.getName(), font3));
+                        par3.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par3);
+                        }
+                                        }
+                                    }
+                                }
+                        }
+                        }
+                        document.add(new Paragraph("\n"));
+                        Paragraph par42 = new Paragraph(new Chunk(" Tax Center:  ", font3));
+                        par42.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par42);
+                        for(NonIndividual_Address a: NonIndividual_Address.list()){
+                            if(a.getNonIndividualId()==in.getNonIndividualId()){
+                        Paragraph par4 = new Paragraph(new Chunk(""+a.getProvince()+" - "+a.getDistrict(), font3));
+                        par4.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par4);
+                        }
+                        }
+                        document.add(new Paragraph("\n"));
+                        Paragraph par5 = new Paragraph(new Chunk(" is registered for tax purposes and assigned :  ", font3));
+                        par5.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par5);
+                        document.add(new Paragraph("\n"));
+                        Paragraph par6 = new Paragraph(" TaxPayers' Identification Number:  " + in.getTinNumber(), font3);
+                        par6.setAlignment(Element.ALIGN_CENTER);
+            //document.add(par6);
+            //document.add(new Paragraph("\n"));
+            
+            PdfPTable table = new PdfPTable(1);
+            table.setWidthPercentage(40);
+            PdfPCell cell = new PdfPCell();
+            //cell.setFixedHeight(20f);
+            cell.setMinimumHeight(40);
+            cell.setVerticalAlignment(Element.ALIGN_CENTER);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.addElement(par6);
+
+            //PdfPTable table1 = new PdfPTable(1);
+                        //table1.addCell(new Phrase(new Chunk(" TaxPayers' Identification Number:  "+in.getTinNumber(), font3)));
+                        table.addCell(cell);
+                        document.add(table);
+
+                        Paragraph par7 = new Paragraph(new Chunk(" With effect from :  " + da, font3));
+                        par7.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par7);
+                        document.add(new Paragraph("\n"));
+                        Paragraph par8 = new Paragraph(new Chunk(" Signed:  ", font3));
+                        par8.setAlignment(Element.ALIGN_LEFT);
+                        document.add(par8);
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("\n"));
+
+                        Paragraph par9 = new Paragraph(new Chunk(" Doc Number:  " + in.getTinDocumentNumber(), font3));
+                        par9.setAlignment(Element.ALIGN_RIGHT);
+                        document.add(par9);
+                        document.add(new Paragraph("\n"));
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            document.close();
+            return  document;
    }
    
    
