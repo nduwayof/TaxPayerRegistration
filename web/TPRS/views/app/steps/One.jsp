@@ -230,7 +230,7 @@
                 </div>
                 <div class="col-lg-8">
                     <input type="text" name="cellPhone" id="cellPhone" class="form-control">
-                     <span class="text-danger" id="cellPhoneMsg"></span>
+                    <span class="text-danger" id="cellPhoneMsg"></span>
                 </div>
             </div>
         </div>
@@ -303,119 +303,120 @@
         </div>
     </div>
 </div>
-    <!--  
-  <div class="row">
-  <div class="col-lg-6">
-      <div class="form-group">
-          <div class="col-lg-8">
-              <label for="bussinessActivity">Do you do business activity</label> 
-          </div>
-          <div class="col-lg-4">
-              <div class="row">
-                  <div class="col-lg-6">
-                      <label onclick="showBusiness()">
-                          <input type="radio" name="businessActivty" autocomplete="off" value="1"> Yes 
-                      </label>
-                  </div>
-                  <div class="col-lg-6">
-                      <label onclick="hideBusiness()">
-                          <input type="radio" name="businessActivty" autocomplete="off" value="0"> No
-                      </label>
-                  </div>
+<!--  
+<div class="row">
+<div class="col-lg-6">
+  <div class="form-group">
+      <div class="col-lg-8">
+          <label for="bussinessActivity">Do you do business activity</label> 
+      </div>
+      <div class="col-lg-4">
+          <div class="row">
+              <div class="col-lg-6">
+                  <label onclick="showBusiness()">
+                      <input type="radio" name="businessActivty" autocomplete="off" value="1"> Yes 
+                  </label>
+              </div>
+              <div class="col-lg-6">
+                  <label onclick="hideBusiness()">
+                      <input type="radio" name="businessActivty" autocomplete="off" value="0"> No
+                  </label>
               </div>
           </div>
       </div>
   </div>
 </div>
-    -->
-    <div id="businessActivitys">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="mainSectorActivity">Main Sector Activity</label> 
-                    </div>
-                    <div class="col-lg-8">
-                        <!--
-                        <%
-                            for (Sector s : Sector.listSector()) {
-                                //for(Sub_Sector su:Sub_Sector.listSubSector()){
-                                //if(s.getId()==su.getSectorId()){
-%>
-                                                <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
-                        <%
-                                // }
-                                // }
-                            }
-                        %>
-                        -->
-                        <select class="chosen" multiple="true" style="width:400px;" name="mainSectorActivity" required="">
-                            <%
-                                for (Sector s : Sector.listSector()) {
-                            %>
-                            <option value="<%=s.getId()%>#"><%=s.getName()%></option>
-                            <%
-                                }
-                            %>
-                        </select> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-                        
-                        
-     <div class="row">
+</div>
+-->
+<div id="businessActivitys">
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label for="civilStatus">Civil Status</label>
+                    <label for="mainSectorActivity">Main Sector Activity</label> 
                 </div>
                 <div class="col-lg-8">
-                    <label onclick="hideCivil()">
-                        <input type="radio" name="civilStatus" >Single
-                    </label>
-                    <label onclick="showCivil()">
-                        <input type="radio" name="civilStatus" >Married
-                    </label>
-
-                    <label onclick="hideCivil()">
-                        <input type="radio" name="civilStatus">Divorced
-                    </label>
-                    <label onclick="showCivil()">
-                        <input type="radio" name="civilStatus">Widowed 
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div id="civilId">
-                <h3>Partner Informations</h3>
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="name">Name</label>
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="text" name="marriageName" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="surname">Surname</label>
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="text" name="marriageSurname" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-4">
-                        <label for="dob">Date of Birth</label>
-                    </div>
-                    <div class="col-lg-8">
-                        <input type="date" name="dob" class="form-control">
-                    </div>
+                    <!--
+                    <%
+                        for (Sector s : Sector.listSector()) {
+                            //for(Sub_Sector su:Sub_Sector.listSubSector()){
+                            //if(s.getId()==su.getSectorId()){
+                    %>
+                                                                    <input type="checkbox" name="mainSectorActivity" value="<%=s.getId()%>#" /><%=s.getName()%> 
+                    <%
+                            // }
+                            // }
+                        }
+                    %>
+                    -->
+                    <select class="chosen" multiple="true" style="width:400px;" name="mainSectorActivity" required="">
+                        <%
+                            for (Sector s : Sector.listSector()) {
+                        %>
+                        <option value="<%=s.getId()%>#"><%=s.getName()%></option>
+                        <%
+                            }
+                        %>
+                    </select> 
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <div class="col-lg-4">
+                <label for="civilStatus">Civil Status</label>
+            </div>
+            <div class="col-lg-8">
+                <label onclick="hideCivil()">
+                    <input type="radio" name="civilStatus" >Single
+                </label>
+                <label onclick="showCivil()">
+                    <input type="radio" name="civilStatus" >Married
+                </label>
+
+                <label onclick="hideCivil()">
+                    <input type="radio" name="civilStatus">Divorced
+                </label>
+                <label onclick="showCivil()">
+                    <input type="radio" name="civilStatus">Widowed 
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div id="civilId">
+            <h3>Partner Informations</h3>
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="name">Name</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" name="marriageName" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="surname">Surname</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" name="marriageSurname" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label for="dob">Date of Birth</label>
+                </div>
+                <div class="col-lg-8">
+                    <input type="date" name="dob" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </fieldset>
+ 

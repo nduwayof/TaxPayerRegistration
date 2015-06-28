@@ -49,7 +49,7 @@
                 names = u.getFirstName() + " " + u.getLastName();
             }
         }
-       // currentIndividual = (Integer) session.getAttribute("individualTicket");
+        // currentIndividual = (Integer) session.getAttribute("individualTicket");
     }
 
 %>
@@ -61,22 +61,21 @@
         <title>TIN CERTIFICATE</title>
     </head>
     <body>
-        <%     
-        int indvidualId=0;
-        String tinNumber=request.getParameter("tinNumber");
-        for(Individual i: Individual.listIndividual()){
-        if(i.getTinNumber().equalsIgnoreCase(tinNumber)){
-        indvidualId=i.getIndividualId();
-        }
-        }
+        <%            int indvidualId = 0;
+            String tinNumber = request.getParameter("tinNumber");
+            for (Individual i : Individual.listIndividual()) {
+                if (i.getTinNumber().equalsIgnoreCase(tinNumber)) {
+                    indvidualId = i.getIndividualId();
+                }
+            }
             response.setContentType("application/pdf");
             Document document = new Document(new Rectangle(1000, 1000));
-             Rectangle pagesize = new Rectangle(700f, 680f);
-        //Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
+            Rectangle pagesize = new Rectangle(700f, 680f);
+            //Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
             document.setPageSize(pagesize);
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
-             Rectangle rect = document.getPageSize();
+            Rectangle rect = document.getPageSize();
             rect.setBorder(Rectangle.BOX); // left, right, top, bottom border
             rect.setBorderWidth(19); // a width of 5 user units
             rect.setBorderColor(BaseColor.PINK); // a red border
@@ -99,104 +98,103 @@
             par1.setAlignment(Element.ALIGN_CENTER);
             document.add(par1);
             document.add(new Paragraph("\n"));
-      String tin="";
-      String vatDocumentNumber="";
+            String tin = "";
+            String vatDocumentNumber = "";
             try {
                 for (Individual in : Individual.listIndividual()) {
                     if (in.getIndividualId() == (indvidualId)) {
-                        tin=in.getTinNumber();
-                        vatDocumentNumber=in.getVatDocumentNumber();
-           Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\"+in.getPhoto());
+                        tin = in.getTinNumber();
+                        vatDocumentNumber = in.getVatDocumentNumber();
+                        Image image = Image.getInstance("/Users//SULAIMAN//NetBeansProjects//TaxPayerRegistration//build//web\\" + in.getPhoto());
                         image.setAlignment(Element.ALIGN_LEFT);
                         //image.setAbsolutePosition(50f, 50f);
                         image.scaleAbsolute(150, 90);
                         image.setBorderWidth(40);
-                       // image.setWidthPercentage(widthPercentage);
+                        // image.setWidthPercentage(widthPercentage);
                         document.add((Element) image);
 
                         Paragraph par21 = new Paragraph(new Chunk(" This is to certifify that :", font3));
                         par21.setAlignment(Element.ALIGN_LEFT);
                         document.add(par21);
-            //document.add(new Paragraph("\n")); 
+                        //document.add(new Paragraph("\n")); 
 
                         Paragraph par2 = new Paragraph(new Chunk(" Names:  " + in.getOwnerSurname() + " " + in.getOwnerFirstName(), font3));
                         par2.setAlignment(Element.ALIGN_LEFT);
                         document.add(par2);
                         document.add(new Paragraph("\n"));
-    }
+                    }
                 }
                 Paragraph par3 = new Paragraph(new Chunk(" Business Activity:  ", font3));
-                        par3.setAlignment(Element.ALIGN_LEFT);
-                        document.add(par3);
-                        for(Individual_mainSectorActivity i: Individual_mainSectorActivity.list()){
-                            if(i.getIndividualId()==indvidualId){
-                                for(Sector se: Sector.listSector()){
-                                    if(se.getId()==i.getSectorId()){
-                                        for(Industry id:Industry.listIndistry()){
-                                            if(id.getId()==se.getIndustryId()){
-                        Paragraph par4 = new Paragraph(new Chunk(" "+id.getName()+" - "+se.getName(), font3));
-                        par4.setAlignment(Element.ALIGN_LEFT);
-                        document.add(par4);
-                        }
-                                        }
+                par3.setAlignment(Element.ALIGN_LEFT);
+                document.add(par3);
+                for (Individual_mainSectorActivity i : Individual_mainSectorActivity.list()) {
+                    if (i.getIndividualId() == indvidualId) {
+                        for (Sector se : Sector.listSector()) {
+                            if (se.getId() == i.getSectorId()) {
+                                for (Industry id : Industry.listIndistry()) {
+                                    if (id.getId() == se.getIndustryId()) {
+                                        Paragraph par4 = new Paragraph(new Chunk(" " + id.getName() + " - " + se.getName(), font3));
+                                        par4.setAlignment(Element.ALIGN_LEFT);
+                                        document.add(par4);
                                     }
                                 }
+                            }
                         }
-                        }
-                        document.add(new Paragraph("\n"));
-                        Paragraph par4 = new Paragraph(new Chunk(" Tax Center:  ", font3));
-                        par4.setAlignment(Element.ALIGN_LEFT);
-                        document.add(par4);
-                        for(Individual_Address a: Individual_Address.listOfIndividualAddress()){
-                            if(a.getIndividualId()==indvidualId){
-                        Paragraph par5 = new Paragraph(new Chunk(" "+a.getProvince()+" - "+a.getDistrict(), font3));
+                    }
+                }
+                document.add(new Paragraph("\n"));
+                Paragraph par4 = new Paragraph(new Chunk(" Tax Center:  ", font3));
+                par4.setAlignment(Element.ALIGN_LEFT);
+                document.add(par4);
+                for (Individual_Address a : Individual_Address.listOfIndividualAddress()) {
+                    if (a.getIndividualId() == indvidualId) {
+                        Paragraph par5 = new Paragraph(new Chunk(" " + a.getProvince() + " - " + a.getDistrict(), font3));
                         par5.setAlignment(Element.ALIGN_LEFT);
                         document.add(par5);
-                        }
-                        }
-                        
-                        document.add(new Paragraph("\n"));
-                        Paragraph par5 = new Paragraph(new Chunk(" is registered for Value Added Tax Purposes and assigned :  ", font3));
-                        par5.setAlignment(Element.ALIGN_LEFT);
-                        document.add(par5);
-                        document.add(new Paragraph("\n"));
-                        Paragraph par6 = new Paragraph(" VAT registration Number:  " + tin, font3);
-                        par6.setAlignment(Element.ALIGN_CENTER);
+                    }
+                }
+
+                document.add(new Paragraph("\n"));
+                Paragraph par5 = new Paragraph(new Chunk(" is registered for Value Added Tax Purposes and assigned :  ", font3));
+                par5.setAlignment(Element.ALIGN_LEFT);
+                document.add(par5);
+                document.add(new Paragraph("\n"));
+                Paragraph par6 = new Paragraph(" VAT registration Number:  " + tin, font3);
+                par6.setAlignment(Element.ALIGN_CENTER);
             //document.add(par6);
-                        //document.add(new Paragraph("\n"));
+                //document.add(new Paragraph("\n"));
 
-                        PdfPTable table = new PdfPTable(1);
-                        table.setWidthPercentage(40);
-                        PdfPCell cell = new PdfPCell();
-                        cell.setMinimumHeight(40);
-                        cell.setVerticalAlignment(Element.ALIGN_CENTER);
-                        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                        cell.addElement(par6);
+                PdfPTable table = new PdfPTable(1);
+                table.setWidthPercentage(40);
+                PdfPCell cell = new PdfPCell();
+                cell.setMinimumHeight(40);
+                cell.setVerticalAlignment(Element.ALIGN_CENTER);
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cell.addElement(par6);
             //PdfPTable table1 = new PdfPTable(1);
-                        //table1.addCell(new Phrase(new Chunk(" TaxPayers' Identification Number:  "+in.getTinNumber(), font3)));
-                        table.addCell(cell);
-                        document.add(table);
+                //table1.addCell(new Phrase(new Chunk(" TaxPayers' Identification Number:  "+in.getTinNumber(), font3)));
+                table.addCell(cell);
+                document.add(table);
 
-                        Paragraph par7 = new Paragraph(new Chunk(" With effect from :  " + da, font3));
-                        par7.setAlignment(Element.ALIGN_LEFT);
-                        document.add(par7);
-                        document.add(new Paragraph("\n"));
-                        Paragraph par8 = new Paragraph(new Chunk(" Comment:  ", font3));
-                        par8.setAlignment(Element.ALIGN_LEFT);
-                        document.add(par8);
-                        document.add(new Paragraph("\n"));
+                Paragraph par7 = new Paragraph(new Chunk(" With effect from :  " + da, font3));
+                par7.setAlignment(Element.ALIGN_LEFT);
+                document.add(par7);
+                document.add(new Paragraph("\n"));
+                Paragraph par8 = new Paragraph(new Chunk(" Comment:  ", font3));
+                par8.setAlignment(Element.ALIGN_LEFT);
+                document.add(par8);
+                document.add(new Paragraph("\n"));
 
-                        Paragraph par10 = new Paragraph(new Chunk(" Signed:  ", font3));
-                        par10.setAlignment(Element.ALIGN_LEFT);
-                        document.add(par10);
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("\n"));
+                Paragraph par10 = new Paragraph(new Chunk(" Signed:  ", font3));
+                par10.setAlignment(Element.ALIGN_LEFT);
+                document.add(par10);
+                document.add(new Paragraph("\n"));
+                document.add(new Paragraph("\n"));
 
-                        Paragraph par9 = new Paragraph(new Chunk(" Doc Number:  " + vatDocumentNumber, font3));
-                        par9.setAlignment(Element.ALIGN_RIGHT);
-                        document.add(par9);
-                        document.add(new Paragraph("\n"));
-                
+                Paragraph par9 = new Paragraph(new Chunk(" Doc Number:  " + vatDocumentNumber, font3));
+                par9.setAlignment(Element.ALIGN_RIGHT);
+                document.add(par9);
+                document.add(new Paragraph("\n"));
 
             } catch (Exception e) {
                 e.printStackTrace();

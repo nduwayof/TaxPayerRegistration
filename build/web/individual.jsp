@@ -43,6 +43,7 @@
         <link href="TPRS/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <link href="TPRS/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+        <link href="TPRS/bower_components/datePicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
 
 
         <style type="text/css">
@@ -77,10 +78,6 @@
                 $('#businessActivity').hide();
                 $('#oldTin').hide();
                 $('#otherOption').hide();
-
-
-
-
             });
 
             function chooseOther() {
@@ -175,6 +172,8 @@
         <script src="TPRS/bower_components/bootstrap/js/bootstrap.min.js"></script>
         <script src="TPRS/bower_components/validations/jquery.validate.min.js"></script>
         <script src="TPRS/bower_components/validations/additional-methods.min.js"></script>
+        <script src="TPRS/bower_components/moment/moment.min.js"></script>
+        <script src="TPRS/bower_components/datePicker/bootstrap-datetimepicker.min.js"></script>
 
         <script>
             $.widget.bridge('uibutton', $.ui.button);
@@ -189,5 +188,6 @@
         <script src="TPRS/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
         <script src="TPRS/js/TPRS.js"></script>
         <script src="TPRS/js/validations.js"></script>
+       
     </body>
 </html>
